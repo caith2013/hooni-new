@@ -1,0 +1,46 @@
+<#macro ProductLeftMenu>
+<form name="search_product_form" id="search_product_form" metho="post" action="#">
+<div id="product_left_menu">
+		 <div id="narrow_result">Narrow Your Result&nbsp;</div>
+		
+		 <div class="product_search_header">Searching</div>
+		 <div class="narrow_class keywords_search">
+		 			
+		 			<input type="text" name="keywords" value="" size="25" class="search_keywords"/>
+					<input type="submit" value="Search" class="search_button"/><br />
+					
+					
+		 </div>
+		
+		 <div class="product_search_header">Categories</div>
+		 <div class="narrow_class">
+		 			<ul>
+							<#list categories as cat>
+								 <li><input type="radio" name="category" value="${cat.name?lower_case}"/><a href="javascript:void(0);" class="product_search_cat" name="category" value="${cat.name?lower_case}">${cat.name?lower_case?cap_first}(${cat.counter?c})</a></li>
+							</#list>
+					</ul>
+		 </div>
+		 
+		 <div class="product_search_header">Brands</div>
+		 <div class="narrow_class">
+		 			<ul>
+					<#list brands as brand>
+							<li><input type="radio" name="brand" value="${brand.name?lower_case}"/><a href="javascript:void(0);" class="product_search_brand" name="brand" value="${brand.name?lower_case}">${brand.name?lower_case?cap_first}(${brand.counter?c})</a></li>
+					</#list>
+					</ul>
+		 </div>
+		 
+		 <div class="product_search_header">Price Ranges</div>
+		 <div class="narrow_class">
+		 			<ul>
+					<#list priceranges as rg>
+							<li><input type="radio" name="price" value="${rg.startPrice}::${rg.endPrice}"/><a href="javascript:void(0);" class="product_search_price" name="price" pvalue="${rg.startPrice}::${rg.endPrice}">${rg.startPrice?string.currency}...${rg.endPrice?string.currency}(${rg.count})</a></li>
+					</#list>
+					</ul>
+		 </div>
+		 <br />
+					<input type="reset" value="Reset" class="reset_button"/>
+		
+</div>
+</form>
+</#macro>

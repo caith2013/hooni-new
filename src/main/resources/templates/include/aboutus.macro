@@ -1,0 +1,53 @@
+<#macro aboutus>
+
+<div id="aboutus">
+<h1>About Us</h1>
+<p>We are just regular people with passion of the internet with normal computer skills. Our web site has five components that we think and believe they are valuable to share information with each others.</p>
+<p>News, Foods, Ads, Selling Online and Sharing are our components. Below are descriptions of each component. Except selling products component is under the development, others are ready to be used without any fees.</p>
+<ul>
+<li><a href="#news">News</a></li>
+<li><a href="#foods">Foods</a></li>
+<li><a href="#ads">Ads</a></li>
+<li><a href="#product">Selling Online</a></li>
+<li><a href="#share">Shares</a></li>
+</ul>
+		 <div class="com">
+		 			<div class="header"><a name="news"><h2>News:</h2></a></div>
+    			 <div class="com_des">
+		 The whole idea of internet is about information. It allows us to access information instantly everywhere around the world.  News is used to passed along by newspapers which are taken days or months after the events were happened. TV and Radios also fast to get the news to the huge audiences quickly too, but they use broadcasting. The news from TV and Radios are created by individual companies or whoever pays for it for some kind purpose. We like to offer a platform allow all the users around the world to tell whatever happens to them. The news is created by really people who are in the events or close to the events.  After registration on our web site, you are able to post your stories to the world.
+		 		 </div>
+		 </div>
+		 
+		 <div class="com">
+		 			<div class="header"><a name="foods"><h2>Foods:</h2></a></div>
+    			 <div class="com_des">
+		 We like to offer a food component too because we believe that foods are very important part of different cultures. As everyone knows, we need to eat every day.  We also eat different kind of foods which depend on our cultures or background. There are many cultures around the world, there are so many kinds of foods around the world. How can we share the tastes of different cultures?  Maybe we can go to different kind restaurants for different tastes. However, usually the foods from the restaurants are made for the business. It is hard to match the original tastes from the traditional cultures. It is not a good idea to buy an expansive traffic ticket and go to a strange house to taste what they cook at home either. We like to offer a free platform allow the users to show how they cook their foods, so that other users able to cook in their own homes and share the tastes of other cultures.
+		 		 </div>
+		 </div>
+		 
+		 
+		  <div class="com">
+		 			<div class="header"><a name="ads"><h2>Ads:</h2></a></div>
+    			 <div class="com_des">
+		 There are many purposes to use advertisements these days.  Our ads platform offers free of charge to allow users to post ads for their daily needs. The major expectation for this platform from us is allow the users to exchange products or services with others.
+		 		 </div>
+		 </div>
+		 
+		 <div class="com">
+		 			<div class="header"><a name="share"><h2>Shares:</h2></a></div>
+    			 <div class="com_des">
+		 We believe everyone has his or her expertise since we do and work on different things for our livings. From your prospect, your regular daily skills might not much to someone, but it could be very valuable to others. If you think that your expertise is valuable and deserved credits when you teach others. Our platform offers you to put your contact information on your blog so that whoever needs your services will contact you.  This platform is also free of charge.
+		 		 </div>
+		 </div>
+		
+		 <div class="com">
+		 			<div class="header"><a name="product"><h2>Selling Online:</h2></a></div>
+    			 <div class="com_des">
+		 It is great if you have great products to sell and let others benefit from your products. Our platform is currently only available to limited users right now.  We will open it to the public when it is ready.
+		 		 </div>
+		 </div>
+		 
+
+
+</div>
+</#macro>

@@ -1,0 +1,10 @@
+﻿<CarrierPickupAvailabilityRequest USERID="697HOONI7276">
+<FirmName>ABC Corp.</FirmName>
+<SuiteOrApt>Suite 777</SuiteOrApt>
+<Address2>1390 Market Street</Address2>
+<Urbanization></Urbanization>
+<City>Houston</City>
+<State>TX</State>
+<ZIP5>77058</ZIP5>
+<ZIP4>1234</ZIP4>
+</CarrierPickupAvailabilityRequest>

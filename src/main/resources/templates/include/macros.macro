@@ -1,0 +1,185 @@
+<#macro mainMenu>
+<ul id="top_menu">
+		 <li><a href="http://www.hooni.org/www?op=hooni">Hooni</a></li>
+		 <li><a href="http://www.hooni.org/">Home</a></li>
+
+		 <li><a href="http://www.hooni.org/www?op=news">News</a></li>
+		 <li><a href="http://www.hooni.org/www?op=products">Products</a></li>
+		 <li><a href="http://food.hooni.org/">Foods</a></li>
+		 <li><a href="http://www.hooni.org/www?op=ads">Ads</a></li>
+		 <li><a href="http://www.hooni.org/www?op=shares">Share</a></li>
+		 <li><a href="http://www.hooni.org/contactus">Contact Us</a></li>
+		  <li><a href="https://www.hooni.org/register">Register</a></li>
+		 <li><a href="https://www.hooni.org/login">Login</a></li>
+
+</ul>
+</#macro>
+
+<#macro footer>
+<div id="footer">
+		 	 <div class="footer_item"><a href="http://www.hooni.org/footer?op=policy">Terms of Use</a></div>
+			 <div class="footer_item"><a href="http://www.hooni.org/footer?op=return">Return Policy</a></div>
+       <div class="footer_item"><a href="http://www.hooni.org/footer?op=privacy">Privacy</a></div>
+  		 <div class="footer_item"><a href="http://www.hooni.org/share?sid=18">Recent Change</a></div>
+  		 <div class="footer_item"><a href="http://www.hooni.org/contactus">Contact Us</a></div>
+  		 <div class="footer_item"><a href="http://www.hooni.org/footer?op=about">About Us</a></div>
+  		 <p id="copyright">Copyright &#169; <script language="JavaScript" type="text/javascript">
+<!--
+var today = new Date();
+document.write(today.getFullYear());
+//-->
+</script>
+ hooni.org. All rights reserved.</p>
+</div><!-- end of footer -->
+</#macro>
+
+<#macro HomeLeftMenu>
+<div id="left_menu">
+   <ul>
+	 		 <li>Start Menu
+      <ul>
+              		<li><a href="/www?op=hooni">Hooni</a>
+                  		<ul>
+      
+                      	  <li><a href="/www?op=news">News</a></li>
+                          <li><a href="http://food.hooni.org">Foods</a></li>
+                          <li><a href="/www?op=products">Products</a></li>
+                          <li><a href="/www?op=ads">Ads</a></li>
+      										<li><a href="/www?op=shares">Shares</a></li>
+      										<li><a href="/footer?op=about">About Us</a></li>
+                      </ul>
+      								<span class="sub_menu">&gt;&gt;</span>
+                  </li>
+                  <li><a href="/www?op=news">News</a>
+      										<!--<ul>
+      										<li><a href="#">Latest</a></li>
+                          <li><a href="#">Locations</a></li>
+                          <li><a href="#">Events</a></li>
+                          <li><a href="#">Local</a></li>
+      										</ul>
+      										<span class="sub_menu">&gt;&gt;</span>-->
+      						</li>
+                  <li><a href="http://food.hooni.org">Foods</a>
+      										 <ul>
+      										 <#list mealType as meal>
+      										 				<li class="food_sub_menu"><a href="http://food.hooni.org/searchfoodajax?mealType=${meal.ordinal()}&menu=1">${meal?lower_case?cap_first}&nbsp;&nbsp;</a></li>
+      										 </#list>
+      										 <#list foodType as ft>
+      								 		 				<li class="food_sub_menu"><a href="http://food.hooni.org/searchfoodajax?foodType=${ft.ordinal()}&menu=1">${ft?lower_case?cap_first}&nbsp;&nbsp;</a></li>
+      										 </#list>
+      										 
+      										 </ul>
+      										 <span class="sub_menu">&gt;&gt;</span>
+      						</li>
+      
+                  <li><a href="/www?op=products">Products</a>
+                      <ul>
+      										<#list categories as cat>
+      								 					 <li class="product_sub_menu"><a href="/searchproductajax?category=${cat.name?html?lower_case}&menu=1">${cat.name?lower_case?cap_first}(${cat.counter?c})</a></li>
+      										</#list>
+                      	
+                      </ul>
+      								<span class="sub_menu">&gt;&gt;</span>
+                  </li>
+                  <li><a href="/www?op=ads">Ads</a><span class="sub_menu">&gt;&gt;</span>
+                  	<ul>
+      									<li><a href="/keywords?cat=company">Company</a></li>
+                      	<li><a href="/keywords?cat=for sale">For Sale</a></li>
+                          <li><a href="/keywords?cat=jobs">Jobs</a></li>
+                          <li><a href="/keywords?cat=help wanted">Help Wanted</a></li>
+      										<li><a href="/keywords?cat=for rent">For Rent</a></li>
+                          <li><a href="/keywords?cat=clothes">Clothes</a></li>
+                          <li><a href="/keywords?cat=people">People</a></li>
+      										<li><a href="/keywords?cat=food">Food</a></li>
+                          <li><a href="/keywords?cat=travel">Travel</a></li>
+                          <li><a href="/keywords?cat=house">House</a></li>
+      
+                      </ul>
+      								            
+                  </li>
+      						<li><a href="/www?op=shares">Shares</a>
+                  	<!--<ul>
+      									<li><a href="#">Offering</a></li>
+                      	<li><a href="#">Education</a></li>
+                          <li><a href="#">Music</a></li>
+                          <li><a href="#">Ideas</a></li>
+      										<li><a href="#">Activities</a></li>
+                          <li><a href="#">Fun</a></li>
+      
+                      </ul>
+      								
+      								<div class="sub_menu">&gt;&gt;</div>    -->        
+                  </li>
+
+      </ul>
+			<span class="sub_menu">&gt;&gt;</span>
+		</li>
+		
+	</ul>
+</div><!-- end of home left menu -->
+</#macro>
+
+<#macro leftMenu>
+<div id="left_menu">
+<ul>
+		<#list categories as cat>
+					 <li>${cat?string}</li>
+		</#list>
+        		
+
+           
+</ul>
+
+</div><!-- end of left menu -->
+</#macro>
+
+
+<#macro leftMenu1>
+<div id="left_menu">
+<ul>
+        	<li id="left_main_menu_0">Home
+            		<ul class="left_menu_child">
+
+                	  <li><a href="#">Sub Menu Item 1</a></li>
+                    <li><a href="#">Sub Menu Item 2</a></li>
+                    <li><a href="#">Sub Menu Item 3</a></li>
+                    <li><a href="#">Sub Menu Item 4</a></li>
+                </ul>
+            </li>
+            <li>About</li>
+            <li>Contact</li>
+
+            <li>FAQ
+                <ul class="left_menu_child">
+                	<li><a href="#">Sub Menu Item 1</a></li>
+                   <li><a href="#">Sub Menu Item 3</a></li>
+                </ul>
+            </li>
+            <li>News
+            	<ul class="left_menu_child">
+                	<li><a href="#">Sub Menu Item 1</a></li>
+                    <li><a href="#">Sub Menu Item 2</a></li>
+                    <li><a href="#">Sub Menu Item 3</a></li>
+
+                </ul>            
+            </li>
+</ul>
+
+</div><!-- end of left menu -->
+</#macro>
+
+<#macro contentsRight>
+<div id="contents_right">
+		<div id="shopping_cart">
+
+		</div><!-- end of shopping_cart -->
+	<!--	
+	<div id="my_ad">
+					 <div class="ad_item">
+					 		
+					 </div>
+	</div>
+	-->					
+</div><!-- end of contents_right -->
+
+</#macro>

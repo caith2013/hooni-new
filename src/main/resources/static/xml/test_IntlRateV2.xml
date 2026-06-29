@@ -1,0 +1,41 @@
+﻿<IntlRateV2Request USERID="697HOONI7276">
+<Revision>2</Revision>
+<Package ID="1ST">
+<Pounds>15</Pounds>
+<Ounces>0</Ounces>
+<Machinable>True</Machinable>
+<MailType>Package</MailType>
+<GXG>
+<POBoxFlag>Y</POBoxFlag>
+<GiftFlag>Y</GiftFlag>
+</GXG>
+<ValueOfContents>200</ValueOfContents>
+<Country>Canada</Country>
+<Container>RECTANGULAR</Container>
+<Size>LARGE</Size>
+<Width>10</Width>
+<Length>15</Length>
+<Height>10</Height>
+<Girth>0</Girth>
+<OriginZip>18701</OriginZip>
+<CommercialFlag>N</CommercialFlag>
+</Package>
+<Package ID="2ND">
+<Pounds>0</Pounds>
+<Ounces>3</Ounces>
+<MailType>Envelope</MailType>
+<ValueOfContents>750</ValueOfContents>
+<Country>Algeria</Country>
+<Container> </Container>
+<Size>REGULAR</Size>
+<Width></Width>
+<Length></Length>
+<Height></Height>
+<Girth></Girth>
+<OriginZip/>
+<CommercialFlag>N</CommercialFlag>
+<ExtraServices>
+<ExtraService>6</ExtraService>
+</ExtraServices>
+</Package>
+</IntlRateV2Request>

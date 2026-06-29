@@ -1,0 +1,1303 @@
+body {background:#898989; background:url(../images/bg.gif); padding: 0; margin: 0; font: normal 12px arial, san-serif; color:#000; text-align: center; width: 100%; }
+/* IMAGES AND LINKS */
+img {border: none; }
+img.post {border: none; }
+a.link { text-decoration: none; font: bold 12px arial, sans-serif; color: #0C8AFF; }
+a.currentlink { text-decoration: none; font: bold 12px arial, sans-serif; color: #000000; }
+a.header { text-decoration: none; font: bold 16px arial, sans-serif; color: #0C8AFF; }
+a.footer { text-decoration: none; font: bold 10px arial, sans-serif; color: #fead76; }
+a.link:hover, a.header:hover, a.footer:hover {background:#0C8AFF; color: #4A4A4A; }
+.twenty_numbers { text-decoration: none; font: bold 20px arial, san-serif; color:#ccc; }
+a.twenty_numbers:hover { background: #ccc; color: #656565; }
+a.delete { text-decoration: none; font: bold 12px arial, sans-serif; color: #0C8AFF; }
+a.delete:hover { background: #0C8AFF; color: #656565; }
+a.rollover {display: block;}
+a.rollover:hover img {visibility: hidden; }
+#marketing #link_help a.marketing_link {text-decoration:underline; font:bold 16px arial,san-serif; color:#ff00af;}
+#marketing #link_help a.marketing_link:hover {background:#ff00af; color: #fff; }
+
+/* POPULAR TAGS LINKS */
+a.tag { text-decoration: none; font-weight: bold; font-family: arial, sans-serif; color: #0C8AFF; }
+a.tag:hover { background:#0C8AFF; color: #ccc; }
+
+
+/* FONT CLASSES */
+.twenty { font: bold 20px arial, san-serif; }
+.twenty_steps { font: bold 20px arial, san-serif; color:#656565; }
+.sixteen { font: bold 16px arial, san-serif; }
+.sixteen_steps { font: bold 16px arial, san-serif; color:#656565; }
+.fourteen_small { font: normal 14px arial, san-serif; }
+.fourteen { font: bold 14px arial, san-serif; }
+.thirteen { font: normal 13px arial, san-serif; }
+.thirteen_bold { font: bold 13px arial, san-serif; }
+.twelve { font: bold 12px arial, san-serif; }
+.eleven_i { font-style: italic; font-weight:bold; font-size: 11px; font-family: arial, san-serif; }
+.eleven { font: normal 11px arial, san-serif; }
+.eleven_bold { font: bold 11px arial, san-serif; }
+.ten { font: bold 10px arial, san-serif; }
+.ten_input { font: normal 10px arial, san-serif; color:#656565; }
+.ten_footer { font: normal 10px arial, san-serif; color:#656565; }
+.error { color: #FF0101; }
+.arrow { position: relative; left: -6px; }
+.regular_text { font: normal 11px arial, san-serif; }
+.grey { color: #7b7b7b; }
+.black {color: #000000; }
+.bold {font-weight: bold; }
+.unbold {font-weight: normal; }
+a.underline {text-decoration: underline;}
+
+/* MAIN CONTAINERS */
+#container { width: 778px; height: auto; position: relative; top: 0px; margin: 0 auto; text-align: left; }
+#body_container { display: block; position: relative; top: -22px; left: 0px; width: 804px; height: auto; }
+#left_container { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: auto; }
+#right_container { display: block; position: absolute; top: 0px; left: 528px; width: 254px; height: auto; }
+#popup_shades {display: none; position: absolute; top: 0px; left: 0px; width: 100%; height: 1000px; background: #000; filter: alpha(opacity=50); opacity: .5; -moz-opacity:0.50; z-index: 2; }
+
+
+/* THE MODULE BOX COLORS AND DROP SHADOWS */
+.mod {background: #363636; color: #ffffff;}
+.mod2 {background: #ffffff; color: #000000; border: 1px solid #505050; }
+.mod3 {background: #ffffff; color: #000000; border: 1px solid #505050; }
+.mod_left { position: absolute; top: 0px; left: -16px; width: 16px; background: url(../images/mod_left.png); }
+.mod_right { position: absolute; top: 0px; right: -16px; width: 16px; background: url(../images/mod_right.png); }
+.mod_top {position: absolute; top: -16px; left: 0px; height: 16px; background: url(../images/mod_top.png); }
+.mod_bottom {position: absolute; bottom: -16px; left: 0px; height: 16px; background: url(../images/mod_bottom.png); }
+.mod_top_left {position: absolute; top: -15px; left: -15px; width: 15px; height: 15px; background: url(../images/mod_topleft.png); }
+.mod_top_right {position: absolute; top: -15px; right: -15px; width: 15px; height: 15px; background: url(../images/mod_topright.png); }
+.mod_bottom_left {position: absolute; bottom: -15px; left: -15px; width: 15px; height: 15px; background: url(../images/mod_bottomleft.png); }
+.mod_bottom_right {position: absolute; bottom: -15px; right: -15px; width: 15px; height: 15px; background: url(../images/mod_bottomright.png); }
+
+/* round shape for the blast post*/
+.left_top_corner {position: absolute; left: -1px; top: -1px; width: 4px; height: 4px; background: url(../images/left_top_corner.gif) no-repeat; z-index: 9; }
+.left_bottom_corner {position: absolute; left: -1px; bottom: -1px; width: 4px; height: 4px; background: url(../images/left_bottom_corner.gif) no-repeat; z-index: 9;}
+.right_top_corner {position: absolute; right: -1px; top: -1px; width: 4px; height: 4px; background: url(../images/right_top_corner.gif) no-repeat; z-index: 9; }
+.right_bottom_corner {position: absolute; right: -1px; bottom: -1px; width: 4px; height: 4px; background: url(../images/right_bottom_corner.gif) no-repeat; z-index: 9; }
+
+.a_left_top_corner {position: absolute; left: -1px; top: -1px; width: 4px; height: 4px; background: url(../images/a_left_top_corner.gif) no-repeat; z-index: 9; }
+.a_left_bottom_corner {position: absolute; left: -1px; bottom: -1px; width: 4px; height: 4px; background: url(../images/a_left_bottom_corner.gif) no-repeat; z-index: 9;}
+.a_right_top_corner {position: absolute; right: -1px; top: -1px; width: 4px; height: 4px; background: url(../images/a_right_top_corner.gif) no-repeat; z-index: 9; }
+.a_right_bottom_corner {position: absolute; right: -1px; bottom: -1px; width: 4px; height: 4px; background: url(../images/a_right_bottom_corner.gif) no-repeat; z-index: 9; }
+
+.s_left_top_corner {position: absolute; left: 0px; top: 0px; width: 4px; height: 4px; background: url(../images/s_left_top_corner.gif) no-repeat; z-index: 9; }
+.s_left_bottom_corner {position: absolute; left: 0px; bottom: 0px; width: 4px; height: 4px; background: url(../images/s_left_bottom_corner.gif) no-repeat; z-index: 9;}
+.s_right_top_corner {position: absolute; right: 0px; top: 0px; width: 4px; height: 4px; background: url(../images/s_right_top_corner.gif) no-repeat; z-index: 9; }
+.s_right_bottom_corner {position: absolute; right: 0px; bottom: 0px; width: 4px; height: 4px; background: url(../images/s_right_bottom_corner.gif) no-repeat; z-index: 9; }
+
+/* ALTERNATING BACKGROUND COLORS FOR LISTS */
+.listbg1 { background: #efefef; color: #000; }
+.listbg2 { background: #ffffff; color: #000; }
+
+/* STYLES FOR MODULES THAT ARE TURNED OFF */
+.off { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #ddd; filter:alpha(opacity=75); opacity: 0.75; -moz-opacity:0.75; z-index: 5; }
+.off2 { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #ccc; filter:alpha(opacity=75); opacity: 0.75; -moz-opacity:0.75; z-index: 5; }
+.off3 { position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; background: #fff; filter:alpha(opacity=75); opacity: 0.75; -moz-opacity:0.75; z-index: 5; }
+#blast_off { width: 518px; height: 322px; }
+#invite_off {width: 222px; height: 117px;}
+#badge_off {width: 222px; height: 88px;}
+#notify_off {position: absolute; top: 160px; left: -16px; width: 218px; height: 95px;}
+#create_blast_off { width: 518px; height: 447px; }
+#promote_off { position: absolute; top: 110px; width: 518px; height: 110px; }
+#messages_off { position: absolute; top: -1px; left: -2px; width: 499px; height: 180px; }
+
+/* FORM STYLES */
+/* input.input1 { width: 186px; height: 18px; background: #fff; border: solid 1px #9c9c9c; } */
+#blast #promote_viewer #email_on #verify_input input { width: 186px; height: 18px; background: #fff; border: solid 1px #9c9c9c; }
+#blast #promote_viewer #mobile_on #verify_input input { width: 186px; height: 18px; background: #fff; border: solid 1px #9c9c9c; }
+#invite_friends #email_on input { width: 186px; height: 18px; background: #fff; border: solid 1px #9c9c9c; }
+#invite_friends #mobile_on input { width: 186px; height: 18px; background: #fff; border: solid 1px #9c9c9c; }
+/* input.input2 { width: 199px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; } */
+#edit_blast input { width: 199px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#edit_profile input { width: 199px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#edit_profile #icon_upload_input input { width: 199px; height: 16px; background: #fff; border: solid 1px #9c9c9c; }
+#login input { width: 199px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#login_index input { width: 136px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#register_confirm input { width: 168px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #a6a6a6; }
+#perm_register_confirm input { width: 168px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #a6a6a6; }
+#popup_register_nophone input { width: 168px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #a6a6a6; position: relative; top: 0px; left: 7px; }
+#register input { width: 248px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #a6a6a6; }
+#perm_register input { width: 248px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #a6a6a6; }
+#popup_login_addmessage input { width: 275px; height: 18px; border: solid 1px #a6a6a6; padding-left: 2px; }
+#blast #promote_viewer input { width: 417px; height: 18px; background: #fff; border: solid 1px #9c9c9c; }
+#blast #promote_viewer #follower_on input { width: 300px; height: 18px; background: #fff; border: solid 1px #9c9c9c; }
+#search_mod #choose input { position: relative; top: 3px; padding-left: 8px; padding-right: 5px; }
+
+#invite_friends #mobile_on textarea { width: 186px; height: 48px; background: #fff; border: solid 1px #9c9c9c; }
+#invite_friends #email_on textarea { width: 186px; height: 70px; background: #fff; border: solid 1px #9c9c9c; }
+#invite_friends #web_on #textbox textarea { width: 186px; height: 123px; background: #fff; border: solid 1px #9c9c9c; }
+#postbadge #code_on #textbox textarea { width: 187px; height: 123px; background: #fff; border: solid 1px #9c9c9c; padding: 2px; }
+#edit_blast textarea { width: 199px; height: 123px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#edit_profile textarea { width: 199px; height: 123px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#blast #messages #add_message textarea { width: 348px; height: 51px; position: relative; top: 9px; left: 11px; padding: 2px; background: #fff; border: solid 1px #A1A56F; }
+#blast #promote_viewer textarea { width: 417px; height: 73px; background: #fff; border: solid 1px #9c9c9c; }
+#blast #promote_viewer #follower_on textarea { width: 300px; height: 73px; background: #fff; border: solid 1px #9c9c9c; }
+
+/* .radio { width: 10px; height: 10px; position: relative; top: 0px; left: 0px; }
+.radio2 { width: 10px; height: 10px; position: relative; top: 0px; left: -6px; } */
+#edit_blast .radio { width: 10px; height: 10px; position: relative; } 
+#edit_profile .radio { width: 10px; height: 10px; position: relative; } 
+#edit_blast #public .radio { width: 10px; height: 10px; position: relative; top: 0px; left: 0px; } 
+#follow_blast_on #on_off .radio { width: 10px; height: 10px; position: relative; } 
+#register .radio { width: 10px; height: 10px; position: relative; left: -6px; } 
+#personal_info .radio { width: 10px; height: 10px; position: relative; top: 1px; left: -6px; } 
+#blocked_users .radio { width: 10px; height: 10px; position: relative; top: 1px; left: -6px; } 
+#popup_register_nophone .radio { width: 10px; height: 10px; position: relative; left: -6px; } 
+
+
+/* ***THERE SHOULD BE VERY MINIMAL - OPTIMALLY NO - COLOR, FONT COLOR, FONT SIZE, OR FORM ELEMENT MODIFICATION PAST THIS POINT. 
+***MOST STYLES FROM THIS POINT ON ARE PURELY FOR PLACEMENT. THIS WAY, WE CAN EASILY COBRAND A SITE WITH COMMONLY USED CLASSES, 
+***PLUS WE COULD ALWAYS OVERWRITE A COLOR, BACKGROUND, OR FONT CHOICE IN THE BELOW ID IF ABSOLUTELY NECESSARY
+*/
+
+
+
+#header_content { position: relative; top: 0px; left: 0px; width: 782px; height: 211px; }
+#header_content .width {width: 750px; }
+#header_content .height {height: 195px; }
+#header_content_noad { position: relative; top: -112px; left: 0px; width: 782px; height: 211px; margin-bottom: -117px; }
+#header_content_noad .width {width: 750px; }
+#header_content_noad .height {height: 195px; }
+#header { position: absolute; top: 0px; left: 16px; width: 750px; height: 195px; background: #363636;}
+#header #banner_ad { position: absolute; top: 11px; left: 12px; }
+#header #logo { position: absolute; top: 132px; left: 20px; width: 176px; height: 47px; background: url(../images/text_logo.gif) no-repeat; }
+#header #ad_container {position: relative; top: 0px; left: 0px; width: 734px; height: 121px; padding: 8px; background: url(../images/ad_container_bg.jpg); color: #000; }
+#header #ad_container #logo1 {position: relative; top: 0px; left: 0px; width: 175px; height: 31px; background: url(../images/new_logo.gif) no-repeat;}
+#header #ad_container #sign_up_msg {position: relative; top: 10px; left: 0px; height: auto; width: auto; }
+#header #ad_container #learn_msg {position: absolute; bottom: 5px; left: 260px; height: auto; width: auto; }
+#header #ad_container #ad_phone {position: absolute; top: 8px; right: 0px; height: 127px; width: 212px; background: url(../images/phone_ad.jpg) no-repeat; }
+#header #nav { position: absolute; top: 168px; left: 2px; width: 744px; height: 23px; background: url(../images/bg_header_nav.gif); border: 1px solid #595959;}
+#header #nav #mob, #me, #create { position: relative; top: 2px; left: 13px; padding-right: 25px; display: inline; }
+#header #logged_in { display: block; width: 600px; } 
+#header #logged_in #greeting { position: absolute; bottom: 5px; right: 198px; } 
+#header #logged_in #my_account { position: absolute; bottom: 5px; right: 117px; } 
+#header #logged_in #signout { position: absolute; bottom: 5px; right: 60px; } 
+#header #logged_in #help { position: absolute; bottom: 5px; right: 7px; } 
+#header #not_logged_in { display: none; position: absolute; bottom: 5px; left: 600px; width: 200px; } 
+#header #not_logged_in #sign_up, #header_login, #help { display: inline; padding-right: 14px; } 
+
+#footer_content { position: relative; bottom: 0px; left: -130px; width: 480px; height: 12px; margin: 0 auto; padding: 25px 0px 25px 8px; }
+#footer_content #copy, #privacy, #terms { position: relative; top: 0px; left: 0px; margin-right: 15px; display: inline; }
+
+/* RIGHT SIDE AD PLACEMENT */
+#ad_account #ad_rectangle_content { position: relative; top: 0px; left: 0px; }
+#ad_allstickies #ad_rectangle_content { position: relative; top: 8px; left: 0px; }
+#ad_author_list #ad_rectangle_content { display: block; position: relative; top: -16px; left: 0px; }
+#ad_blast #ad_rectangle_content { position: relative; top: -20px; left: 0px; }
+#ad_blastlist #ad_rectangle_content {position: relative; top: 8px; left: 0px; }
+#ad_change_mobile #ad_rectangle_content { position: relative; top: -34px; left: 0px; }
+#ad_forgot #ad_rectangle_content { position: relative; top: -24px; left: 0px; }
+#ad_index #ad_rectangle_content { display: block; position: relative; top: -22px; left: 0px; }
+#ad_mob #ad_rectangle_content { display: block; position: relative; top: -16px; left: 0px; }
+#ad_permenant #ad_rectangle_content { display: block; position: relative; top: -16px; left: 0px; }
+#ad_profile_me #ad_rectangle_content { position: relative; top: 10px; left: 0px; }
+#ad_register #ad_rectangle_content { position: relative; top: -23px; left: 0px; }
+#ad_tagsearch #ad_rectangle_content { display: block; position: relative; top: -16px; left: 0px; }
+#ad_rectangle_content { display: block; width: 254px; height: 202px; }
+#ad_rectangle_content .width {width: 222px; }
+#ad_rectangle_content .height { height: 170px;}
+#ad_rectangle { display: block; position: absolute; top: 16px; left: 16px; width: 222px; height: 166px; }
+#ad_rectangle #ad { position: absolute; top: 10px; left: 19px; width: 180px; height: 150px; }
+
+
+
+#blast_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: auto; }
+#blast_content .width {width: 518px; }
+#blast_content .height { height: 100%;}
+#blast { display: block; position: relative; top: 16px; left: 16px; width: 514px; height: auto; padding-bottom: 20px; border: 2px solid #494949; background-color: #E4E4E4; }
+#blast #profile_nav { position: relative; top: 0px; left: 10px; width: 497px; height: 26px; border-bottom: dotted 1px #d4d4d4; }
+#blast #profile_nav #user_blasts, #user_me, #user_mob { position: relative; top: 10px; left: 0px; height: 13px; margin-right: 15px; display: inline; }
+#blast #main_info { position: relative; top: 0px; left: 0px; width: 518px; height: 57px; }
+#blast #main_info #title { position: absolute; top: 8px; left: 11px; width: 400px; height: 23px; overflow: hidden; }
+#blast #main_info #author { position: absolute; top: 34px; left: 11px; width: 400px; height: 20px; overflow: hidden; }
+#blast #main_info #author img { padding-right: 3px; }
+#blast #main_info #author span { position: relative; top: -3px; }
+#blast #main_info #visualize { position: absolute; top: 12px; left: 430px; width: 78px; height: 16px; background: url(../images/text_button_visualize_on.gif) no-repeat; }
+#blast #main_info2 { position: relative; top: 0px; left: 0px; width: 518px; height: 35px; }
+#blast #main_info2 #title { position: absolute; top: 8px; left: 11px; width: 400px; height: 23px; overflow: hidden; }
+#blast #main_info2 #title.profile { color: #000 }
+#blast #main_info2 #visualize { position: absolute; top: 12px; left: 430px; width: 78px; height: 16px; background: url(../images/text_button_visualize_on.gif) no-repeat; }
+#blast .small { height: 41px; background: url(../images/bg_title.gif); }
+#blast .large { height: 59px; background: url(../images/bg_join_lrg.gif); }
+#temp {position: relative; display: none; left: 0px; top: 0px; display: inline; width: auto; height: auto; }
+#blast #join { position: relative; top: 2px; left: 5px; width: 503px; border: solid 1px #808080; }
+#blast #join #icon { position: absolute; top: 4px; left: 3px; width: 23px; height: 35px; }
+#blast #join #main_text { position: relative; display: inline; top: 8px; left: 30px; width: auto; height: 16px; }
+#blast #join #sub_text_loggedin { display: block; position: relative; top:6px; left: 30px; width: 458px; height: 14px; overflow: hidden; }
+#blast #join #sub_text_notloggedin { display: none; position: relative; top: -11px; left: 30px; width: 458px; height: 14px; overflow: hidden; }
+#blast #join #sub_text_long { position: relative; top: 26px; left: 41px; width: 455px; height: 28px; }
+#blast #promote { position: relative; top: 10px; left: 10px; width: 496px; height: auto; padding-bottom: 15px; }
+#blast #promote #promote_title_steps { position: relative; top: -1px; left: -1px; width: 496px; height: 27px; background: url(../images/bg_creation_on.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf;  }
+#blast #promote #promote_title_steps span { position: absolute; top: 7px; left: 9px; width: 200px; height: 16px; }
+#blast #promote #promote_title { position: relative; top: 0px; left: 0px; width: 496px; height: auto; padding-bottom: 3px;}
+#blast #promote #promote_info { position: relative; top: 2px; left: 7px; width: 490px; height: auto; color:#fff; }
+#blast #promote #promote_skip { position: absolute; top: 7px; right: 4px; }
+/* #blast #promote #nav_buffer { position: relative; top: 14px; left: 12px; width: 480px; height: 14px; } */
+#blast #promote #promote_nav { position: relative; top: 0px; left: 8px; width: 485px; height: 14px; padding-bottom: 3px; border-bottom: solid 1px #000000; }
+#blast #promote #promote_nav #email_off {position: absolute; top: 0px; left: 0px; width: 120px; height: 14px; }
+#blast #promote #promote_nav #email_title_on { display: none; position: absolute; top: 0px; left: 0px; width: 120px; height: 14px; }
+#blast #promote #promote_nav #mobile_off {display: block; position: absolute; top: 0px; left: 121px; width: 120px; height: 14px; }
+#blast #promote #promote_nav #mobile_title_on { display: none; position: absolute; top: 0px; left: 121px; }
+#blast #promote #promote_nav #follower_off {position: absolute; top: 0px; left: 247px; width: 150px; height: 14px; }
+#blast #promote #promote_nav #follower_title_on { display: none; position: absolute; top: 0px; left: 247px; }
+#blast #promote #promote_nav #badge_off {position: absolute; top: 0px; left: 397px; width: 120px; height: 14px; }
+#blast #promote #promote_nav #badge_title_on { display: none; position: absolute; top: 0px; left: 397px; }
+#blast #promote_viewer { position: relative; top: -5px; left: 10px; }
+#blast #promote_viewer.creation {  color: #000 }
+#blast #promote_viewer #email_on { display: none; position: relative; width: 420px; height: 361px; }
+#blast #promote_viewer #email_on #emails_title { position: absolute; top: 0px; left: 3px; }
+#blast #promote_viewer #email_on #emails_input { position: absolute; top: 16px; left: 0px; }
+#blast #promote_viewer #email_on #emails_import { position: absolute; top: 1px; right: 100px; }
+/* #blast #promote_viewer #email_on #emails_import { position: absolute; top: 51px; right: 1px;  } */
+#blast #promote_viewer #email_on #emails_subject_title { position: absolute; top: 44px; left: 3px;}
+#blast #promote_viewer #email_on #emails_subject_input { position: absolute; top: 62px; left: 0px; }
+#blast #promote_viewer #email_on #emails_message_title { position: absolute; top: 94px; left: 3px; }
+#blast #promote_viewer #email_on #emails_message_input { position: absolute; top: 110px; left: 0px; }
+#blast #promote_viewer #email_on #emails_message_remaining { position: absolute; top: 94px; right: 100px; font-style: italic; }
+#blast #promote_viewer #email_on #emails_verify_title { position: absolute; top: 196px; left: 3px; }
+#blast #promote_viewer #email_on #emails_verify_image { position: absolute; top: 213px; left: 0px; }
+#blast #promote_viewer #email_on #emails_verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#blast #promote_viewer #email_on #emails_verify_info { position: absolute; top: 268px; left: 3px; }
+#blast #promote_viewer #email_on #emails_verify_input { position: absolute; top: 304px; left: 0px; }
+#blast #promote_viewer #email_on #emails_send { position: absolute; top: 337px; left: 5px; width: 147px; height: 16px; background: url(../images/text_button_send_email_on.gif) no-repeat; }
+#blast #promote_viewer #mobile_on { display: none; position: relative; width: 420px; height: 361px; }
+#blast #promote_viewer #mobile_on #mobile_title { position: absolute; top: 0px; left: 3px; }
+#blast #promote_viewer #mobile_on #mobile_title_info { position: absolute; top: 0px; right: 123px; }
+#blast #promote_viewer #mobile_on #mobile_input { position: absolute; top: 16px; left: 0px; }
+#blast #promote_viewer #mobile_on #mobile_message_title { position: absolute; top: 94px; left: 3px; }
+#blast #promote_viewer #mobile_on #mobile_message_input { position: absolute; top: 110px; left: 0px; }
+#blast #promote_viewer #mobile_on #mobile_message_remaining { position: absolute; top: 94px; right: 100px; font-style: italic; }
+#blast #promote_viewer #mobile_on #mobile_verify_title { position: absolute; top: 196px; left: 3px; }
+#blast #promote_viewer #mobile_on #mobile_verify_image { position: absolute; top: 213px; left: 0px; }
+#blast #promote_viewer #mobile_on #mobile_verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#blast #promote_viewer #mobile_on #mobile_verify_info { position: absolute; top: 268px; left: 3px; }
+#blast #promote_viewer #mobile_on #mobile_verify_input { position: absolute; top: 304px; left: 0px; }
+#blast #promote_viewer #mobile_on #mobile_send { position: absolute; top: 337px; left: 5px; width: 147px; height: 16px; background: url(../images/text_button_send_mobile_on.gif) no-repeat; }
+
+#blast #promote_viewer #follower_on { display: none; position: relative; width: 489px; height: 361px; }
+#blast #promote_viewer #follower_on #input_con {position: relative; width: 300px; height: 361px; }
+#blast #promote_viewer #follower_on #select_con {position: absolute; width: 180px; height: 340px; top: 0px; left: 309px; padding: 5px; }
+#blast #promote_viewer #follower_on #select_con #select_title {position: relative; top: 3px; left: 0px; width: auto; height: auto;}
+#blast #promote_viewer #follower_on #select_con #select_all {position: relative; top: 3px; left: 0px; width: auto; height: auto;}
+#blast #promote_viewer #follower_on #select_con #select_users {position: relative; top: 5px; left: 0px; width: auto; height:250px; border: solid 1px #000; overflow: auto; background-color: #FFF; }
+#blast #promote_viewer #follower_on #select_con #select_users .users_class{position: relative; top: 3px; left: 0px;}
+#blast #promote_viewer #follower_on #select_con input {position: relative; width: auto; height: auto; left: 0px; top: 0px;}
+#blast #promote_viewer #follower_on #follower_title { position: absolute; top: 0px; left: 3px; }
+#blast #promote_viewer #follower_on #follower_input { position: absolute; top: 16px; left: 0px; }
+#blast #promote_viewer #follower_on #follower_message_title { position: absolute; top: 94px; left: 3px; }
+#blast #promote_viewer #follower_on #follower_message_input { position: absolute; top: 110px; left: 0px; }
+#blast #promote_viewer #follower_on #follower_message_remaining { position: absolute; top: 94px; right: 100px; font-style: italic; }
+#blast #promote_viewer #follower_on #follower_verify_title { position: absolute; top: 196px; left: 3px; }
+#blast #promote_viewer #follower_on #follower_verify_image { position: absolute; top: 213px; left: 0px; }
+#blast #promote_viewer #follower_on #follower_verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#blast #promote_viewer #follower_on #follower_verify_info { position: absolute; top: 268px; left: 3px; }
+#blast #promote_viewer #follower_on #follower_verify_input { position: absolute; top: 304px; left: 0px; }
+#blast #promote_viewer #follower_on #follower_send { position: absolute; top: 337px; left: 5px; width: 147px; height: 16px; background: url(../images/send_username_on_btn.gif) no-repeat;}
+
+#blast #promote_viewer #badge_on { display: none; position: relative; width: 500px; height: auto; padding-bottom: 10px; }
+#blast #promote_viewer #badge_on #badge_top_title {position: relative; width: auto; height: auto; padding: 10px 0px 10px 0px;}
+#blast #promote_viewer #badge_on #badge_intro {position: relative; width: auto; height: auto; padding: 10px 0px 10px 0px; }
+#blast #promote_viewer #badge_on #what_badge {position: relative; width: auto; height: auto; padding: 10px 0px 10px 0px; }
+#blast #promote_viewer #badge_on #message_board {position: relative; width: auto; height: auto; padding: 10px 0px 10px 0px; text-align: center; margin: 0px;}
+#blast #promote_viewer #badge_on #pick_a_color {position: relative; width: auto; height: auto; padding: 10px 0px 10px 0px; }
+#blast #promote_viewer #badge_on #pick_a_color #pick_label {position: relative; width: auto; height: auto; text-align: left;}
+#blast #promote_viewer #badge_on #pick_a_color #color_input {position: relative; width: auto; height: auto; text-align: left;}
+
+#badge_on #title_n_name {position: relative; left: 0px; top: 10px; width: auto; height: auto; }
+#badge_on #title_n_name .label {position: relative; left: 0px; top: 0px; with: auto; height: auto; display: inline; }
+#badge_on #title_n_name .data_input {position: relative; left: 0px; top: 0px; with: auto; height: auto; }
+#badge_on #title_n_name #blast_title {position: relative; width: 45%; height: auto; top: 0px; left: 0px; }
+#badge_on #title_n_name #your_name {position: absolute; left: 45%; top: 0px; width: auto; height: auto;}
+#badge_on #where_to_post {position: relative; top: 15px; left: 0px; width: auto; height: auto; padding: 5px 0px 5px 0px; margin-bottom: 10px; text-align: left;}
+#badge_on #where_to_post #badge_where_label {position: relative; top: 10px; left: 0px; width: auto; height: auto; padding-bottom: 10px;}
+#badge_on #choose_where {position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 5px 0px 10px 0px;}
+#badge_on #choose_where input {width: auto; height: auto; left: 0px; top: 0px; display: inline; vertical-align: bottom; }
+#badge_on #choose_where .where_input {position: relative; top: 0px; left: 0px; width: auto; height: auto;  text-align: left; padding: 3px; }
+
+#blast #promote_viewer #badge_on #badge_title { position: relative; top: 0px; left: 3px; }
+#blast #promote_viewer #badge_on #badge_textbox { position: relative; top: 4px; left: 0px; }
+#blast #promote_viewer #badge_on #buttons {position; relative; top: 11px; left: 0px; width: auto; height: auto; }
+#blast #promote_viewer #badge_on #badge_copy { position: relative; top: 11px; left: 0px; width: 67px; height: 16px; }
+#blast #promote_viewer #badge_on #badge_done { position: relative; top: 11px; left: 8px; width: 41px; height: 16px; }
+
+#blast #sticky { position: relative; top: 2px; left: 5px; width: 505px; height: 191px; background: #a9a7a8; color: #fff; }
+#blast #sticky #view_all { position: absolute; top: 14px; left: 345px; }
+#blast #sticky #sticky_title { position: relative; top: 5px; left: 8px; width: auto; height: auto; }
+#blast #sticky #sticky_title #rss { position: relative; top: 2px; left: 0px; }
+#blast #sticky #post {position: absolute; top: 32px; left: 4px; width: 498px; height: 155px; background: #fff; color: #000; }
+#blast #sticky #post #who_say { position: relative; top: 13px; left: 15px; width: auto; height: auto; }
+#blast #sticky #post #blurb { position: relative; top: 20px; left: 16px; width: 256px; height: 75px; overflow: hidden; }
+#blast #sticky #post #delete { position: absolute; top: 135px; left: 14px; }
+#blast #sticky #post #author { position: relative; display: inline; top: 0px; margin-left: 40px; height: auto; overflow: hidden; }
+#blast #sticky #post #date { position: relative; display: inline; top: 0px; left: 10px; width: auto; height: auto; overflow: hidden; }
+#blast #sticky #post #last_sticky { position: absolute; top: 165px; margin-left: 15px; width: 390px; height: 14px; overflow: hidden; }
+#blast #sticky #post #image { position: absolute; top: 16px; right: 16px; }
+#blast #messages { position: relative; top: 9px; left: 10px; width: 496px; }
+#blast #messages .messages_nav { position: relative; top: 0px; left: 0px; width: 496px; height: 21px; background: url(../images/bg_title2.gif); border: 1px solid #949494; }
+#blast #messages .messages_nav .page_num { position: relative; top: 3px; left: 6px; width: 90px; height: 21px; }
+#blast #messages .messages_nav .page_num .rss { position: relative; top: 3px; left: 0px; }
+#blast #messages .messages_nav .next_prev { position: relative; top: -18px; left: 98px; width: 134px; height: 21px; }
+#blast #messages .messages_nav #play_button { position: absolute; top: 3px; left: 232px; width: 107px; height: 16px; background: url(../images/play_btn_over.gif) no-repeat; }
+#blast #messages #message_content { position: relative; top: 0px; left: 0px; width: 496px; border-top: solid 1px #bfbfbf; }
+#blast #messages #message_content .message { position: relative; top: 0px; left: 0px; margin-top: 6px; width: 496px; height: 91px; background-color: #FFF; border: 0.5px solid #B9B9B9; }
+/* #blast #messages #message_content .message .number { position: relative; top: 8px; left: 7px; width: 41px; height: 16px; }
+/* #blast #messages #message_content .message .author { position: relative; top: -5px; left: 48px; width: 325px; height: 16px; overflow: hidden; } */
+/* #blast #messages #message_content .message .author .name { width: 287px; height: 16px; overflow: hidden; display: inline; } */
+/* #blast #messages #message_content .message .author .name { width: 38px; height: 16px; overflow: hidden; display: line; } */
+#blast #messages #message_content .message #post_by_n_time { position: relative; top: 0px; left: 68px; margin-top: 10px; width: 300px; height: 16px; }
+#blast #messages #message_content .message .blurb { position: relative; top: 25px; left: 18px; width: 345px; height: 48px; overflow: hidden; }
+#blast #messages #message_content .message .blurb_noimage { position: relative; top: 25px; left: 18px; width: 482px; height: 48px; overflow: hidden; }
+#blast #messages #message_content .message .date { position: absolute; display: inline; top: 6px; left: 10px; margin-right: 5px; width: 100px; height: 16px; overflow: hidden; }
+#blast #messages #message_content .message .author { position: absolute; display: inline; top: 5px; left: 130px; margin-right: 5px; width: auto; height: 16px; overflow: hidden; }
+#blast #messages #message_content .message .flag_icon {position: absolute; top: 72px; left: 7px;} 
+#blast #messages #message_content .message .image { position: absolute; top: 8px; right: 8px; }
+#blast #messages #message_content .message .delete_post { position: absolute; top: 72px; left: 7px; }
+/* #blast #messages #message_content #message_deleted { position: relative; top: 0px; left: 0px; width: 496px; height: 46px; background: url(../images/bg_message.gif); border-bottom: solid 1px #bfbfbf; } */
+/* #blast #messages #message_content #message_deleted #number { position: relative; top: 8px; left: 7px; width: 41px; height: 16px; } */
+/* #blast #messages #message_content #message_deleted #deleted { position: relative; top: -5px; left: 48px; width: 325px; height: 16px; overflow: hidden; } */
+/* #blast #messages .not_author { height: 156px; background: url(../images/bg_messages_addamessage.gif); } */
+/* #blast #messages .author { height: 176px; background: url(../images/bg_messages_addamessage_lrg.gif); } */
+#blast #messages #title_steps { position: relative; top: -1px; left: -1px; width: 496px; height: 27px; background: url(../images/bg_creation_on.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf;  }
+#blast #messages #title_steps span { position: absolute; top: 7px; left: 9px; width: 200px; height: 16px; }
+#blast #messages #title_steps_off { position: relative; top: -1px; left: -1px; width: 496px; height: 27px; background: url(../images/bg_creation_off.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf;  }
+#blast #messages #title_steps_off span { position: absolute; top: 7px; left: 9px; width: 200px; height: 16px; }
+/* #blast #messages #add_message { display: block; position: relative; top: 0px; left: 0px; width: 496px; border-bottom: solid 1px #bfbfbf; } */
+#blast #messages #add_message { display: block; position: relative; top: 4px; left: 0px; width: 496px; height: 174px; color: #fff; background: url(../images/bg_messages_addamessage_lrg.gif); border: solid 1px #808080; }
+#blast #messages #add_message #addmessage_title { position: relative; top: 8px; left: 11px; width: 125px; height: 15px; }
+#blast #messages #add_message #select { position: relative; top: 15px; left: 10px; width: 280px; height: 15px; }
+#blast #messages #add_message #browse { position: relative; top: 17px; left: 11px; width: 347px; height: 20px; padding: 2px; border: solid 1px #A1A56F; }
+#blast #messages #add_message #make_sticky { position: relative; top: 22px; left: 10px; width: 348px; height: 16px; }
+#blast #messages #add_message #sticky_help { position: relative; top: 11px; left: 215px; width: 12px; height: 12px; margin-bottom: -7px; background: url(../images/button_help_on.gif) no-repeat; }
+#blast #messages #add_message #post_message { position: relative; top: 26px; left: 10px; width: 84px; height: 36px; background: url(../images/text_button_postmessage_on.gif) no-repeat; }
+
+
+/* #blast_create_2 #blast_stats_content { position: relative; top: -12px; left: 0px; } */
+#blasts_blaststats #blast_stats_content { margin-bottom: -14px;}
+#blast_stats_content { display: block; position: relative; top: 0px; left: 0px; width: 254px; padding-bottom: 2px;}
+#blast_stats_content .width {width: 222px; }
+#blast_stats_content .height { height: 100%;}
+#blast_stats { display: block; position: relative; top: 16px; left: 16px; width: 222px; height: 100%; padding-bottom: 13px; }
+#blast_stats #blastats_title { position: relative; top: 10px; left: 10px; width: 210px; height: 16px; overflow: hidden; }
+#blast_stats #rating_title { position: relative; top: 13px; left: 10px; width: 210px; height: 16px; }
+#blast_stats #rating_s_w {position: relative; display: block; top: 10px; left: 10px; width: 100%; height: auto; }
+#blast_stats #rating_s_w #rating_stars { position: relative; display: inline; top: 0px; left: 0px; width: auto; height: auto; }
+#blast_stats #rating_s_w #rating_words { position: relative; display: inline; top: -2px; left: 5px; width: auto; height: auto; font-style: italic; }
+#blast_stats #your_rating_title { position: relative; top: 13px; left: 10px; width: 210px; height: 16px; }
+#blast_stats #your_rating_s_w {position: relative; display: block; top: 10px; left: 10px; width: 100%; height: auto; }
+#blast_stats #your_rating_s_w #your_rating_stars { position: relative; display: inline; top: 0px; left: 0px; width: auto; height: auto; }
+#blast_stats #your_rating_s_w #your_rating_words { position: relative; display: inline; top: -2px; left: 5px; width: auto; height: auto; font-style: italic; }
+/* #blast_stats #your_rating_stars { position: relative; display: inline; top: 10px; left: 10px; width: 100%; height: 13px; } */
+/* #blast_stats #your_rating_words { position: relative; display: inline; top: 10px; left: 8px; width: 128px; height: 12px; font-style: italic; } */
+#blast_stats #blastats_category_title, #blastats_tags_title, #blastats_info_title, #blastats_wel_title { position: relative; top: 17px; left: 10px; width: 205px; }
+#blast_stats #category_info, #tags_info, #info_info, #wel_info { position: relative; top: 14px; left: 10px; width: 205px; padding-bottom: 4px; }
+#blast_stats #edit { display: block; position: relative; top: 20px; left: 10px; width: 201px; padding-top: 10px; border-top: solid 1px #fff; padding-bottom: 10px; }
+#blast_stats #follow_blast_off { display: block; position: relative; top: 20px; left: 10px; padding-top: 7px; border-top: solid 1px #fff; }
+#blast_stats #follow_blast_on { display: none; position: relative; top: 20px; left: 10px; padding-top: 7px; border-top: solid 1px #fff; }
+
+#edit_blast { display: none; position: relative; top: 16px; left: 16px; width: 222px; height: 100%; padding-bottom: 180px; }
+#edit_blast #title_steps { position: relative; top: 1px; left: 1px; width: 218px; height: 27px; background: url(../images/bg_creation_on.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf; margin-bottom: -16px; }
+#edit_blast #title_steps span { position: absolute; top: 4px; left: 9px; width: 200px; height: 16px; }
+#edit_blast #title_steps_off { position: relative; top: 1px; left: 2px; width: 217px; height: 27px; background: url(../images/bg_creation_off.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf; margin-bottom: -16px; }
+#edit_blast #title_steps_off span { position: absolute; top: 7px; left: 9px; width: 200px; height: 16px; }
+#edit_blast #title_title { position: relative; top: 31px; left: 11px; width: 200px; height: 13px; }
+#edit_blast #title_input { position: relative; top: 35px; left: 10px; width: 201px; height: 18px; }
+#edit_blast #keyword_title { position: relative; top: 43px; left: 11px; width: 200px; height: 13px; }
+#edit_blast #keyword_input { position: relative; top: 47px; left: 11px; width: 200px; height: 18px; }
+#edit_blast #keyword_input #prefix { position: relative; top: 0px; left: 0px; height: 13px; display: inline; }
+#edit_blast #keyword_input #suffix { position: relative; top: 0px; left: 0px; width: auto; height: 18px; display: inline; }
+#edit_blast #keyword_input #suffix input { width: 70px; }
+#edit_blast #keyword_sub { position: relative; top: 47px; left: 11px; width: 200px; height: 39px; }
+#edit_blast #welcome_title { position: relative; top: 62px; left: 12px; width: 200px; height: 13px; }
+#edit_blast #welcome_input { position: relative; top: 62px; left: 10px; width: 201px; height: 47px; }
+#edit_blast #welcome_input .welcome { width: 199px; height: 45px; padding-left: 2px; background: #fff; border: solid 1px #9c9c9c; }
+#edit_blast #info_title { position: relative; top: 82px; left: 12px; width: 200px; height: 13px; }
+#edit_blast #info_input { position: relative; top: 82px; left: 10px; width: 201px; height: 125px; }
+#edit_blast #category_title { position: relative; top: 96px; left: 11px; width: 200px; height: 13px; }
+#edit_blast #category_input { position: relative; top: 100px; left: 10px; width: 201px; height: 18px; }
+#edit_blast #category_input select { width: 200px; }
+#edit_blast #tags_title { position: relative; top: 114px; left: 11px; width: 200px; height: 13px; }
+#edit_blast #tags_input { position: relative; top: 118px; left: 10px; width: 201px; height: 18px; }
+#edit_blast #color_title { position: relative; top: 126px; left: 12px; width: 200px; height: 13px; }
+#edit_blast .color_row { position: relative; top: 132px; left: 13px; }
+#edit_blast #save { position: relative; top: 155px; left: 10px; width: 37px; height: 16px; background:url(../images/text_button_save_on.gif) no-repeat; }
+#edit_blast #public { position: relative; top: 145px; left: 10px; width: 200px; height: 14px; }
+#edit_blast #public #p_help {position: absolute; top: 0px; left: 110px; height: auto; width: auto; background: url(../images/button_help_on.gif) no-repeat; }
+#edit_blast #email_post { position: relative; top: 150px; left: 10px; width: 200px; height: 14px; }
+a.choose_color { border: solid 1px #9c9c9c; width: 23px; height: 23px; padding-top: 9px; }
+a.choose_color:hover { border: solid 2px #9c9c9c; width: 23px; height: 23px; padding-top: 9px; margin-right: -2px;}
+#edit_blast .selected_color { position: relative; left: -1px; border: solid 2px #000; width: 23px; height: 23px; padding-top: 9px; margin-right: -2px; }
+#edit_blast #welcome_help {position: absolute; top: 160px; left: -256px; width: 267px; height: 104px; background: url(../images/help_step1b.gif) no-repeat; }
+
+#profile_stats_content { display: block; position: relative; top: 0px; left: 0px; width: 254px; padding-bottom: 2px; }
+#profile_stats_content .width {width: 222px; }
+#profile_stats_content .height { height: 100%;}
+#profile_stats { display: block; position: relative; top: 16px; left: 16px; width: 222px; height: 100%; padding-bottom: 30px; }
+#profile_stats #profile_title { position: relative; top: 8px; left: 10px; width: 200px; height: 16px; }
+#profile_stats #user_pict { position: relative; top: 10px; left: 10px; }
+#profile_stats #mood_title, #location_title, #names_title, #about_title { position: relative; top: 14px; left: 10px; width: 205px; }
+#profile_stats #mood_info, #location_info, #names_info, #about_info { position: relative; top: 16px; left: 10px; width: 205px; padding-bottom: 14px; overflow: auto; }
+#profile_stats #block { display: none; position: relative; top: 20px; left: 16px; width: 201px; padding-top: 10px; border-top: solid 1px #fff; padding-bottom: 10px; border-bottom: solid 1px #fff; }
+#profile_stats #unblock { display: block; position: relative; top: 20px; left: 16px; width: 201px; padding-top: 10px; border-top: solid 1px #fff; padding-bottom: 10px; border-bottom: solid 1px #fff; }
+#profile_stats #edit { display: block; position: relative; top: 20px; left: 10px; width: 201px; padding-top: 10px; border-top: solid 1px #fff; padding-bottom: 10px; border-bottom: solid 1px #fff; }
+#profile_stats #follow_blast_off { display: block; position: relative; top: 25px; left: 16px; padding-top: 6px; }
+#profile_stats #follow_blast_on { display: none; position: relative; top: 25px; left: 16px; padding-top: 6px; }
+
+#edit_profile { display: none; position: relative; top: 16px; left: 16px; width: 222px; height: 100%; padding-bottom: 120px; }
+#edit_profile #title { position: relative; top: 9px; left: 11px; width: 200px; height: 16px; }
+#edit_profile #editprofile_title_steps { position: relative; top: 1px; left: 2px; width: 217px; height: 27px; background: url(../images/bg_creation_on.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf; margin-bottom: -16px; }
+#edit_profile #title_steps span { position: absolute; top: 7px; left: 9px; width: 200px; height: 16px; }
+#edit_profile #icon_current_title { position: relative; top: 18px; left: 11px; width: 200px; height: 14px; }
+#edit_profile #icon_current_image { position: relative; top: 21px; left: 11px; }
+#edit_profile #icon_upload_title { position: relative; top: 28px; left: 11px; width: 200px; height: 14px; }
+#edit_profile #icon_upload_input { position: relative; top: 31px; left: 11px; width: 200px; height: 18px; }
+#edit_profile #icon_default_title { position: relative; top: 39px; left: 11px; width: 200px; height: 14px; }
+#edit_profile .icon_default_images { position: relative; top: 42px; left: 11px; width: 200px; height: 50px; }
+#edit_profile .icon_default_images .default_usericon { width: 38px; height: 38px; margin-right: 5px; display: inline; }
+#edit_profile #edit_mood_title { position: relative; top: 46px; left: 11px; width: 200px; height: 14px; border-top: solid 1px #fff; padding-top: 10px; }
+#edit_profile #mood_input { position: relative; top: 50px; left: 11px; width: 201px; height: 18px; }
+#edit_profile #edit_location_title { position: relative; top: 64px; left: 11px; width: 200px; height: 14px; }
+#edit_profile #location_input { position: relative; top: 68px; left: 11px; width: 201px; height: 18px; }
+#edit_profile #edit_about_title { position: relative; top: 82px; left: 11px; width: 200px; height: 14px; }
+#edit_profile #about_input { position: relative; top: 86px; left: 11px; width: 201px; height: 125px; }
+#edit_profile #color_title { position: relative; top: 100px; left: 11px; width: 200px; height: 14px; }
+#edit_profile .color_row { position: relative; top: 104px; left: 11px; }
+#edit_profile #email_post { position: relative; top: 110px; left: 11px; width: auto; height: auto; text-align: left; }
+#edit_profile #save { position: relative; top: 117px; left: 11px; width: 37px; height: 16px; background:url(../images/text_button_save_on.gif) no-repeat; }
+#edit_profile #skip { position: relative; top: 102px; left: 55px; }
+a.choose_color { border: solid 1px #9c9c9c; width: 23px; height: 23px; padding-top: 9px; }
+a.choose_color:hover { border: solid 2px #9c9c9c; width: 23px; height: 23px; padding-top: 9px; margin-right: -2px;}
+#edit_profile .selected_color { position: relative; left: -1px; border: solid 2px #000; width: 23px; height: 23px; padding-top: 9px; margin-right: -2px; }
+a.choose_icon {position: relative; border: solid 1px #9c9c9c; width: 38px; height: 38px;  padding-top: 27px; margin-right: -2px; }
+a.choose_icon:hover { border: solid 2px #9c9c9c; width: 38px; height: 38px; padding-top: 27px; margin-right: -2px; }
+#edit_profile .selected_icon { position: relative; left: -1px; border: solid 2px #000; width: 38px; height: 38px; padding-top: 27px; margin-right: -2px; }
+
+/* COLORS FOR COLOR CHART FOR REGISTRATION AND PROFILE EDIT AND BLAST EDIT PAGES */
+.color_row { width: 208px; height: 31px; padding: 3px;}
+.color_row img { width: 23px; height: 23px; }
+.color_row #color_choice_01 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #dbdbdb; }
+.color_row #color_choice_02 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #A7DEF2; }
+.color_row #color_choice_03 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #D7BBF8; }
+.color_row #color_choice_04 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #ECE0B0; }
+.color_row #color_choice_05 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #F9DC38; }
+.color_row #color_choice_06 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #70BD87; }
+.color_row #color_choice_07 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #C4D684; }
+.color_row #color_choice_08 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #FF7031; }
+.color_row #color_choice_09 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #108CFE; }
+.color_row #color_choice_10 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #FFB7F6; }
+.color_row #color_choice_11 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #8E876A; }
+.color_row #color_choice_12 { width: 23px; height: 23px; padding-top: 9px; margin-right: 6px; display: inline; background: #323232; }
+
+#follow_blast_off { position: relative; width: 201px; height: 30px; }
+#follow_blast_off .follow_link { position: relative; top: 0px; left: 0px; width: 200px; height: 15px; }
+#follow_blast_on { display: none; position: relative; width: 201px; height: 292px; }
+#follow_blast_on .follow_link { position: relative; top: 0px; left: 0px; width: 200px; height: 15px; }
+#follow_blast_on #follow_text { position: relative; top: 0px; left: 15px; width: 186px; }
+#follow_blast_on #on_off { position: relative; top: 17px; left: 15px; width: 186px; height: 44px; }
+#follow_blast_on #on_off #onoff_title { position: relative; top: 0px; left: 0px; }
+#follow_blast_on #on_off .choice { position: relative; top: -2px; left: 0px; display: inline; }
+/* #follow_blast_on #on_off #choice input { position: relative; top: 2px; padding-right: 6px; } */
+#follow_blast_on .send { position: relative; top: 19px; left: 15px; width: 186px; height: 50px; }
+#follow_blast_on .send .send_title { position: relative; top: 0px; left: 0px; }
+#follow_blast_on .send .choice { position: relative; top: -1px; left: 0px; }
+#follow_blast_on #follow_save { position: relative; top: 15px; left: 15px; width: 38px; height: 16px; background: url(../images/text_button_save_on.gif) no-repeat; }
+
+/* #mob_search #search_content { position: relative; top: -8px; left: -16px; } */
+#index_search #search_content { position: relative; top: 0px; left: 0px; margin-bottom: 0px;}
+#stickies_search #search_content { position: relative; top: 8px; left: 0px; }
+#blast_search #search_content { position: relative; top: 10px; left: 0px; margin-bottom: 0px; }
+#search_content { display: block; position: relative; top: 0px; left: 0px; width: 254px; height: 137px; margin-bottom: -6px; }
+#search_content .width {width: 222px; }
+#search_content .height { height: 105px;}
+#search_mod { display: block; position: absolute; top: 16px; left: 16px; width: 222px; height: 101px; }
+#search_mod #search_title { position: absolute; top: 11px; left: 10px; width: 130px; height: 12px; }
+#search_mod #choose { position: absolute; top: 31px; left: 12px; width: 200px; height: 12px; }
+#search_mod #text_box { position: absolute; top: 54px; left: 10px; }
+#search_mod #text_box input { width: 199px; height: 16px; border: solid 1px #9c9c9c; padding-left: 2px; }
+#search_mod #submit { position: absolute; top: 79px; left: 11px; width: 48px; height: 16px; background: url(../images/text_button_search_on.gif) no-repeat; }
+
+#header_search #header_search_mod { position: relative; top: 103px; left: 530px; margin-bottom: 0px; z-index: 3;}
+#header_search_mod { display: block; position: absolute; top: 16px; left: 16px; width: 207px; height: 53px; border: }
+#header_search_mod #search_title { position: absolute; top: 3px; left: 0px; width: 130px; height: 12px; }
+#header_search_mod #choose { position: absolute; top: 14px; left: 2px; width: 200px; height: 12px; }
+#header_search_mod #text_box { position: absolute; top: 33px; left: 0px; }
+#header_search_mod #text_box input { width: 150px; height: 14px; border: solid 1px #9c9c9c; padding-left: 2px; }
+#header_search_mod #submit { position: absolute; top: 34px; left: 159px; width: 48px; height: 16px; background: url(../images/text_button_search_on.gif) no-repeat; }
+
+#newsearch_content{ display: block; position: relative; top: 16px; left: 16px; width: 223px; padding-bottom: 10px; }
+#newsearch_content #newsearch {position: relative; top: 0px; left: 0px; }
+#newsearch_content .width {width: auto; }
+#newsearch_content .height { height: 100%;}
+#newsearch_content #newsearch { display: block; position: relative; top: 0px; left: 0px; width: auto; height: 100%;}
+#newsearch_content #newsearch #newsearch_body {position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 2px 8px 8px 8px; }
+#newsearch_content #newsearch #newsearch_body form {padding: 0px; margin: 0px;}
+#newsearch_body #choose {display: inline; }
+#newsearch_body #text_box {position: relative; top: 2px; left: 0px; padding 4px; width: 145px;}
+#newsearch_body #submit {position: absolute; top: 43px; left: 160px; background: url(../images/text_button_search_on.gif) no-repeat;}
+
+#marketing_content { display: block; position: relative; top: 0px; left: 0px; width: 254px; height: 254px; margin-bottom: -30px; }
+#marketing_content .width {width: 222px; }
+#marketing_content .height { height: 222px;}
+#marketing { display: block; position: absolute; top: 16px; left: 16px; width: 222px; height: 218px; }
+#marketing #image { position: absolute; top: 4px; left: 3px; width: 216px; height: 158px; }
+#marketing #button_blast { position: absolute; top: 160px; left: 10px; width: 201px; height: 30px; background: url(../images/text_button_createblast_on.gif) no-repeat; }
+#marketing #link_help { position: absolute; top: 197px; left: 11px; }
+
+#invite_friends_content { display: block; position: relative; top: 8px; left: 0px; width: 254px; padding-bottom: 2px; }
+#invite_friends_content .width {width: 222px; }
+#invite_friends_content .height { height: 100%;}
+#invite_friends { display: block; position: relative; top: 16px; left: 16px; width: 222px; padding-bottom: 28px; }
+#invite_friends #title { position: relative; top: 11px; left: 11px; width: 200px; height: 18px; }
+#invite_friends #info { position: relative; top: 12px; left: 11px; width: 200px; height: 42px; }
+#invite_friends #email_off {position: relative; top: 8px; left: 17px; width: 200px; height: 14px; }
+#invite_friends #email_on { position: relative; top: -2px; left: 11px; width: 200px; height: 440px; }
+#invite_friends #email_on #title { position: absolute; top: 0px; left: 6px; }
+#invite_friends #email_on #info { position: absolute; top: 14px; left: 14px; width: 190px; height: 42px; }
+#invite_friends #email_on #emails_title { position: absolute; top: 50px; left: 14px; }
+#invite_friends #email_on #emails_input { position: absolute; top: 64px; left: 14px; }
+#invite_friends #email_on #emails_import { position: absolute; top: 51px; right: 1px;  }
+#invite_friends #email_on #subject_title  { position: absolute; top: 142px; left: 14px; }
+#invite_friends #email_on #subject_input { position: absolute; top: 156px; left: 14px; }
+#invite_friends #email_on #message_title  { position: absolute; top: 182px; left: 14px; }
+#invite_friends #email_on #message_input { position: absolute; top: 196px; left: 14px; }
+#invite_friends #email_on #verify_title { position: absolute; top: 277px; left: 14px; }
+#invite_friends #email_on #verify_image { position: absolute; top: 291px; left: 14px; }
+#invite_friends #email_on #verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#invite_friends #email_on #verify_info { position: absolute; top: 349px; left: 14px; }
+#invite_friends #email_on #verify_input { position: absolute; top: 394px; left: 14px; }
+#invite_friends #email_on #send { position: absolute; top: 420px; left: 14px; width: 142px; height: 16px; background: url(../images/text_button_send_email_on.gif) no-repeat; }
+#invite_friends #mobile_off {position: relative; top: 12px; left: 17px; width: 200px; height: 14px; }
+#invite_friends #mobile_on { position: relative; top: 2px; left: 11px; width: 200px; height: 395px; }
+#invite_friends #mobile_on #title { position: absolute; top: 0px; left: 6px; }
+#invite_friends #mobile_on #info { position: absolute; top: 15px; left: 15px; width: 200px; height: 40px; }
+#invite_friends #mobile_on #message_title { position: absolute; top: 73px; left: 14px; }
+#invite_friends #mobile_on #message_input { position: absolute; top: 87px; left: 14px; }
+#invite_friends #mobile_on #message_remaining { position: absolute; top: 74px; right: 1px; font-style: italic; }
+#invite_friends #mobile_on #mobile_title { position: absolute; top: 152px; left: 14px; }
+#invite_friends #mobile_on #mobile_input { position: absolute; top: 167px; left: 14px; }
+#invite_friends #mobile_on #verify_title { position: absolute; top: 232px; left: 14px; }
+#invite_friends #mobile_on #verify_image { position: absolute; top: 246px; left: 14px; }
+#invite_friends #mobile_on #verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#invite_friends #mobile_on #verify_info { position: absolute; top: 304px; left: 14px; }
+#invite_friends #mobile_on #verify_input { position: absolute; top: 349px; left: 14px; }
+#invite_friends #mobile_on #send { position: absolute; top: 375px; left: 15px; width: 147px; height: 16px; background: url(../images/text_button_send_mobile_on.gif) no-repeat; }
+#invite_friends #web_off {position: relative; top: 16px; left: 17px; width: 200px; height: 14px; }
+#invite_friends #web_on { display: none; position: relative; top: 16px; left: 11px; width: 200px; height: 220px; }
+#invite_friends #web_on #title { position: absolute; top: 0px; left: 6px; }
+#invite_friends #web_on #info { position: absolute; top: 14px; left: 14px; width: 200px; height: 43px; }
+#invite_friends #web_on #textbox { position: absolute; top: 65px; left: 15px; }
+#invite_friends #web_on #preview { position: absolute; top: 196px; left: 14px; width: 200px; }
+
+#postbadge_content { display: block; position: relative; top: 16px; left: 0px; width: 254px; padding-bottom: 2px; }
+#postbadge_content .width {width: 222px; }
+#postbadge_content .height { height: 100%;}
+#postbadge { display: block; position: relative; top: 16px; left: 16px; width: 222px; padding-bottom: 28px; }
+#postbadge #title { position: relative; top: 11px; left: 11px; }
+#postbadge #info { position: relative; top: 12px; left: 11px; width: 200px; height: 28px; }
+#postbadge #code_off {position: relative; top: 16px; left: 17px; width: 200px; height: 14px; }
+#postbadge #code_on { display: none; position: relative; top: 16px; left: 11px; width: 200px; height: 160px; }
+#postbadge #code_on #title { position: relative; top: 0px; left: 6px; }
+#postbadge #code_on #textbox { position: relative; top: 6px; left: 10px; }
+#postbadge #code_on #preview { position: relative; top: 8px; left: 11px; }
+
+#register_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: 588px; }
+#register_content .width {width: 518px; }
+#register_content .height { height: 556px;}
+#register { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 556px; }
+#register #register_title { position: absolute; top: 13px; left: 11px; width: 480px; height: 22px; }
+#register #register_subtitle { position: absolute; top: 34px; left: 10px; width: 480px; height: 15px; }
+#register #name_title { position: absolute; top: 69px; left: 11px; width: 120px; height: 12px; }
+#register #name_input { position: absolute; top: 66px; left: 131px; width: 250px; }
+#register #name_error { display: none; position: absolute; top: 70px; left: 389px; width: 130px; height: 14px; }
+#register #reg_username_title { position: absolute; top: 98px; left: 11px; width: 120px; height: 12px; }
+#register #reg_username_input { position: absolute; top: 96px; left: 131px; width: 250px; }
+#register #username_subtitle { position: absolute; top: 117px; left: 131px; width: 250px; }
+#register #username_check { position: absolute; top: 99px; left: 389px; width: 130px; height: 14px; }
+#register #username_error { display: none; position: absolute; top: 113px; left: 389px; width: 130px; height: 14px; }
+#register #reg_password_title { position: absolute; top: 155px; left: 11px; width: 120px; height: 12px; }
+#register #reg_password_input { position: absolute; top: 152px; left: 131px; width: 250px; }
+#register #password_subtitle { position: absolute; top: 172px; left: 131px; width: 250px; }
+#register #password_error { display: none; position: absolute; top: 156px; left: 389px; width: 130px; height: 14px; }
+#register #password2_title { position: absolute; top: 195px; left: 11px; width: 120px; height: 12px; }
+#register #password2_input { position: absolute; top: 192px; left: 131px; width: 250px; }
+#register #password2_error { display: none; position: absolute; top: 196px; left: 389px; width: 130px; height: 14px; }
+#register #country_title { position: absolute; top: 225px; left: 11px; width: 120px; height: 12px; }
+#register #country_input { position: absolute; top: 222px; left: 131px; width: 250px; }
+#register #country_error { display: none; position: absolute; top: 226px; left: 389px; width: 130px; height: 14px; }
+#register #mobile_title { position: absolute; top: 255px; left: 11px; width: 120px; height: 12px; }
+#register #countryCodeDisplay { position: absolute; top: 253px; left: 131px; width: 24px; height: 15px; background: #ccc; text-align: center; }
+#register #mobile_input { position: absolute; top: 252px; left: 161px; width: 220px; }
+#register #mobile_radio { position: absolute; top: 276px; left: 137px; width: 250px; }
+#register #mobile_error { display: none; position: absolute; top: 256px; left: 389px; width: 130px; height: 14px; }
+#register #email_title { position: absolute; top: 301px; left: 11px; width: 120px; height: 12px; }
+#register #email_input { position: absolute; top: 300px; left: 131px; width: 250px; }
+#register #email_error { display: none; position: absolute; top: 302px; left: 389px; width: 130px; height: 14px; }
+#register #verify_title { position: absolute; top: 331px; left: 11px; width: 120px; height: 12px; }
+#register #verify_image { position: absolute; top: 330px; left: 131px; width: 250px; }
+#register #verify_info { position: absolute; top: 401px; left: 131px; width: 240px; }
+#register #verify_input { position: absolute; top: 433px; left: 131px; width: 250px; }
+#register #verify_error { display: none; position: absolute; top: 434px; left: 389px; width: 130px; height: 14px; }
+#register #terms_info { position: absolute; top: 467px; left: 137px; width: 290px; border-top: dotted 1px #E7E7E7; padding-top: 15px; }
+#register #terms_error { display: none; position: absolute; top: 500px; left: 389px; width: 130px; height: 14px; }
+#register #register_button { position: absolute; top: 524px; left: 131px; width: 99px; height: 16px; background: url(../images/text_button_registernow_on.gif) no-repeat; }
+
+
+#perm_register_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: 377px; }
+#perm_register_content .width {width: 518px; }
+#perm_register_content .height { height: 345px;}
+#perm_register { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 345px; }
+#perm_register #register_title { position: absolute; top: 13px; left: 11px; width: 480px; height: 22px; }
+#perm_register #register_subtitle { position: absolute; top: 34px; left: 10px; width: 480px; height: 15px; }
+#perm_register #username_title { position: absolute; top: 108px; left: 11px; width: 120px; height: 12px; }
+#perm_register #username_input { position: absolute; top: 106px; left: 131px; width: 250px; }
+#perm_register #username_subtitle { position: absolute; top: 127px; left: 131px; width: 250px; }
+#perm_register #username_check { position: absolute; top: 109px; left: 389px; width: 130px; height: 14px; }
+#perm_register #username_error { display: none; position: absolute; top: 123px; left: 389px; width: 130px; height: 14px; }
+#perm_register #password_title { position: absolute; top: 165px; left: 11px; width: 120px; height: 12px; }
+#perm_register #password_input { position: absolute; top: 162px; left: 131px; width: 250px; }
+#perm_register #password_subtitle { position: absolute; top: 182px; left: 131px; width: 250px; }
+#perm_register #password_error { display: none; position: absolute; top: 166px; left: 389px; width: 130px; height: 14px; }
+#perm_register #password2_title { position: absolute; top: 205px; left: 11px; width: 120px; height: 12px; }
+#perm_register #password2_input { position: absolute; top: 202px; left: 131px; width: 250px; }
+#perm_register #password2_error { display: none; position: absolute; top: 206px; left: 389px; width: 130px; height: 14px; }
+#perm_register #email_title { position: absolute; top: 245px; left: 11px; width: 120px; height: 12px; }
+#perm_register #email_input { position: absolute; top: 242px; left: 131px; width: 250px; }
+#perm_register #email_subtitle { position: absolute; top: 262px; left: 131px; width: 250px; }
+#perm_register #email_error { display: none; position: absolute; top: 246px; left: 389px; width: 130px; height: 14px; }
+#perm_register #register_button { position: absolute; top: 313px; left: 131px; width: 58px; height: 16px; background: url(../images/text_button_continue_on.gif) no-repeat; }
+
+
+
+#account_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; padding-bottom: 2px; }
+#account_content .width {width: 518px; }
+#account_content .height { height: 100%;}
+.account_nav { position: relative; top: 10px; left: 10px; width: 497px; height: 17px; border-bottom: dotted 1px #d3d3d3; }
+.account_nav .personal_info_link { position: absolute; top: 0px; left: 1px; width: 80px; height: 11px; font: bold 12px arial, san-serif; color:#ccc; }
+.account_nav .blocked_users_link { position: absolute; top: 0px; left: 94px; width: 85px; height: 11px; font: bold 12px arial, san-serif; color:#ccc; }
+.account_nav .blast_alerts_link { position: absolute; top: 0px; left: 195px; width: 70px; height: 11px; font: bold 12px arial, san-serif; color:#ccc; }
+#personal_info { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 393px; }
+#personal_info input { width: 248px; height: 16px; padding-left: 2px; background: #fff; border: solid 1px #a6a6a6; }
+#personal_info .account_title { position: absolute; top: 43px; left: 11px; width: 480px; height: 22px; }
+#personal_info #name_title { position: absolute; top: 76px; left: 11px; width: 120px; height: 12px; }
+#personal_info #name_input { position: absolute; top: 75px; left: 131px; width: 250px; }
+#personal_info #name_error { display: none; position: absolute; top: 77px; left: 389px; width: 130px; height: 14px; }
+#personal_info #username_title { position: absolute; top: 106px; left: 11px; width: 120px; height: 12px; }
+#personal_info #username_input { position: absolute; top: 105px; left: 131px; width: 250px; }
+#personal_info #username_error { display: none; display: none; position: absolute; top: 107px; left: 389px; width: 130px; height: 14px; }
+#personal_info #password_title { position: absolute; top: 136px; left: 11px; width: 120px; height: 12px; }
+#personal_info #password_input { position: absolute; top: 134px; left: 131px; width: 250px; }
+#personal_info #password_subtitle { position: absolute; top: 155px; left: 131px; width: 250px; }
+#personal_info #password_error { display: none; position: absolute; top: 137px; left: 389px; width: 130px; height: 14px; }
+#personal_info #password2_title { position: absolute; top: 176px; left: 11px; width: 120px; height: 12px; }
+#personal_info #password2_input { position: absolute; top: 175px; left: 131px; width: 250px; }
+#personal_info #password2_error { display: none; position: absolute; top: 177px; left: 389px; width: 130px; height: 14px; }
+#personal_info #country_title { position: absolute; top: 206px; left: 11px; width: 120px; height: 12px; }
+#personal_info #country_input { position: absolute; top: 205px; left: 131px; width: 250px; }
+#personal_info #country_error { display: none; position: absolute; top: 207px; left: 389px; width: 130px; height: 14px; }
+#personal_info #mobile_title { position: absolute; top: 236px; left: 11px; width: 120px; height: 12px; }
+#personal_info #mobile_input { position: absolute; top: 235px; left: 131px; width: 250px; }
+#personal_info #mobile_radio { position: absolute; top: 254px; left: 134px; width: 250px; }
+#personal_info #mobile_error { display: none; position: absolute; top: 237px; left: 389px; width: 130px; height: 14px; }
+#personal_info #email_title { position: absolute; top: 285px; left: 11px; width: 120px; height: 12px; }
+#personal_info #email_input { position: absolute; top: 284px; left: 131px; width: 250px; }
+#personal_info #email_error { display: none; position: absolute; top: 286px; left: 389px; width: 130px; height: 14px; }
+#personal_info #follow_title { position: absolute; top: 315px; left: 11px; width: 120px; height: 12px; }
+#personal_info #follow_help { position: absolute; top: 315px; left: 100px; width: 12px; height: 12px; margin-bottom: -7px; background: url(../images/button_help_on.gif) no-repeat; }
+#personal_info #follow_radio_visible { position: absolute; top: 314px; left: 134px; width: 250px; }
+#personal_info #follow_radio_hidden { position: absolute; top: 331px; left: 134px; width: 250px; }
+#personal_info #button { position: absolute; top: 360px; left: 131px; width: 38px; height: 16px; background: url(../images/text_button_save_on.gif) no-repeat; }
+#blocked_users { display: none; position: relative; top: 4px; left: 16px; width: 518px; padding-bottom: 43px; }
+#blocked_users .account_title { position: relative; top: 25px; left: 11px; width: 480px; height: 22px; }
+#blocked_users #subtitle { position: relative; top: 22px; left: 11px; width: 490px; height: 13px; }
+#blocked_users #select_all_blocked { position: relative; top: 26px; left: 10px; margin-bottom: 22px; width: 496px; height: 18px; background: #F5F5F5; border: solid 1px #C1C0BE; }
+#blocked_users #select_all_blocked span { position: relative; top: 2px; left: 5px; }
+#blocked_users #checkbox { position: relative; top: 9px; left: 14px; margin-bottom: 7px; width: 480px; height: 12px; }
+#blocked_users #unblock { position: relative; top: 18px; left: 11px; width: 54px; height: 16px; background: url(../images/text_button_unblock_on.gif) no-repeat; }
+#blocked_users #block_info { position: relative; top: 35px; left: 11px; padding-top: 14px; width: 498px; height: 13px; border-top: dotted 1px #d3d3d3; }
+#blocked_users #block_input { position: relative; top: 44px; left: 12px; width: 337px; height: 18px; }
+#blocked_users #block_input input { width: 335px; height: 16px; border: solid 1px #a6a6a6; }
+#blocked_users #block_button { position: relative; top: 25px; left: 352px; width: 41px; height: 16px; background: url(../images/text_button_block_on.gif) no-repeat; }
+#blast_alerts { display: none; position: relative; top: 4px; left: 16px; width: 518px; padding-bottom: 2px; }
+#blast_alerts .account_title  { position: relative; top: 25px; left: 11px; width: 480px; height: 22px; }
+#blast_alerts #select_all_alerts { position: relative; top: 26px; left: 10px; margin-bottom: 37px; width: 496px; height: 18px; background: #F5F5F5; border: solid 1px #C1C0BE; }
+#blast_alerts #select_all_alerts span { position: relative; top: 2px; left: 5px; }
+#blast_alerts .item { position: relative; top: 0px; left: 9px; width: 498px; height: 78px; }
+#blast_alerts .item select { width: 130px; height: 16px;  background: #fff; border: solid 1px #a6a6a6; }
+#blast_alerts .item .alert_title { position: absolute; top: 9px; left: 9px; width: 486px; height: 14px; }
+#blast_alerts .item .email_title { position: absolute; top: 34px; left: 28px; width: 111px; height: 11px; }
+#blast_alerts .item .email_input { position: absolute; top: 48px; left: 27px; width: 130px; height: 18px; }
+#blast_alerts .item .mobile_title { position: absolute; top: 34px; left: 180px; width: 111px; height: 11px; }
+#blast_alerts .item .mobile_input { position: absolute; top: 48px; left: 179px; width: 130px; height: 18px; }
+#blast_alerts .item .save { position: absolute; top: 49px; left: 323px; width: 38px; height: 16px; background: url(../images/text_button_save_on.gif) no-repeat; }
+#blast_alerts .item .remove { position: absolute; top: 50px; left: 374px; width: 80px; height: 12px; }
+#blast_alerts #select_all_modify { position: relative; top: 2px; left: 9px; margin-bottom: 10px; width: 496px; height: 92px; border: solid 1px #C1C0BE; }
+#blast_alerts #select_all_modify #select_all2 {position: relative; top: 4px; left: 5px; width: 484px; height: 17px; border-bottom: dotted 1px #cbcbcb; margin-bottom: 0px; }
+
+#register_confirm_content { display: none; position: relative; top: 0px; left: 0px; width: 550px; padding-bottom: 2px; }
+#register_confirm_content .width {width: 518px; }
+#register_confirm_content .height { height: 100%;}
+#register_confirm { display: block; position: relative; top: 16px; left: 16px; width: 518px; padding-bottom: 28px; }
+#register_confirm #confirm { position: relative; top: 0px; left: 0px; width: 518px; height: 214px; }
+#register_confirm #confirm #confirm_title { position: absolute; top: 13px; left: 11px; width: 480px; height: 22px; }
+#register_confirm #confirm #confirm_subtitle { position: absolute; top: 34px; left: 11px; width: 480px; height: 15px; }
+#register_confirm #confirm #username { position: absolute; top: 68px; left: 11px; width: 497px; height: 15px; }
+#register_confirm #confirm #contact { position: absolute; top: 94px; left: 11px; width: 497px; height: 13px; }
+#register_confirm #confirm #validate_info { position: absolute; top: 119px; left: 11px; width: 497px; height: 13px; }
+#register_confirm #confirm #validate_input { position: absolute; top: 139px; left: 11px; width: 497px; height: 18px; }
+#register_confirm #confirm #validate_link { position: absolute; top: 158px; left: 12px; width: 497px; height: 13px; }
+#register_confirm #confirm #validate_button { position: absolute; top: 181px; left: 11px; width: 187px; height: 16px; background: url(../images/text_button_validate_on.gif) no-repeat; }
+#register_confirm #add_phone { display: block; position: relative; top: 0px; left: 0px; width: 518px; height: 72px; }
+#register_confirm #add_phone #info { position: absolute; top: 0px; left: 11px; width: 497px; height: 26px; border-top: dotted 1px #E7E7E7; padding-top: 15px; }
+#register_confirm #add_phone #addphone_title { position: absolute; top: 57px; left: 11px; width: 180px; height: 13px; }
+#register_confirm #add_phone #input { position: absolute; top: 56px; left: 190px; width: 170px; height: 18px; }
+#register_confirm #add_phone #addphone_button { position: absolute; top: 55px; left: 364px; width: 76px; height: 16px; background: url(../images/text_button_addnumber_on.gif) no-repeat; }
+
+#register_login {position: relative; top: 0px; left: 0px; }
+#register_login #login_content { position: relative; top: 10px; left: 0px; }
+#forgot_login {position: relative; top: 0px; left: 0px; }
+#forgot_login #login_content { position: relative; top: 10px; left: 0px; }
+#login_content { display: block; position: relative; top: 0px; left: 0px; width: 254px; height: 233px; }
+#login_content .width {width: 222px; }
+#login_content .height { height: 201px;}
+#login { display: block; position: relative; top: 5px; left: 16px; width: 222px; height: 197px;  }
+#login #login_header { position: absolute; top: 0px; left: 0px; width: 222px; height: 42px; background: url(../images/bg_title_lrg.gif); }
+#login #login_header #already_title {position: absolute; top: 4px; left: 10px; }
+#login #login_header #login_title {position: absolute; top: 21px; left: 11px; }
+#login #username_title { position: absolute; top: 52px; left: 12px; width: 199px; height: 14px; }
+#login #username_input { position: absolute; top: 66px; left: 11px; width: 201px; height: 18px; }
+#login #password_title { position: absolute; top: 92px; left: 12px; width: 199px; height: 14px; }
+#login #password_forgot { position: absolute; top: 92px; left: 170px; width: 199px; height: 14px; }
+#login #password_input { position: absolute; top: 106px; left: 11px; width: 201px; height: 18px; }
+#login #login_button { position: absolute; top: 134px; left: 11px; width: 41px; height: 16px; background: url(../images/text_button_login_on.gif) no-repeat; }
+#login #sms {position: absolute; top: 156px; left: 11px; width: 202px; line-height: 10px; }
+
+#creation_steps1_buffer { height: 8px; }
+#creation_steps_content { display: block; position: relative; top: -22px; left: 0px; width: 782px; height: 162px; margin-bottom: -21px; }
+#creation_steps_content .width {width: 750px; }
+#creation_steps_content .height { height: 131px;}
+#creation_steps { display: block; position: relative; top: 16px; left: 16px; width: 750px; height: 131px;  }
+#creation_steps #step_nav { position: relative; top: 3px; left: 3px; width: 742px; height: 27px; background: url(../images/bg_creation_off.gif); border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf; }
+#creation_steps #step_nav .step_on { background: url(../images/bg_creation_on.gif); }
+#creation_steps #step_nav #one { position: absolute; top: 0px; left: 0px; width: 240px; height: 27px; }
+#creation_steps #step_nav #divider1 { position: absolute; top: 0px; left: 240px; width: 21px; height: 27px; }
+#creation_steps #step_nav #two { position: absolute; top: 0px; left: 261px; width: 223px; height: 27px; }
+#creation_steps #step_nav #divider2 { position: absolute; top: 0px; left: 484px; width: 21px; height: 27px; }
+#creation_steps #step_nav #three { position: absolute; top: 0px; left: 505px; width: 237px; height: 27px; }
+#creation_steps #step_nav .num { position: relative; top: 3px; left: 10px; display: inline; }
+#creation_steps #step_nav .text { position: relative; top: 2px; left: 20px; display: inline; }
+#creation_steps #info { position: absolute; top: 34px; left: 4px; width: 740px; height: 92px; border: solid 1px #c2c2c2; }
+#creation_steps #info #format { position: absolute; top: 7px; left: 9px; width: 715px; height: 75px; }
+
+#creation_steps #invite_friends { display: block; position: relative; top: 16px; left: 0px; width: 730px; border-top: dotted 1px #E7E7E7; margin-top: -13px; }
+#creation_steps #postbadge { display: block; position: relative; top: 11px; left: 0px; width: 730px; height: 59px; border-top: dotted 1px #E7E7E7; margin-top: -13px; padding-bottom: 28px; }
+#help_step1 { position: absolute; top: 44px; left: -226px; z-index: 3; } 
+#help_step2 { position: absolute; top: 100px; left: 390px; z-index: 3; } 
+
+#forgot_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: 276px; }
+#forgot_content .width {width: 518px; }
+#forgot_content .height { height: 244px;}
+#forgot { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 244px; }
+#forgot #title { position: absolute; top: 1px; left: 0px; width: 518px; height: 42px; background: url(../images/bg_title_lrg.gif);  }
+#forgot #title span { position: absolute; top: 11px; left: 21px; width: 400px; height: 16px; }
+#forgot #mobile_title { position: absolute; top: 55px; left: 21px; width: 151px; height: 14px; }
+#forgot #mobile_input { position: absolute; top: 53px; left: 147px; width: 200px; height: 18px; }
+#forgot #verify_image { position: absolute; top: 86px; left: 148px; }
+#forgot #verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#forgot #verify_info { position: absolute; top: 151px; left: 150px; }
+#forgot #verify_input { position: absolute; top: 184px; left: 147px; }
+#forgot #send { position: absolute; top: 214px; left: 148px; width: 41px; height: 16px; background: url(../images/text_button_send_on.gif) no-repeat; }
+
+#change_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: 276px; }
+#change_content .width {width: 518px; }
+#change_content .height { height: 244px;}
+#change { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 244px; }
+#change #title { position: absolute; top: 0px; left: 0px; width: 518px; height: 43px; background: url(../images/bg_title.gif);  }
+#change #title span { position: absolute; top: 11px; left: 21px; width: 400px; height: 16px; }
+#change #mobile_title { position: absolute; top: 55px; left: 21px; width: 151px; height: 14px; }
+#change #mobile_input { position: absolute; top: 53px; left: 147px; width: 200px; height: 18px; }
+#change #verify_image { position: absolute; top: 86px; left: 148px; }
+#change #verify_image img { width: 185px; height: 45px; border: solid 1px #9c9c9c; }
+#change #verify_info { position: absolute; top: 151px; left: 150px; }
+#change #verify_input { position: absolute; top: 184px; left: 147px; }
+#change #save { position: absolute; top: 214px; left: 148px; width: 41px; height: 16px; background: url(../images/text_button_save_on.gif) no-repeat; }
+#change #cancel { position: absolute; top: 214px; left: 194px; width: 48px; height: 16px; background: url(../images/text_button_cancel_on.gif) no-repeat; }
+
+#marketing_index_content { display: block; position: relative; top: -10px; left: 0px; width: 782px; height: 147px; margin-bottom: -10px; margin-top: -12px; }
+#marketing_index_content .width {width: 750px; }
+#marketing_index_content .height { height: 115px;}
+#marketing_index { display: block; position: relative; top: 16px; left: 16px; width: 750px; height: 115px; }
+#marketing_index #marketing_banner {position: absolute; top: 10px; left: 10px; width: 732px; height: 94px; background:url(../images/bg_marketing_index.gif);}
+#marketing_index #marketing_banner #marketing_text {position: absolute; top: 23px; left: 23px; width: 675px; height: 50px; }
+//#marketing_index #create_button {position: absolute; top: 66px; left: 490px; width: 217px; height: 29px; }
+#marketing_index #learn_more {position: absolute; top: 78px; left: 654px; width: 77px; height: 13px; }
+
+#login_index { display: block; position: absolute; top: 119px; left: 0px; width: 749px; height: 27px; border: 1px solid #585858; display: inline; }
+#login_index #already_title {position: relative; top: 5px; left: 4px; display: inline; }
+#login_index #login_title {position: relative; top: 4px; left: 4px; display: inline; }
+#login_index #username_title { position: relative; top: 4px; left: 10px; display: inline; }
+#login_index #username_input { position: relative; top: 3px; left: 12px; width: 138px; height: 18px; display: inline; }
+#login_index #password_title { position: relative; top: 4px; left: 18px; display: inline; }
+#login_index #password_input { position: relative; top: 3px; left: 20px; width: 138px; height: 18px; display: inline; }
+#login_index #remember { position: relative; top: 0px; left: 42px; width: 100px; height: 13px; display: inline; }
+#login_index #password_forgot { position: absolute; top: 11px; left: 608px; width: 60px; height: 13px; }
+#login_index #login_button { position: absolute; top: 7px; left: 690px; width: 41px; height: 16px; background: url(../images/text_button_login_on.gif) no-repeat; }
+#login_index #remember .radio { position: relative; top: 1px; left: 0px; width: 10px; height: 10px; margin-left: -16px; }
+
+#visualizer_index_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: 366px; }
+#visualizer_index_content .width {width: 518px; }
+#visualizer_index_content .height { height: 334px;}
+#visualizer_index { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 334px; }
+#visualizer_index #visualizer_title { position: absolute; top: 9px; left: 11px; width: 240px; height: 17px; }
+#visualizer_index #visualizer { position: absolute; top: 30px; left: 3px; width: 512px; height: 300px; z-index: 2;}
+
+#registerlogin_index_content { display: block; position: relative; top: -22px; left: 0px; width: 550px; height: 174px; }
+#registerlogin_index_content .width {width: 518px; }
+#registerlogin_index_content .height { height: 142px;}
+#registerlogin_index { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 142px; }
+#registerlogin_index #register_text { position: absolute; top: 25px; left: 21px; width: 500px; height: 22px; }
+#registerlogin_index #login_text { position: absolute; top: 68px; left: 50px; width: 500px; height: 17px; }
+
+
+
+
+#error_content { display: block; position: relative; top: -22px; left: 0px; width: 782px; height: 132px; padding-bottom: 2px; margin-bottom: 8px; }
+#error_content .width {width: 750px; }
+#error_content .height { height: 100px;}
+#error { display: block; position: relative; top: 16px; left: 16px; width: 750px; height: 100px; border: solid 1px #f00; }
+#error #message { position: absolute; top: 20px; left: 14px; width: 700px; height: 80px; }
+
+
+#popup_post_content { display: none; position: absolute; top: 226px; left: 160px; width: 520px; height: 450px; text-align: left; z-index: 10; }
+#popup_post_content .width {width: 520px; }
+#popup_post_content .height { height: 100%;}
+#popup_post { display: none; position: relative; top: 0px; left: 0px; width: 100%; height: 100%; padding-bottom: 20px; }
+#popup_post #nav { position: relative; top: 2px; left: 2px; width: 99%; height: 21px; background: url(../images/bg_title2.gif); border: solid 1px #bfbfbf; }
+#popup_post #nav #permalink { position: absolute; left: 5px; top: 5px; display: inline; color:#000}
+#popup_post #nav #permalink a { color:#000 }
+#popup_post #nav #post_num { position: relative; top: 6px; left: 4px; display: inline; }
+#popup_post #nav #next_prev { position: relative; top: 6px; left: 8px; display: inline; }
+#popup_post #nav #close { position: absolute; top: 4px; right: 5px; width: 14px; height: 12px; background: url(../images/button_x_on.gif) no-repeat; }
+#popup_post #image { position: relative; top: 0px; left: 0px; }
+#popup_post #image img { margin: 10px; }
+#popup_post #author { position: relative; top: 3px; left: 10px; width: 500px; }
+#popup_post #blurb { position: relative; top: 6px; left: 0px; width: 97%; padding: 5px;}
+#popup_post #date { position: relative; top: 7px; left: 10px; width: 500px; }
+
+#permalink_post_content {position: relative; width: 750px; text-align: center; left: 15px; }
+#permalink_post { position: relative; width: 746px; padding-bottom: 20px; }
+#permalink_post #nav { position: relative; top: 2px; left: 2px; width: 99%; height: 41px; background: url(../images/bg_title2.gif); border: solid 1px #bfbfbf; }
+#permalink_post #nav #blastname {position: relative; top: 2px; }
+#permalink_post #nav #post_num { position: absolute; top: 26px; left: 4px; display: inline; }
+#permalink_post #nav #play_button { position: absolute; right: 5px; top: 23px; display: inline; background: url(../images/play_btn_over.gif) no-repeat;}
+#permalink_post #nav #pause_button { position: absolute; right: 5px; top: 23px; display: none; background: url(../images/pause_btn_over.gif) no-repeat;}
+#permalink_post #nav #next_prev { position: relative; top: 9px; left: 8px; display: inline; }
+#permalink_post #image { position: relative; top: 0px; left: 0px; }
+#permalink_post #image img { margin: 10px; }
+#permalink_post #author { position: relative; top: 3px; left: 10px; width: 97%; }
+#permalink_post #blurb { position: relative; top: 6px; left: 0px; width: 97%; padding: 5px;}
+#permalink_post #date { position: relative; top: 7px; left: 10px; width: 97%; }
+
+#popup_promote_email_content { display: none; position: absolute; top: 500px; left: 200px; width: 299px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 5; }
+#popup_promote_email_content .width {width: 267px; }
+#popup_promote_email_content .height { height: 100%;}
+#popup_promote_email { display: block; position: relative; top: 0px; left: 16px; width: 267px; padding-bottom: 7px; }
+#popup_promote_email #popup_promote_title { position: relative; top: 2px; left: 2px; width: 260px; height: 21px; background: url(../images/bg_title2.gif); border: solid 1px #bfbfbf; }
+#popup_promote_email #title span { position: relative; top: 3px; left: 4px; }
+#popup_promote_email #emails { position: relative; top: 7px; left: 10px; width: 260px; }
+#popup_promote_email #blurb { position: relative; top: 6px; left: 10px; width: 260px; margin-top: 12px; }
+#popup_promote_email #send_more { position: relative; top: 12px; left: 8px; width: 68px; height: 16px; background: url(../images/text_button_sendmore_on.gif) no-repeat; }
+#popup_promote_email #go_to_blast { position: relative; top: -4px; left: 87px; width: 97px; height: 16px; background: url(../images/text_button_gotoblast_on.gif) no-repeat;}
+
+#popup_login_addmessage_content { display: none; position: absolute; top: 360px; left: 215px; width: 300px; height: 300px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 3; background-color: #FFFFFF; }
+#popup_login_addmessage_content .width {width: 300px; }
+#popup_login_addmessage_content .height { height: 100%;}
+#popup_login_addmessage { display: block; position: absolute; top: 0px; left: 0px; width: 300px; height: 300px; padding-bottom: 0px; background-color: #FFF; }
+#popup_login_addmessage #title { position: absolute; top: 0px; left: 0px; width: 100%; height: 21px; background: #4a4a4a; color: #fff; }
+#popup_login_addmessage #title span { position: absolute; top: 0px; left: 4px; }
+#popup_login_addmessage #username_title { position: absolute; top: 33px; left: 9px; }
+#popup_login_addmessage #username_info { position: absolute; top: 50px; left: 9px; }
+#popup_login_addmessage #register { position: absolute; top: 73px; left: 10px; height: 20px; width: 200px; text-align: left; }
+#popup_login_addmessage #password_title { position: absolute; top: 102px; left: 10px; }
+#popup_login_addmessage #password_sub { position: absolute; top: 106px; left: 10px; }
+#popup_login_addmessage #password_info { position: absolute; top: 119px; left: 9px; }
+#popup_login_addmessage #forgot { position: absolute; top: 141px; left: 10px; width: 200px; height: 13px; text-align: left; }
+#popup_login_addmessage #continue { position: absolute; top: 167px; left: 9px; width: 58px; height: 16px; background: url(../images/text_button_continue_on.gif) no-repeat; }
+#popup_login_addmessage #cancel { position: absolute; top: 167px; left: 71px; width: 48px; height: 16px; background: url(../images/text_button_cancel_on.gif) no-repeat; }
+#popup_login_addmessage #sms {text-align: left; position: absolute; top: 195px; left: 7px; width: 292px; line-height: 10px; }
+
+#popup_login_phone {display:none; position: absolute; top: 16px; left: 16px; width: 300px; height: 220px; padding-bottom: 0px; border: 5px solid #4a4a4a; text-align: left; z-index: 3;}
+#popup_login_phone #phone_title { position: absolute; top: 0px; left: 0px; width: 300px; height: 21px; background: #4a4a4a; color: #fff; }
+#popup_login_phone #phone_info { position: absolute; top: 30px; left: 9px; width: 220px; }
+#popup_login_phone #phone_title2 { position: absolute; top: 93px; left: 9px; }
+#popup_login_phone #phone_input { position: absolute; top: 110px; left: 9px; }
+#popup_login_phone #screen_name_title { position: absolute; top: 140px; left: 9px; }
+#popup_login_phone #screen_name_input { position: absolute; top: 157px; left: 9px; }
+#popup_login_phone #phone_continue {position: absolute; top: 196px; left: 9px; width: 58px; height: 16px; background: url(../images/text_button_continue_on.gif) no-repeat; }
+
+#popup_register_nophone_content { display: none; position: absolute; top: 223px; left: 119px; width: 532px; height: 240px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 3; }
+#popup_register_nophone_content .width {width: 500px; }
+#popup_register_nophone_content .height { height: 208px;}
+#popup_register_nophone { display: block; position: absolute; top: 16px; left: 16px; width: 500px; height: 208px; padding-bottom: 0px; }
+#popup_register_nophone #popup_reg_title { position: absolute; top: 2px; left: 2px; width: 494px; height: 21px; background: url(../images/bg_title2.gif); border: solid 1px #bfbfbf; }
+#popup_register_nophone #title span { position: absolute; top: 4px; left: 4px; width: 490px; height: 15px; }
+#popup_register_nophone #info_title { position: absolute; top: 34px; left: 9px; width: 480px; height: 13px; }
+#popup_register_nophone #info_info { position: absolute; top: 47px; left: 9px; width: 480px; height: 57px; }
+#popup_register_nophone #phone_title { position: absolute; top: 119px; left: 9px; width: 480px; height: 15px; }
+#popup_register_nophone #phone_yes { position: absolute; top: 138px; left: 9px; width: 480px; height: 20px; }
+#popup_register_nophone #phone_no { position: absolute; top: 159px; left: 9px; width: 480px; height: 15px; }
+#popup_register_nophone #popup_reg_continue { position: absolute; top: 181px; left: 9px; width: 58px; height: 16px; background: url(../images/text_button_continue_on.gif) no-repeat; }
+
+#popup_follow_content { display: none; position: absolute; top: 283px; left: 40px; width: 282px; height: 132px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 3; }
+#popup_follow_content .width {width: 250px; }
+#popup_follow_content .height { height: 100px;}
+#popup_follow { display: block; position: absolute; top: 16px; left: 16px; width: 250px; height: 100px; padding-bottom: 0px; }
+#popup_follow #popup_follow_title { position: absolute; top: 2px; left: 2px; width: 244px; height: 21px; background: url(../images/bg_title2.gif); border: solid 1px #bfbfbf; }
+#popup_follow #title span { position: absolute; top: 4px; left: 4px; width: 240px; height: 15px; }
+#popup_follow #popup_follow_info { position: absolute; top: 37px; left: 9px; width: 230px; }
+#popup_follow #popup_follow_continue { position: absolute; top: 79px; left: 9px; width: 58px; height: 16px; background: url(../images/text_button_continue_on.gif) no-repeat; }
+
+#popup_delete_content { position: absolute; top: 283px; left: -240px; width: 282px; height: 132px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 3; }
+#popup_delete_content .width {width: 250px; }
+#popup_delete_content .height { height: 100px;}
+#popup_delete_content2 { position: relative; top: -200px; left: 0px; width: 282px; height: 132px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 3; }
+#popup_delete_content2 .width {width: 250px; }
+#popup_delete_content2 .height { height: 100px;}
+.popup_delete_post_content { position: absolute; top: -30px; left: 0px; width: 282px; height: 132px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 6; }
+.popup_delete_post_content .width {width: 250px; }
+.popup_delete_post_content .height { height: 100px;}
+.popup_delete_post_content2 { position: relative; top: -80px; left: 30px; width: 282px; height: 132px; padding-bottom: 0px; text-align: left; filter:alpha(opacity=100); opacity: 1; -moz-opacity:1; z-index: 6; }
+.popup_delete_post_content2 .width {width: 250px; }
+.popup_delete_post_content2 .height { height: 100px;}
+.popup_delete { display: block; position: absolute; top: 16px; left: 16px; width: 250px; height: 100px; padding-bottom: 0px; }
+.popup_delete .popup_delete_title { position: absolute; top: 2px; left: 2px; width: 244px; height: 21px; background: url(../images/bg_title2.gif); border: solid 1px #bfbfbf; }
+.popup_delete .popup_delete_title span { position: absolute; top: 4px; left: 4px; width: 240px; height: 15px; }
+.popup_delete .popup_delete_info { position: absolute; top: 37px; left: 9px; width: 230px; }
+.popup_delete .popup_delete_continue { position: absolute; top: 79px; left: 9px; width: 58px; height: 16px; background: url(../images/text_button_continue_on.gif) no-repeat; }
+.popup_delete .cancel { position: absolute; top: 79px; left: 77px; width: 48px; height: 16px; background: url(../images/text_button_cancel_on.gif) no-repeat; }
+
+#addmessage_popup_help {display: none; position: absolute; bottom: 0px; left: 180px; z-index: 6; } 
+#addmessage_popup_help2 {display: none; position: absolute; top: 805px; left: 690px; z-index: 6;}  
+#account_popup_help {display: none; position: absolute; top: 465px; left: 138px; z-index: 6; } 
+/* COLOR BACKGROUND SET TO WHITE HERE */
+.popup_help { width: 248px; border: solid 2px #0C8AFF; background: #fff; }
+.popup_help .arrow { position: absolute; top: 53px; left: -8px; width: 10px; height: 16px; background: url(../images/divider_help_arrow.gif) no-repeat; z-index: 1; }
+.popup_help .popup_title {position: absolute; top: 9px; left: 13px; width: 212px; height: 13px; }
+.popup_help .close { position: absolute; top: 5px; left: 232px; width: 14px; height: 12px; background: url(../images/button_x_on.gif) no-repeat; }
+.popup_help .popup_info {position: absolute; top: 28px; left: 13px; width: 222px; height: 70px; }
+
+#flag {position: absolute; display: none; top: 0px; left: 0px; width: 220px; height: 56px; background: url(../images/flag_popup_box.gif); }
+#flag #flag_content {position: relative; top: 0px; left: 8px; padding: 8px;}
+#flag #flag_content #message {position: relative; top: 0px; left: 0px; }
+#flag #flag_content #buttons {position: relative; top: 8px; left: 8px; width: 204px; }
+#flag #flag_content #buttons #b_flag {position: absolute; display: block; top: 0px; left: 5px; background: url(../images/text_button_flag_on.gif) no-repeat; width: 35px; height: 16px;}
+#flag #flag_content #buttons #b_cancel {position: absolute; display: block; top: 0px; left: 50px; background: url(../images/text_button_cancel_on.gif) no-repeat; width: 48px; height: 16px;}
+
+#no_profile {position: absolute; display: none; top: 0px; left: 0px; width: 220px; height: 56px; background: url(../images/flag_popup_box.gif); }
+#no_profile #no_profile_content {position: relative; top: 0px; left: 8px; padding: 8px;}
+#no_profile #no_profile_content #message {position: relative; top: 0px; left: 0px; }
+#no_profile #no_profile_content #buttons {position: relative; top: 8px; left: 8px; width: 204px; }
+#no_profile #no_profile_content #buttons #b_cancel {position: absolute; display: block; top: 0px; left: 50px; background: url(../images/text_button_done_on.gif) no-repeat; width: 48px; height: 16px;}
+
+
+
+/* THOMAS */
+#blast_list { display: block; position: relative; top: 16px; left: 16px; width: 518px; padding-bottom: 0px; height: auto; }
+#blast_list #bf_main_info { position: relative; top: 0px; left: 0px; width: 518px; height: 35px; }
+#blast_list #bf_main_info #bf_profile_nav { position: relative; top: 0px; left: 10px; width: 497px; height: 26px;  border-bottom: dotted 1px #d4d4d4; padding: 0px 0px 2px 0px; }
+#blast_list #bf_main_info #bf_profile_nav #user_blasts, #user_me, #user_mob { position: relative; top: 10px; left: 0px; height: 13px; margin-right: 15px; display: inline; }
+#blast_list #bf_main_info #bf_profile_nav #bf_title { position: relative; top: 30px; left: 8px; width: 496px; padding: 0px 0px 0px 8px;}
+#blast_list #bf_title { position: relative; top: 0px; left: 10px; width: 497px; height: auto; padding: 0px 0px 0px 0px; }
+#blast_list #bf_blasts_items { position: relative; top: 20px; left: 0px; width: 496px; height: auto; padding: 0px 8px 8px 8px; }
+#blast_list #bf_blasts_items #items_header #items_title { position: relative; top: 0px; left: 0px; width: 496px; height: auto; }
+#blast_list #bf_blasts_mob_items { position: relative; top: 0px; left: 0px; width: 496px; height: auto; padding: 0px 0px 0px 8px; }
+#blast_list #bf_blasts_mob_items #items_header #owner_right { position: relative; top: 0px; left: 0px; width: 100%; height: auto; padding: 0px 0px 10px 0px; }
+#blast_list #bf_blasts_mob_items #items_header #owner_right #items_title, #edit_alerts {position: relative; top: 5px; display: inline; margin-right: 8px; }
+#blast_list #bf_blasts_mob_items #items_header #owner_right #edit_alerts {display: none;}
+#blast_list #bf_blasts_mob_items #items_header #items_scroller { position: absolute; top: 10px; left: 270px; width: 100%; height: auto; }
+#blast_list #bf_blasts_mob_items #item .stars_n_actions { position: absolute; right: 0px; top: 0px; width: 150px; padding: 0px 0px 0px 8px; }
+
+.text_infor { position: relative; height: auto; width: auto; top: -8px; padding: 0px 8px 0px 0px; }
+.text_infor .owner_n_time {position: relative; width: auto; left: 48px; top: 0px;}
+.text_infor .owner_right { position: relative; display: inline; width: auto; height: auto; top: 0px; padding: 0px 0px 0px 0px; }
+.text_infor .owner_right .bf_join_who, .bf_delete { position: relative; height: 15px; top: 0px; display: inline; margin-right: 8px; padding: 8px 0px 0px 0px; text-align: center;}
+.text_infor .owner_right .bf_delete { display: none; }
+.text_infor .bf_join_latest { position: relative; width:360px; height: 30px; top: 10px; left: 10px; padding: 0px 8px 0px 0px; overflow: hidden; }
+.text_infor .owner_n_time {position: relative; top: 10px; left: 0px, margin-top: 10px; }
+.text_infor .bf_join_time{ position: relative; display: inline; width: 360px; height: auto; top: 0px; padding: 0px 0px 0px 0px; }
+
+#blast_list_nophone { display: none; position: relative; top: 16px; left: 16px; width: 518px; height: auto; padding-bottom: 20px; }
+#blast_list_nophone #bf_main_info_nophone { position: relative; top: 0px; left: 0px; width: 518px; height: 35px; }
+#blast_list_nophone #bf_main_info_nophone #bf_profile_nav_nophone { position: relative; top: 0px; left: 10px; width: 497px; height: 26px;  border-bottom: dotted 1px #d4d4d4; padding: 0px 0px 2px 0px; }
+#blast_list_nophone #bf_main_info_nophone #bf_profile_nav_nophone #user_blasts_nophone, #user_mob_nophone { position: relative; top: 10px; left: 0px; height: 13px; margin-right: 15px; display: inline; }
+#blast_list_nophone #left_phone { position: absolute; display: inline; margin-right: 8px; width: 100px; height: auto; left: 10px; top: 38px; vertical-align: top;}
+#blast_list_nophone #right_phone_infor { position: relative; left: 110px;  width: 378px; height: auto; right: 0px; top: 0px; padding: 8px; vertical-align: top;}
+#blast_list_nophone #right_phone_infor #p_text {position: relative; top: 0px; width: 100%; height: auto; }
+#blast_list_nophone #right_phone_infor #number_input_c {position: relative; top: 10px; width: 100%; height: auto; }
+#blast_list_nophone #right_phone_infor #number_input_c #number_label {position: relative; top: 0px; width: 100%; height: auto;}
+#blast_list_nophone #right_phone_infor #number_input_c #number_input {position: relative; display: inline; top: 8px; width: 100%; height: auto; }
+#blast_list_nophone #right_phone_infor #number_input_c #number_input #number_input_text {position: relative; display: inline; margin-right: 8px; left: 0px; top: 0px; height: auto; }
+#blast_list_nophone #right_phone_infor #number_input_c #number_input #number_input_button {position: relative; display: inline; margin-right: 0px; right: 0px; top: 0px; height: auto; }
+#blast_list_nophone #right_phone_infor #line_dummy {position: relative; display: block; width: 100%; height: 1px; top: 20px; padding: 10px 10px 10px 0px; }
+#blast_list_nophone #right_phone_infor #line_dummy #line {position: relative; width: 100%; height: 1px;  border-bottom: dotted 1px #d4d4d4; padding: 0px; }
+#blast_list_nophone #right_phone_infor #no_phone_text {position: relative; width: 100%; height: auto; top: 10px; padding: 8px 8px 10px 0px; }
+#blast_list_nophone #right_phone_infor #search_blast_c {position: relative; top: 8px; width: 100%; height: auto; }
+#blast_list_nophone #right_phone_infor #search_blast_c #search_label {position: relative; top: 0px; left: 0px; width: 100%; height: auto; }
+#blast_list_nophone #right_phone_infor #search_blast_c #search_select {position: relative; top: 8px; width: 100%; height: auto; left: 0px;}
+#blast_list_nophone #right_phone_infor #search_blast_c #search_select #search_select_label, #search_radio_blasts, #search_radio_friends {position: relative; display: inline; margin-right: 8px; top: 0px; width: auto; height: auto; }
+#blast_list_nophone #right_phone_infor #search_blast_c #search_input {position: relative; top: 10px; width: 100%; height: auto; }
+#blast_list_nophone #right_phone_infor #search_blast_c #search_input #search_input_text, #search_input_button {position: relative; display: inline; top: 0px; height: auto; margin-right: 8px; }
+
+#items_header { position: relative; top: 0px; left: 0px; width: 100%; height: auto; padding: 0px 12px 0px 0px;}
+.items_scroller { position: relative; top: 8px; left: 0px; text-align: right; width: 485px; height: 26px; }
+.items_scroller .pages {position: relative; display: inline; top: 0px; left: 0px; height: auto; padding: 0px 8px 0px 0px; }
+.items_scroller .pn {position: relative; display: inline; top: 0px; left: 0px; height: auto; }
+
+.feablasts_item { position: relative; top: 0px; width: 496px; height: 20px; padding: 0px 0px 0px 0px; margin-bottom: 3px; }
+.feablasts_item .blast_data { position: relative; left: 0px; top: 0px; width: auto; height: 20px; padding: 0px 0px 0px 0px;}
+.feablasts_item .blast_data #blast_name {position: relative; display: inline; padding: 0px 0px 0px 0px; }
+.feablasts_item .blast_data .blast_nums {position: relative; left: 0px; top: 2px; padding: 3px 0px 0px 0px; }
+.feablasts_item .stars_n_actions { position: absolute; display: inline; right: 0px; top: 0px; width: 210px; padding: 0px 0px 0px 8px; }
+.feablasts_item .stars_n_actions .blast_stars {position: absolute;  display: inline; top: 0px; right: 0px; width: 100px; padding: 5px 0px 5px 0px; }
+.feablasts_item .stars_n_actions .items_actions {position: absolute; display: none;  top: 0px; right: 0px; width: auto; padding: 5px 8px 8px 0px; }
+.feablasts_item .stars_n_actions .items_actions .b_feature {position: relative; display: inline; margin-right: 8px; }
+.feablasts_item .stars_n_actions .items_actions .b_delete {position: relative; display: inline; margin-right: 0px; }
+.feablasts_item .stars_n_actions .b_remove {position: relative; top: 4px; }
+
+#featured_mob_mainboard {position: relative; top: 10px; left: 10px; height: 300px; background: url(../images/mod_item_pictures.jpg) no-repeat; }
+#featured_blast { display: block; position: relative; top: 20px; left: 16px; width: 518px; padding-bottom: 20px; height: auto; }
+#featured_blast2 { display: block; position: relative; top: 20px; left: 16px; width: 518px; height: auto; padding-bottom: 0px; }
+#fea_join { position: relative; top: 5px; left: 8px; width: 496px; height: auto; border: solid 1px #bfbfbf;  background: url(../images/bg_featuredblast.png) #FDFDE3 repeat-x; }
+#fea_join #items_header { position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 0px 8px 0px 5px; background: url(../images/bg_title2.gif); }
+#fea_join #fea_title { position: relative; top: 5px; left: 8px; width: 480px; height: auto; }
+#fea_join #fea_join_hint { position: relative; top: 3px; left: 8px; width: 480px; height: auto; padding: 0px 0px 0px 0px; border-bottom: dotted 1px #d4d4d4; }
+#fea_join #fea_contents {position: relative; display: block; top: 8px; width: 100%; height: auto; padding: 0px 0px 8px 0px; }
+#fea_join #fea_contents #fea_text {position: relative; display: block; left: 0px; width: 50%; height: 160px; z-index: 5; }
+#fea_join #fea_contents #fea_image {position: absolute; display: block; float: right; top: 5px; right: 10px; width: 45%; height: 150px; padding: 0px 8px 10px 0px; text-align: right; vertical-align: top; }
+#fea_join #fea_contents #fea_text #fea_desc{ position: relative; top: 0px; height: auto; width: auto; padding: 0px 0px 0px 8px; }
+#fea_join #fea_contents #fea_text #fea_latest_header{ position: relative;  left: 8px; height: 19px; width: auto; top: 0px; padding: 8px 0px 0px 0px; border-bottom: dotted 1px #d4d4d4; }
+#fea_join #fea_contents #bf_join_latest {position: relative; width: 100%; display: block; height: 85px; overflow: hidden;}
+#fea_join #fea_contents #bf_join_time {position: relative; }
+#fea_join #fea_join_infor{ position: relative; width: 496px; height: 28px; top: 5px; padding: 0px 0px 0px 0px; border-top: dotted 1px #d4d4d4; }
+#fea_join #fea_join_infor #item .stars_n_actions .blast_stars {position: absolute;  display: inline; top: 0px; right: 0px; width: 100px; padding: 5px 0px 8px 0px; }
+#fea_blasts_items { position: relative; display: block; top: 0px; left: 0px; width: 496px; height: auto; padding: 0px 0px 0px 0px; }
+/* BACKGROUND COLOR SET HERE */
+#sort_order { position: relative; top: 8px; left: 0px; width: 488px; height: auto; border: solid 1px #bfbfbf; background: #f5f5f5; padding: 1px 0px 1px 8px; }
+#sort_order #label, #rating-option, #popularity, #last_update {position: relative; display: inline; margin-right: 8px; color: #0C8AFF;}
+#fea_blasts_items #items_header {top: 8px; }
+#fea_blasts_items .feablasts_item { position: relative; top: 8px; width: 496px; height: auto; padding: 8px 0px 0px 0px; border-left: solid 1px #bfbfbf; border-right: solid 1px #bfbfbf; border-bottom: solid 1px #bfbfbf;}
+#fea_blasts_items .feablasts_item .fea_last_msg {position: relative; display: block; top: 8px; padding: 0px 0px 0px 8px; height: 100px;}
+#fea_blasts_items .feablasts_item .last_image {position: absolute; display: block; top: 0px; right: 10px; }
+#fea_blasts_items .fea_item_footer {position: relative; display: block; top: 0px; height: 20px; padding: 0px 0px 8px 0px; border-top: dotted 1px #d4d4d4;}
+#fea_blasts_items .feablasts_item .fea_last_msg .fea_say { position: relative;  height: auto; width: auto; top: 0px;  padding: 0px 8px 0px 0px; }
+#fea_blasts_items .feablasts_item #fea_item_footer .stars_n_actions .blast_stars {position: absolute;  display: inline; top: 0px; right: 0px; width: 100px; padding: 5px 0px 0px 0px; }
+.fea_items_footer {position: relative; top: 0px; width: auto; height: 20px; padding: 0px 0px 5px 5px; border-top: dotted 1px #bfbfbf;}
+#featured_blast #blasts_search_result { position: relative; display: none; top: 5px; left: 0px; width: 496px; }
+#featured_blast #blasts_search_result #blasts_search_title {position: relative; display: block; top: 8px; left: 0px; width: auto; height: auto; padding: 0px 0px 0px 8px; }
+/* SOME BACKGROUND COLORS SET HERE */
+#featured_blast #blasts_search_result #fea_join { background: #004c97; color: #ffffff; }
+#featured_blast #blasts_search_result .eleven {color: #fff;}
+#featured_blast #blasts_search_result .twelve {color: #fff;}
+#featured_blast #blasts_search_result #fea_contents a.link {color: #fbb901;}
+#featured_blast #fea_user_search { position: relative; display: block; top: 0px; left: 0px; width: 496px; height: auto; padding: 8px 0px 0px 8px; }
+#fea_user_search #sort_order {top: 0px; }
+#featured_blast #fea_user_search #item { position: relative; top: 0px; width: 488px; height: 75px; padding: 8px; }
+#featured_blast #fea_user_search #item #user_search_content {position: relative; display: block; top: 0px; left: 0px; width: auto; height: auto; padding: 8px; }
+#featured_blast #fea_user_search #item #user_search_content #user_icon {position: relative; width: auto; height: auto; left: 0px; top: 0px; }
+#featured_blast #fea_user_search #item #user_search_content #search_user_infor {position: absolute; display: block; left: 64px; top: 0px; }
+#featured_blast #fea_user_search #item #user_search_content #search_user_infor #s_user_name { position: relative; top: 8px; }
+#featured_blast #fea_user_search #item #user_search_content #search_user_infor #s_address { position: relative; top: 8px; }
+#featured_blast #fea_user_search #item #user_search_content #search_user_infor #s_numbers { position: relative; top: 8px; }
+
+.fea_say { position: relative;  height: auto; width: auto; top: 8px;  padding: 0px 8px 0px 8px; }
+
+
+#author_poptags #poptags_content{ margin-top: 16px; }
+#permenant_poptags #poptags_content{ margin-top: 16px; }
+#tagsearch_poptags #poptags_content{ margin-top: 20px; }
+#poptags_content{ display: block; position: relative; top: 0px; left: 16px; width: 254px; padding-bottom: 10px; }
+#poptags_content .width {width: 222px; }
+#poptags_content .height { height: 100%;}
+#poptags_content #poptags { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 100%;}
+#poptags_content #poptags #poptags_body {position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 2px 8px 8px 8px; }
+#poptags_content #poptags #poptags_body #poptags_title {position: relative; top: 0px; left: 0px; width: auto; padding: 8px 0px 0px 0px; }
+#poptags_content #poptags #poptags_body #poptags_tags {position: relative; top: 0px; left: 0px; display: block; width: 206px; word-spacing: 5px; height: auto;}
+
+#poptags_index_content{ display: block; position: relative; top: -13px; left: 14px; width: 254px; height: 256px; padding-bottom: 10px; }
+#poptags_index_content .width {width: 222px; }
+#poptags_index_content .height { height: 224px;}
+#poptags_index_content #poptags { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 224px; overflow: hidden; }
+#poptags_index_content #poptags #poptags_body {position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 2px 8px 8px 8px; }
+#poptags_index_content #poptags #poptags_body #poptags_title {position: relative; top: 0px; left: 0px; width: auto; padding: 8px 0px 0px 0px; }
+#poptags_index_content #poptags #poptags_body #poptags_tags {position: relative; top: 0px; left: 0px; display: block; width: auto; word-spacing: 5px; }
+
+
+#mob_members_content{ display: block; position: relative; top: 16px; left: 16px; width: 254px; height: 227px; margin-bottom: -4px; }
+#mob_members_content .width {width: 222px; }
+#mob_members_content .height { height: 195px;}
+#mob_members { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 195px;}
+
+#members_content{ display: block; position: relative; top: 16px; left: 14px; width: 254px; height: 281px; padding-bottom: 10px; }
+#members_content .width {width: 222px; }
+#members_content .height { height: 249px;}
+#members { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 249px;}
+#followers {position: relative; top: 0px; left: 0px; padding: 8px; width: 222; height: auto; }
+
+#headshot #followers_header {position: relative; top: 5px; left: 5px; width: 200px; height: auto; }
+#headshot #view_data {position: relative; display: inline; top: 0px; left: 5px; width: 200px; height: auto; }
+#headshot #one_row {position: relative; top: 2px; width: 200px; height: 72px; }
+#headshot #one_row #follower_item1,#follower_item2, #follower_item3 {position: absolute; display: inline; width: 74px; text-align: center; }
+#headshot #one_row #follower_item1 {left: 0px; top: 5px; }
+#headshot #one_row #follower_item2 {left: 33%; top: 5px; }
+#headshot #one_row #follower_item3 {left: 66%; top: 5px; }
+#headshot #follower_pic {position: relative; top: 0px; left: 0px; height: 48px; }
+#headshot #follower_name {position: relative; top: 0px; left: 0px; }
+
+
+#browse_content{ display: block; position: relative; top: 0px; left: 16px; width: 254px; padding-bottom: 10px; }
+#browse_content .width {width: 222px; }
+#browse_content .height { height: 100%;}
+#browse_content #browse { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 100%; }
+#browse_content #browse #browse_tags {position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 8px; }
+
+#profileme_follow #follow_content { position: relative; top: 24px; left: 16px; }
+#blast_follow #follow_content { position: relative; top: 26px; left: 16px; margin-bottom: 30px; }
+#follow_content { display: block; position: relative; top: 0px; left: 16px; width: 254px; padding-bottom: 10px; }
+#follow_content .width {width: 222px; }
+#follow_content .height { height: 100%;}
+#follow_content #follow { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 100%; }
+
+
+#blastlist_content{ display: block; position: relative; top: 0px; left: 16px; width: 254px; padding-bottom: 10px; }
+#blastlist_content .width {width: 222px; }
+#blastlist_content .height { height: 100%;}
+#blastlist_content #blastlist { display: block; position: relative; top: 0px; left: 0px; width: 222px; height: 100%; }
+
+
+#fea_search {position: relative; top: 0px; left: 0px; width: auto; height: auto; padding: 8px; }
+#fea_search #fea_search_header {position: relative; top: 0px; left: 0px; width: auto; padding: 8px 0px 0px 0px; }
+#fea_search #search_by {position: relative; top: 0px; left: 0px; width: auto; padding: 0px 0px 0px 0px; }
+#fea_search #search_by #label, #radio_blasts, #radio_users {position: relative; display: inline; margin-right: 5px; top: 0px; left: 0px; width: 100%;}
+#fea_search #fea_search_text {position: relative; top: 0px; left: 0px; width: auto; padding: 8px 0px 0px 0px;}
+#fea_search #fea_search_button {position: relative; top: 0px; left: 0px; width: auto; padding: 8px 0px 0px 0px;}
+#fea_search #fea_tags {position: relative; top: 0px; left: 0px; display: block; width: auto; word-spacing: 5px; }
+#fea_search #fea_categories {position: relative; top: 0px; left: 0px; display: block; width: auto; }
+#fea_search #fea_categories .fea_cat_item {position: relative; display: block; left: 0px; top: 0px; width: auto; padding: 5px 0px 0px 0px; }
+#fea_search #fea_categories #line_by_border {position: relative; left: 0px; top: 5px; width: auto; height: 1px; padding: 5px 0px 0px 0px; border-top: dotted 1px #c7c7c7;}
+
+#seach_blast_name {display: none; }
+
+
+#featured_content { display: block; position: relative; top: -4px; left: 0px; width: 550px; height: 100%; }
+#featured_content .width {width: 518px; }
+#featured_content .height { height: 100%;}
+
+#mainboard {position: relative; display: block; top: 15px; left: 10px; height: 297px; width: 530px; background: url(../images/bg_searchboard.png) no-repeat; }
+#mainboard .width {width: 531px; }
+#mainboard .height { height: 100%;}
+/* BACKGROUND COLOR SET HERE */
+#mainboard #mainboard_header {position: relative; top: 8px; left: 25px; background: #e5f3fe; width: 496px; height: 18px; padding: 2px 0px 0px 0px; }
+#mainboard #random_blasts { position: relative; display: block; top: 10px; left: 30px; height: 225px; width: 490px; padding: 3px 0px 0px 0px; }
+#mainboard #random_blasts #blasts_item1 {position: absolute; top: 10px; left: 210px; z-index: 1; }
+#mainboard #random_blasts #blasts_item2 {position: absolute; top: 60px; left: 300px; z-index: 1;}
+#mainboard #random_blasts #blasts_item3 {position: absolute; top: 10px; right: 5px; z-index: 1;}
+#mainboard #random_blasts #blasts_item4 {position: absolute; top: 130px; left: 10px; z-index: 1;}
+#mainboard #random_blasts #blasts_item5 {position: absolute; top: 120px; left: 165px; z-index: 1;}
+#mainboard #random_blasts #blasts_item6 {position: absolute; top: 80px; left: 90px; z-index: 1;}
+#mainboard #random_blasts #blasts_item7 {position: absolute; top: 130px; right: 15px; z-index: 1;}
+#mainboard #random_blasts #blasts_item8 {position: absolute; top: 10px; left: 5px; z-index: 1;}
+#mainboard #random_blasts #blasts_item9 {position: absolute; top: 140px; left: 285px; z-index: 1;}
+#mainboard #random_blasts .blasts_icon {position: relative; top: 0px; left: 0px; height: auto; width: auto; z-index: inherit; }
+#mainboard #random_blasts .blasts_icon img { filter:alpha(opacity=50); opacity: 0.5; -moz-opacity:0.5; }
+#mainboard #random_blasts .blasts_icon a { position: relative; display:block; text-align: center; text-decoration: none; font: bold 16px arial, sans-serif; color: #000; top: 0px; left: 0px; width: 140px; height: 45px; filter:alpha(opacity=50); opacity: 0.5; -moz-opacity:0.5;  padding: 3px 0px 0px 2px; }
+#mainboard #random_blasts .blasts_message {position: absolute; display: none; top:-90px; left: 20px; height: 90px; width: 127px; background: url(../images/text_bubble3.png) no-repeat; background-color: transparent; padding: 3px 0px 0px 7px; }
+#mainboard #random_blasts .blasts_message .person {position: relative; top: 0px; left: 0px;}
+#mainboard #random_blasts .blasts_message .message {position: relative; display: block; top: 0px; left: 0px; height: 30px; width: 125px; overflow: hidden; }
+#mainboard #random_blasts .blasts_message .time {position: relative; top: 0px; left: 0px;}
+#mainboard #random_blasts .blasts_message .time_stamp {position: relative; display: none; top: 0px; left: 0px;}
+#mainboard #mainboard_footer {position: relative; top: 15px; left: 7px; width: 510px; height:19px; padding: 5px 0px 0px 8px; background: url(../images/bg_searchboard_footer.jpg); border-top: dotted 1px #d4d4d4; border-bottom: dotted 1px #d4d4d4; }
+
+#mainboard #random_blasts #blasts_item10 {display: none; position: absolute; top: 10px; left: 210px; z-index: 1; }
+#mainboard #random_blasts #blasts_item11 {display: none; position: absolute; top: 60px; left: 300px; z-index: 1;}
+#mainboard #random_blasts #blasts_item12 {display: none; position: absolute; top: 10px; right: 5px; z-index: 1;}
+#mainboard #random_blasts #blasts_item13 {display: none; position: absolute; top: 130px; left: 10px; z-index: 1;}
+#mainboard #random_blasts #blasts_item14 {display: none; position: absolute; top: 120px; left: 165px; z-index: 1;}
+#mainboard #random_blasts #blasts_item15 {display: none; position: absolute; top: 80px; left: 90px; z-index: 1;}
+#mainboard #random_blasts #blasts_item16 {display: none; position: absolute; top: 130px; right: 15px; z-index: 1;}
+#mainboard #random_blasts #blasts_item17 {display: none; position: absolute; top: 10px; left: 5px; z-index: 1;}
+#mainboard #random_blasts #blasts_item18 {display: none; position: absolute; top: 140px; left: 285px; z-index: 1;}
+
+#sticky_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: auto; }
+#sticky_content .width {width: 518px; }
+#sticky_content .height { height: 100%;}
+#sticky_blast {display: block; position: relative; top: 16px; left: 16px; width: 518px; height: auto; }
+#sticky_blast #sticky_header {position: relative; width: auto; height: auto; top: 0px; left: 0px; padding: 8px; }
+#sticky_blast #sticky_header #sticky_blast_name {position: relative; top: 0px; left: 0px; width: auto; height: auto; text-align: left;}
+#sticky_blast #sticky_header #sticky_owner {position: relative; top: 0px; left: 0px; width: auto; height: auto; text-align: left;}
+#sticky_blast #sticky_header #sticky_label {position: relative; top: 0px; left: 0px; width: auto; height: auto; }
+
+#sticky_blast #sticky_header #sticky_label  #messages_nav { position: absolute; top: 7px; left: 150px; width: 206px; height: auto;  }
+#sticky_blast #sticky_header #sticky_label  #messages_nav .page_num { position: relative; top: 0px; left: 6px; width: 90px; height: auto; }
+#sticky_blast #sticky_header #sticky_label  #messages_nav .next_prev { position: relative; top: -16px; left: 98px; width: 134px; height: auto; }
+
+#sticky_blast #sticky_header #sticky_label #s_label {position: relative; top: 0px; left: 0px; height: auto; width: auto; }
+#sticky_blast #sticky_header #sticky_label #s_back {position: absolute; top: 0px; right: 0px; height: auto; width: auto; bottom: 0px; padding: 5px 0px 0px 0px; }
+
+#sticky_blast #bottom_messages_nav { position: relative; top: 7px; left: 150px; width: auto; height: 21px;  padding: 0px 0px 10px 0px;}
+#sticky_blast #bottom_messages_nav .page_num { position: relative; top: 0px; left: 6px; width: 70px; height: auto; }
+#sticky_blast #bottom_messages_nav .next_prev { position: relative; top: -15px; left: 98px; width: 134px; height: auto; }
+
+#sticky_blast #bottom_messages_nav #sticky_bottom_back {position: relative; top: -39px; left: 270px; padding: 8px 8px 0px 0px; }
+
+#sticky_item {position: relative; top: 0px; left: 0px; height: 131px; width: 505px; background: #efefef; color: #000; margin-bottom: 3px; }
+#sticky_item #item_left {position: absolute; left: 0px; top: 0px; height: auto; padding: 8px; }
+#sticky_item #item_right {position: relative; top: 0px; left: 8px; width: 469px; height: auto; padding: 8px; }
+#sticky_item #item_right #item_img {position: relative; top: 0px; left: 0px; float: right; padding: 5px 0px 0px 0px; }
+.regular_text_grey { font: normal 11px arial, san-serif; color: #4a4a4a; }
+
+#followers {position: relative; top: 0px; left: 0px; padding: 8px; width: 222; height: auto; }
+#followers #followers_header {position: relative; top: 0px; left: 5px; width: 200px; height: auto; }
+#followers #view_data {position: relative; display: inline; top: 0px; left: 5px; width: 200px; height: auto; }
+#followers #one_row {position: relative; width: 200px; height: 72px; }
+#followers #one_row #follower_item1,#follower_item2, #follower_item3 {position: absolute; display: inline; width: 74px; text-align: center; }
+#followers #one_row #follower_item1 {left: 0px; top: 5px; }
+#followers #one_row #follower_item2 {left: 33%; top: 5px; }
+#followers #one_row #follower_item3 {left: 66%; top: 5px; }
+#follower_pic {position: relative; top: 0px; left: 0px; }
+#follower_name {position: relative; top: 0px; left: 0px; }
+
+
+a.rate_link {text-decoration: none; background-color: #138fff; color: #fff; padding: 3px;}
+a.rate_link:hover {background: #969696; color: #fff; }
+.thirdteen_bold { font: bold 13px arial, san-serif; color:#000; }
+.myline {border-bottom: solid 1px #e7e7e7; }
+#rating {position: absolute; display: none; top: 10px; left: 115px; width: 220px; height: 180px; background: url(../images/rating-popup_box.gif); }
+#rating #rating_content {position: relative; top: 0px; left: 0px; width: 100%; height: 100%; padding: 10px 10px 8px 18px;}
+#rating #rating_content #your_rate {position: relative; top: 0px; left: 0px; width: 190px; height: 43px; padding: 0px 0px 0px 0px; border: solid red; background: url(../images/bg_title.gif); border: solid 1px #c2c2c2; }
+#rating #rating_content #your_rate #your_rate_cont {position: relative; top: 5px; left: 5px; padding: 0px; width: auto; }
+#rating #rating_content #your_rate #blast_name {display: inline;}
+#rating #rating_content #change_rate {position: relative; top: 10px; left: 0px; width: 190px; height: auto; padding: 0px 0px 5px 0px; }
+#rating #rating_content #change_rate img {margin-right: 3px;}
+#rating #rating_content #avg_rating {position: relative; top: 15px; left: 0px; width: 190px; height: auto; padding: 0px 0px 5px 0px; }
+#rating #rating_content #rating_buttons {position: relative; top: 26px; left: 0px; width: 190px; height: 20px; font: bold 12px arial, san-serif;}
+#rating_b_save, #rating_b_cancel {display: inline; margin-right: 5px;}
+#rating_b_save {position: relative; width: auto; height: auto;}
+#rating_b_cancel {position: relative; width: auto; height: auto;}
+
+#rating #rating_content #your_original_rate {position: relative; top: 0px; left: 0px; width: 100%; height: auto; padding: 0px 0px 0px 0px;}
+#rating #rating_content #your_original_rate #blast_name {position: relative; top: 0px; left: 0px; width: 100%; }
+#rating #rating_content #new_rate {position: relative; top: 5px; left: 0px; width: 190px; height: auto; padding: 0px 0px 5px 0px; }
+#rating #rating_content #new_avg_rating {position: relative; top: 10px; left: 0px; width: 190px; height: auto; padding: 0px 0px 5px 0px; }
+#rating #rating_content #new_rating_buttons {position: relative; top: 20px; left: 0px; width: 190px; height: 20px; font: bold 12px arial, san-serif;}
+
+#visualizerArea_content { display: block; position: relative; top: 0px; left: 0px; width: 550px; height: 338px; margin-bottom: -26px; }
+#visualizerArea_content .width {width: 518px; }
+#visualizerArea_content .height { height: 306px;}
+#visualizerArea { display: block; position: relative; top: 16px; left: 16px; width: 518px; height: 306px; }
+#visualizerArea #visualizer { position: absolute; top: 2px; left: 2px; width: 512px; height: 300px; border: 1px solid #4c4c4c; z-index: 2;}
+
+/* moving the add_message div out of the messages div on blast.jsp and profile_me.jsp */
+#blast #add_message { display: block; position: relative; top: 10px; left: 10px; width: 496px; height: 174px; color: #fff; background: url(../images/bg_messages_addamessage_lrg.gif); border: solid 1px #808080; }
+#blast #add_message #addmessage_title { position: relative; top: 8px; left: 11px; width: 125px; height: 15px; }
+#blast #add_message #select { position: relative; top: 15px; left: 10px; width: 280px; height: 15px; }
+#blast #add_message #browse { position: relative; top: 17px; left: 11px; width: 347px; height: 20px; padding: 2px; border: solid 1px #A1A56F; }
+#blast #add_message #make_sticky { position: relative; top: 22px; left: 10px; width: 348px; height: 16px; }
+#blast #add_message #sticky_help { position: relative; top: 11px; left: 215px; width: 12px; height: 12px; margin-bottom: -7px; background: url(../images/button_help_on.gif) no-repeat; }
+#blast #add_message #post_message { position: relative; top: 26px; left: 10px; width: 84px; height: 36px; background: url(../images/text_button_postmessage_on.gif) no-repeat; }
+#blast #add_message textarea { width: 348px; height: 51px; position: relative; top: 9px; left: 11px; padding: 2px; background: #fff; border: solid 1px #A1A56F; }

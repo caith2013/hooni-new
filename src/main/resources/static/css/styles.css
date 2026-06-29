@@ -1,0 +1,441 @@
+body { background: #fff; padding: 0; margin: 0; font: normal 12px arial, san-serif; color: #000; text-align: center; width: 100%; height: 100%;}
+img { border: none; }
+textarea {font: normal 13px arial, san-serif;}
+.error {font: normal 13px arial, san-serif; color: red;}
+.normal {font: normal 13px arial, san-serif; color: #000;}
+
+
+#container { width: 100%; height: auto; position: relative; top: 0px; margin: 0 auto; text-align: left;}
+
+#top_menu { position: relative; height: 30px; left: 0px; padding-left: 145px; margin: 0px; border-bottom: solid 1px blue; min-width: 700px;}
+#top_menu li {float: left; list-style-type:none; margin: 5px; padding: 5px 5px 0px 0px;}
+#top_menu a { text-decoration: none; font: bold 13px arial, san-serif; color: #FF6600; }
+#top_menu a:hover { background-color:#FF6600; color:#fff; }
+#top_menu a.rollover {display: block;}
+#top_menu a.rollover:hover img { visibility: hidden; }
+
+
+
+#left_menu {position: absolute; width:130px; left: 10px; top: 1px; font: bold 13px arial, san-serif; z-index: 100;}
+#left_menu ul {margin:0px; padding:0px; background-color: #EAF3FE; }
+#left_menu a {text-decoration: none; color: #000;}
+#left_menu a:hover {text-decoration:underline; color: #FF6600;}
+
+#left_menu ul li {
+height:25px;
+line-height:25px; 
+list-style:none; 
+padding-left:10px;
+color:#000; 
+border: solid 1px #000;
+border-top: 0px;
+cursor:pointer; 
+
+}
+
+
+#left_menu ul li .sub_menu {position: absolute; right: 5px; text-align: right; z-index: 0;  }
+
+#left_menu ul li:first-child { border-top: solid 1px #000; }
+
+#left_menu ul li:hover {background-color:#FFF; position:relative; }
+
+
+#left_menu ul li ul {display:none; position:absolute; left:125px; top:-1px; border:none; background-color:#FFF; z-index: 3;}
+#left_menu ul li:hover ul {display:block;}
+#left_menu ul li:hover .sub_menu {display: none;}
+#left_menu ul li:hover ul li:first-child {border-left: solid 1px #FFF;}
+
+
+
+#left_menu ul ul li { width:200px; float:left; display:inline; border-left: solid 1px #000; border-right: solid 1px #000; border-top: 0px; border-bottom: 0px;}
+#left_menu ul ul li:first-child { border-top: solid 1px #000;}
+#left_menu ul ul li:last-child { border-bottom: solid 1px #000;}
+#left_menu ul ul li:hover {text-decoration:underline; color: #FF6600; background-color:#FFF; border: solid 1px #000; background-color:#0099CC;}
+#left_menu ul ul li:hover ul li:first-child {border-left: solid 1px #0099CC;}
+
+#left_menu li:hover ul li ul {display:none;}
+
+#left_menu ul ul li ul {left:110px; background-color:#0099CC;}
+#left_menu ul ul li:hover ul {display:block;}
+
+#food_left_menu {position: absolute; width:200px; font: normal 13px arial, san-serif; z-index: 50; border: solid 1px gray; top: 220px; }
+#food_left_menu #narrow_result {background-color: #EAFFFE; font: bold 14px arial, san-serif; padding-left: 5px;}
+#food_left_menu .keywords_search {margin-left: 10px;}
+#food_left_menu ul li {list-style:none;}
+#food_left_menu .food_search_header {background-color: #EAF3FE; padding: 5px; font: bold 13px arial, san-serif; }
+#food_left_menu #search_food_form {text-align: center;}
+
+#product_left_menu {position: relative; width:15%; font: normal 13px arial, san-serif; z-index: 50; border: solid 1px gray; top: 5px; }
+#product_left_menu #narrow_result {background-color: #EAFFFE; font: bold 14px arial, san-serif; padding-left: 5px; height: 25px;}
+#product_left_menu .keywords_search {position: relative; padding-left: 10px; }
+#product_left_menu .search_keywords {position: relative; width: 90%; }
+#product_left_menu .search_button {position: relative; text-align: center; }
+#product_left_menu ul {list-style:none; margin-left: 5px; padding: 0px;}
+#product_left_menu ul li {list-style:none; margin: 5px;}
+#product_left_menu .product_search_header {background-color: #EAF3FE; padding: 5px; font: bold 13px arial, san-serif; }
+#product_left_menu #search_product_form {text-align: center;}
+#product_left_menu input.reset_button_top {position: relative; text-align: center; left:5px; border: solid 1px black; top: 2px; width: 25%;}
+#product_left_menu input.reset_button {position: relative; text-align: center; left: 25px; border: solid 1px black; margin-bottom: 10px;}
+
+#search_product_middle{position: relative; font: bold 16px arial, san-serif; padding: 20px; top: 10px; margin-bottom: 15px; clear: both;}
+#search_product_middle #product_middle_search {position: relative; text-align: left; }
+#search_product_middle #product_middle_search .product_search_header { font: bold 16px arial, san-serif;}
+#search_product_middle #product_middle_search .search_keywords {font: normal 16px arial, san-serif; border: inset 3px gray; width: 100%; max-width: 300px;}
+#search_product_middle #product_middle_search .mid_button {font: normal 16px arial, san-serif;}
+
+#contents {position: relative; top: 0px; height: auto; margin-left: 20px; z-index: 1; width: 100%; max-width: 100%;}
+
+#contents #contents_left {position: relative; margin: 0px; padding: 0px; min-width: 600px; min-height: 1500px; }
+#contents #contents_right {position: absolute; width:16%; height: auto; font: bold 13px arial, san-serif; left: 81%; top: 0px; z-index: 2;}
+
+#contents #contents_left_product {position: absolute; margin-left: 16%; top: 0px; margin-right: 20%; padding: 0px; width: 64%; min-height: 1500px; }
+.sell_product_row {position: relative; display: block; width: 100%; top: 0px; height: auto; font: normal 13px arial, san-serif;}
+.sell_product_row dl {position: relative; height: 100px; float: left; padding: 10px; margin: 0px; border: dashed 1px blue; margin: 10px; min-width:175px; min-height: 100px;}
+.sell_product_row dl.solid {border: solid 1px black; }
+.sell_product_row dl dt {margin: 0px; padding: 0px; text-align: center; height: auto;}
+.sell_product_row dl dd {margin: 0px; padding: 0px; text-align: center;}
+#contents_left_product .search_result {clear: both;}
+#contents_left_product .search_result dl {border: solid 1px black;}
+#contents_left_product .product_title {clear: both;}
+#contents_left_product #product_position {clear: both; margin-left: 10px; margin-top: 10px; font: bold 15px arial, san-serif; border-top: solid 1px blue; padding-top: 10px;}
+#contents_left_product #product_position .search_header {float: left;}
+#contents_left_product #product_container {position: relative; min-height: 700px;}
+
+
+
+.page_title {position: relative; width: 75%; left: 15px; top: 10px; font: bold 18px arial, san-serif; color: #000000;}
+
+#contents_left #sub_container {position: relative; left: 15px; top: 20px; width: 100%; height: auto;}
+#contents_left #sub_container .sub_item {width: 16%; height: 1500px; max-height: 1600px; overflow:auto; float: left; border-left: solid 1px gray;}
+#contents_left #sub_container .sub_item .sub_title .subject a {text-decoration: none;}
+#contents_left #sub_container .sub_item:last-child {border: solid 1px gray; overflow: auto;}
+#contents_left #sub_container .sub_item .sub_title {position: relative; padding-left: 10px;}
+#contents_left #sub_container .sub_item .sub_title .subject {position: relative; font: italic bold 18px times,sans-serif; padding: 0px; margin: 0px; }
+#contents_left #sub_container .sub_item .sub_title .definition {position: relative; font: normal 10px arial, san-serif; padding: 0px; margin: 0px; }
+#contents_left #sub_container .sub_item ul {list-style-type: none; padding: 5px; margin: 0px; margin-top: 10px; }
+#contents_left #sub_container .sub_item ul li {list-style-type: none; position: relative; padding: 0px; margin-bottom: 10px;}
+#contents_left #sub_container .sub_item ul dl {position: relative; list-style-type: none; padding: 0px; margin: 0px; text-align: center; height: auto; top: 0px;}
+#contents_left #sub_container .sub_item ul dl dt {position: relative; margin: 0px; padding: 0px; text-align: center; height: auto; top: 0px;}
+#contents_left #sub_container .sub_item ul dl dt a {margin: 0px; padding: 0px; top: 0px;}
+#contents_left #sub_container .sub_item ul dl dt img { margin: 0px; padding: 0px; top: 0px;}
+#contents_left #sub_container .sub_item ul dl dd {list-style-type: none; padding: 0px; margin: 0px; text-align: center; height: auto; }
+#contents_left ul.news_home li {padding: 5px;}
+
+.form_div {position: relative; width: 100%; height: auto; left: 100px; margin-top: 20px; min-height: 700px;}
+
+.form_div #register_form {position: relative; width: 100%; height: auto; min-height: 700px; top: 30px; padding-left: 35px; }
+.form_div .register_item {position: relative; width: 100%; height: auto; padding-bottom: 15px; float: left;}
+.form_div .register_item .label {display: inline; float: left; width: 100px; text-align: right; padding-right: 10px;}
+.form_div .register_item input { display: inline; float: left; width: 120px; text-align: left; top: 0px;}
+.form_div .register_item .validate { display: inline; float: left; width: auto; left: 220px; margin-left: 10px; }
+.form_div .register_item .button { width: 100px; padding-left: 10px; }
+.form_div .optional_fields {border-bottom: solid 1px gray; width: 80%; padding: 0px; margin-bottom: 10px; font: bold 14px arial, san-serif;}
+#register_confirm {position: relative; width: 100%; left: 10px; top: 25px; padding: 10px; font: normal 13px arial, san-serif; color: #000000; min-height: 700px;}
+#email_login_msg {position: relative; width: 100%; left: 10px; top: 25px; padding: 10px; font: normal 13px arial, san-serif; color: #000000;}
+#activate_msg {position: relative; width: 100%; left: 20px; top: 25px; padding: 10px; font: normal 13px arial, san-serif; color: #000000;}
+
+.form_div #login_form {position: relative; width: 100%; height: auto; min-height: 700px; top: 30px; padding-left: 35px; }
+.form_div .login_item {position: relative; width: 100%; height: auto; padding-bottom: 15px; float: left;}
+.form_div .login_item .label {display: inline; float: left; width: 100px; text-align: right; padding-right: 10px;}
+.form_div .login_item input { display: inline; float: left; width: 120px; text-align: left; top: 0px;}
+.form_div .login_item .submit_button {position: relative; margin-left: 100px;}
+.form_div .login_item .button { width: 100px; padding-left: 10px; }
+.form_div #login_dummy {display: none;}
+.form_div #forgot_dummy {display: none;}
+.form_div #dummy_change_pw_form {display: none;}
+
+.form_div #food_form {position: relative; width: 100%; height: auto; top: 30px; margin-left: 35px;}
+#food_form .food_comp { position: relative; width: 100%; height: auto; margin-bottom: 15px; }
+#food_form #prepare_steps {position: relative; width: 100%; height: auto; padding-top: 20px; }
+#food_form #prepare_steps #steps_title { position: relative; width: 90%; height: auto; top: 0px; bottom: 10px; border-bottom: solid 1px blue; font: bold 15px arial, san-serif;}
+#food_form #prepare_steps .one_step {position: relative; width: 85%; height: 100px; margin-left: 20px; margin-top: 15px; border-bottom: solid 1px gray;}
+#food_form #prepare_steps .one_step .food_step_desc {position: relative; width:425px; height: 100px;}
+#food_form #prepare_steps .one_step .food_step_snap {position: absolute; left: 450px; top: 0px;}
+#food_form #prepare_steps .one_step .food_add_step {position: absolute; left: 75%; bottom: 0px; height: 25px;}
+#food_form #prepare_steps #food_step_buttons input {padding: 0px 10px 0px 10px; }
+#food_form #food_submit {position: relative; height: 100px; margin-top: 30px; }
+#food_form #food_submit input {margin: 10px;}
+
+#product_input_form {position: relative; width: 100%; height: auto; margin-left: 0px; }
+#product_input_form .item_section { width: 75%; margin: 20px 5px 10px 5px; padding: 10px 0px 10px 0px; border-bottom: solid 1px gray; }
+#product_input_form .item_section:last-child { border-bottom: 0px; }
+#product_input_form .item_section .label { font: bold 14px arial, san-serif;}
+#product_input_form .item_section .label .new_agent_button {margin-left: 10px;}
+#product_input_form .item_section .data textarea {text-align: left;}
+#product_input_form .item_section .data ul {position: relative; list-style-type:none; width: auto; height: 25px; padding: 0px; }
+#product_input_form .item_section #properties li {float: left; list-style-type:none; margin:0px 15px 0px 0px;}
+#product_input_form .item_section #old_agent {position: relative; width: 100%; min-width: 800px; min-height: 75px; top: 5px;}
+#product_input_form .item_section #new_agent {position: relative; width: 100%; min-width: 800px; min-height: 100px; display: block; top: 5px; padding: 5px;}
+#product_input_form .item_section .agent_item {float:left; padding-right: 10px;}
+#product_input_form .item_section .agent_item select {min-width: 50px;}
+#product_input_form .item_section .agent_item .input_label {position: relative; text-align: center; font: italic 12px arial, san-serif; }
+#dummy_agent_com {display: none;}
+
+#container #old_warranties ul{width: 450px; overflow: scroll; height: 250px;}
+#container #old_warranties ul li {word-wrap: break-word; text-align: left; margin-bottom: 10px; padding-right: 10px;}
+
+#container #old_shippings ul{width: 450px; overflow: scroll; height: 250px;}
+#container #old_shippings ul li {word-wrap: break-word; text-align: left; margin-bottom: 10px; padding-right: 10px;}
+
+.product_title_font {font: bold 20px arial, san-serif;}
+#product_detail {position: relative; width: 100%; height: auto; padding: 10px; min-height: 700px;}
+
+#product_detail .detail_section {position: relative; width: 100%; height: auto; margin-bottom: 10px; }
+#product_detail .detail_section #product_title {position: relative; width: auto; height: auto; margin-bottom: 10px; padding-right: 10px; }
+#product_detail .detail_section #product_infor {float: left; width: 40%; height: auto; top: 0px; text-align: left; }
+#product_detail .detail_section #product_desc {float: left; margin-left: 20px; width: 50%; height: auto; top: 0px; }
+#product_detail .detail_section #product_infor #product_images {position: relative; width: 100%; height: auto; top: 0px; text-align: left;  }
+#product_detail .detail_section #product_infor #product_images img {position: relative; width: 100%; max-width: 500px; }
+#product_detail .detail_section #product_infor #price {position: relative; width: 100%; left: 0px; text-align: center;}
+#product_detail .price_kind {position: relative; width: 100%; height: auto; margin: 5px; text-align: left; }
+#product_detail .price_kind .label {position: relative; width:30%; left: 0px; text-align: right; font: bold 13px arial, san-serif; color: #606060;}
+#product_detail .price_kind .list_price {position: absolute; left: 30%; margin-left: 10px; font: 14px arial, san-serif; color: gray; top: 0px; text-align: left; text-decoration: line-through;}
+#product_detail .price_kind .sale_price {position: absolute; top: 0px; left: 30%; margin-left: 10px; font: bold 16px arial, san-serif; color: red;}
+#product_detail .price_kind .save_amount {position: absolute; top: 0px; left: 30%; margin-left: 10px; font: 14px arial, san-serif; color: red;}
+
+#product_detail .detail_section #product_desc ul {margin-right: 10px;}
+#product_detail .detail_section #product_desc li {padding-bottom: 10px;}
+#product_detail .price_cart {position: relative; width: 50%; height: auto;}
+#product_detail .detail_section #add_to_cart {position: absolute; width: 50%; left: 50%; margin-left: 20px; text-align: left; top: 15px; cursor:pointer;}
+#product_detail .detail_section #add_to_cart input {position: relative; cursor:pointer;}
+.button_text {font: bold 16px arial, san-serif; color: blue;}
+#product_detail #product_infor .stock_statu {position: relative; font: bold 18px arial, san-serif; color: red;}
+#product_detail .status {width: 100%; text-align: left; margin-top: 50px; clear: both; }
+#product_detail .suggestion {position: relative; width: 100%; height: auto; text-align: left; margin-top: 20px; margin-bottom: 20px;}
+
+
+#news_detail {position: relative; width: 75%; height: auto; margin-top: 20px; padding-left: 10px;}
+#news_detail #news_title {position: relative; width: 100%; height: auto; text-align: left; font: bold 20px arial, san-serif; margin-bottom: 0px;}
+#news_detail #creator {position: relative; width: 100%; height: auto; text-align: left; font: normal 12px arial, san-serif; }
+#news_detail #creator .who {margin-right: 10px;}
+#news_detail #news_contents {position: relative; width: 100%; height: auto; margin-top:20px; font: normal 15px times,sans-serif; line-height: 1.5; }
+#news_detail #news_contents img {float: left; margin: 0px 10px 10px 0px;}
+#all_news {position: relative; width: 650px; height: auto; top: 15px; }
+#general_news {position: relative; width: 350px; height: auto; }
+#local_news {position: absolute; left: 370px; width: 200px; top: 10px; height: auto; padding: 5px; border: solid 1px blue;}
+#opinion {position: relative; min-width: 800px; height: auto; margin-top: 200px; font: italic 11px arial, san-serif; color:gray;}
+
+#food_detail {position: relative; width: 75%; height: auto; padding: 10px; margin-right: 10px; min-height: 700px;}
+#food_detail .detail_section {position: relative; width: 100%; height: auto; margin-bottom: 10px; }
+#food_detail .detail_section #food_title {position: relative; width: auto; height: auto; margin-bottom: 10px; padding-right: 10px; }
+#food_detail .detail_section #food_images {float: left; width: 50%; height: auto; top: 0px; text-align: left;}
+#food_detail .detail_section #food_images img {position: relative; width: 100%; height: auto;}
+#food_detail .detail_section #food_desc {float: left; left: 50%; width: 49%; height: auto; top: 0px; }
+#food_detail .detail_section #food_desc .food_description {position: relative; margin-left: 15px; font: bold 14px arial, san-serif;}
+#food_detail .detail_section #food_desc ol {margin-right: 10px;}
+#food_detail .detail_section #food_desc li {position: relative; height: auto; left: 0px; padding-bottom: 20px;}
+#food_detail .detail_section #food_desc li.with_image {padding-bottom: 60px; }
+#food_detail .detail_section #food_desc li img {float:left; margin-right: 5px; height: 75px; }
+.food_title_font {font: bold 20px arial, san-serif;}
+
+#shopping_cart {position: relative; width: 100%; height: auto; border: solid 1px green; background-color: #FFFFFF; font: bold 13px arial, san-serif;}
+#shopping_cart .seperate_line {position: relative; width: auto; height: auto; border-top: solid 1px gray; margin: 0px 0px 0px 0px;}
+#shopping_cart #shopping_cart_button {position: relative; width: 100%; height: auto; text-align: center; padding-top: 10px; padding-bottom: 10px;}
+#cart_button {cursor: pointer;}
+#shopping_cart .one_item {position: relative; width: 100%; height: auto; padding: 5px 0px 5px 0px;}
+.even_color {background-color: #cccccc;}
+.odd_color {background-color: #99cccc;}
+#contents .sub_total_color {color: red;}
+#contents .price_color {color: red;}
+#contents .cross_price {color:gray; text-decoration: line-through;}
+#shopping_cart #sub_total_price {position: relative; width: auto; height: auto; padding-right: 5px; padding-bottom: 10px; text-align: right; }
+#contents_right #my_ad {position: relative; width: 100%; height: auto; border: solid 1px black;}
+#contents_right #my_ad .ad_item img {width: 100%; overflow: hidden; }
+
+
+#products_com {position: relative; left: 15px; top: 25px; width: 75%; height: auto; }
+#products_com .product_item {position: relative; width:100%; height: auto; margin-right: 25px; border: solid 1px gray;}
+#products_com .product_item .product_title_header {position: relative; width: 40%; text-align: left; left: 10px; top: 10px; height: 100%; }
+#products_com .product_price {position: absolute; width: 10%; height: auto; left: 50%; top: 10px; margin-left: 20px; vertical-align: middle;}
+#products_com .quantity {position: absolute; width: 15%; height: auto; left: 60%; top: 10px; text-align: center;}
+#products_com .cost {position: absolute; width: 15%; height: auto; left: 75%; top: 10px;}
+#products_com .product_delete {position: absolute; width: 10%; height: auto; left: 90%; top: 15px;}
+#products_com .product_header {font: bold 16px arial, san-serif; height: 30px; background-color: #ccccff;}
+#products_com .product_img {position: relative; width: 10%; height: auto; left: 0px; top: 0px; vertical-align: middle; }
+#products_com .product_img img {width: 100%; height: auto; overflow: hidden;}
+#products_com .product_title {position: absolute; width:30%; height: auto; left: 10%; top: 10px; margin-left: 10px; min-width: 250px; }
+#products_com .product_delete input {width: 100%;}
+#products_com .number{top: 20px;}
+#products_com .t_font {font: bold 100% arial, san-serif; top: 20%;} 
+#write_down {position: relative; margin: 20px;}
+
+
+#contents_left form.checkout {position: relative; width: auto; height: auto;}
+
+#payment_com {position: relative; left: 15px; top: 30px; width: 75%; height: 250px; }
+#payment_com #total_amount {position: absolute; width: 325px; height: 250px; text-align: right; right: 0px; }
+#payment_com #total_amount .total_item {position: relative; height: 25px; width: 100%; margin-bottom: 10px;}
+#payment_com #total_amount .total_price {border-top: solid 1px gray; margin-top: 40px; margin-bottom: 20px;}
+#payment_com #total_amount .total_item .label {float: left; width: 70%; height: 100%; left: 0px;}
+#payment_com #total_amount .total_item .price {float: right; width: 25%; left: 72%; margin-right: 10px; height: 100%; top: 0px; text-align: right; }
+#payment_com #total_amount .shipping_com_height {height: 150px;}
+#payment_com #total_amount .shipping_com {position: absolute; height: 150px; width: 325px; padding-bottom: 10px; border: solid 1px gray; right: 0px; }
+#payment_com #total_amount .s_header {position: relative; width:100%; right: 0px; border-bottom: solid 1px gray; height:20px;}
+.continue {position: absolute; right:0px; top: 0px; font: bold 18px arial, san-serif; }
+
+#payment_com #total_amount .total_item #where {position: relative; width: 325px; height: auto; text-align: right; right: 0px; }
+#payment_com #total_amount .total_item #shippings {position: absolute; margin-top: 5px; width: 180px; height: 150px; right: 0px; top: 40px;}
+#payment_com #total_amount .total_item #shippings .ship {position: relative; width: auto; text-align: left; left:0px; white-space:nowrap;}
+#payment_com .p_font {font: bold 100% arial, san-serif;}
+
+#checkout_com {position: relative; left: 15px; margin-top:30px; width: 75%; height: auto;}
+#checkout_com #checkout_method {position: relative; top:0px; width: 100%; height: auto; margin-top: 20px; text-align: right; }
+#checkout_com #checkout_method .method {position: relative; width: 100%; height:50px; text-align: right; right: 0px; white-space:nowrap; top: 15px;}
+#checkout_com #checkout_method .method .label {position: absolute; width: auto; font: bold 12px arial, san-serif; color: blue; top: 5px; right:175px; margin-right: 3px;}
+#checkout_com #checkout_method .method .sub_button {position: absolute; top: 0px; right: 0px; width: 175px; margin-right: 3px; }
+
+
+#checkout_com #checkout_method #policy {position: relative; width: 100%; text-align: right; margin-top: 20px; height: auto; }
+#checkout_com #checkout_method #policy #policy_check {position: relative; width: 100%; text-align: right; }
+
+#contents_left #product_container {position: relative; min-height: 700px;}
+#contents_left .product_title {clear: both;}
+#contents_left #product_position {clear: both; margin-left: 10px; margin-top: 10px; font: bold 15px arial, san-serif;}
+#contents_left #product_position .search_header {float: left;}
+#contents_left .search_result {clear: both;}
+#contents_left .search_result dl {border: solid 1px black;}
+#ingredient_detail {position: relative; display: block; min-width: 800px; height: auto; top: 20px; width: 100%; margin-bottom: 20px;}
+#ingredient_detail #ing_image {position: relative; display: none; width: 500px; top: 15px; min-width: 500px;}
+#ingredient_detail #ing_desc {position: absolute; top: 15px; left: 500px; margin-left: 15px;}
+
+.food_section {position: relative; display: block; width: 100%; top: 20px; min-width: 800px; height: auto; }
+#food_header {position: relative; width: 100%; top:0px; margin-bottom: 15px; left: 10px; font: bold 18px arial, san-serif; border-bottom: solid 1px gray;}
+.product_row {position: relative; display: block; width: 100%; top: 0px; min-width: 800px; height: auto; font: normal 13px arial, san-serif;}
+.product_row dl {position: relative; height: 100px; float: left; padding: 10px; margin: 0px; border: dashed 1px blue; margin: 10px; min-width:175px; min-height: 100px;}
+.product_row dl.solid {border: solid 1px black; }
+.product_row dl dt {margin: 0px; padding: 0px; text-align: center; height: auto;}
+.product_row dl dd {margin: 0px; padding: 0px; text-align: center;}
+#ingredients_header {clear: both; position: relative; width: 100%; left: 10px; top: 20px; font: bold 18px arial, san-serif; }
+
+input.delete_button {clear: both; }
+
+#ads_input_form #keyword { position: relative; height: 30px; left: 0px; margin: 0px; padding: 0px;}
+#ads_input_form #keyword li {float: left; list-style-type:none; margin-right: 5px; padding-right: 5px;}
+
+
+
+.form_div #shares_input_form .blog_section {position: relative; margin-top:40px; margin-bottom: 10px; border-bottom: dashed 1px gray; width: 650px; }
+.form_div #shares_input_form .blog_section .blog_title {font: bold 14px arial, san-serif; }
+
+#contents_left #all_ads {position: relative; width: auto; min-height: 700px; height: auto; top: 15px; font: normal 15px times, scan-serif; }
+#contents_left ul.ad_cat {position: relative; list-style-type: none; width: 100px;}
+#contents_left div.col0 {position: absolute; left: 0px; width: 100px;}
+#contents_left div.col1 {position: absolute; left: 100px; width: 100px;}
+#contents_left div.col2 {position: absolute; left: 200px; width: 100px;}
+#contents_left div.col3 {position: absolute; left: 300px; width: 100px;}
+#contents_left div.col4 {position: absolute; left: 400px; width: 100px;}
+#contents_left div.col5 {position: absolute; left: 500px; width: 100px;}
+#contents_left div.col6 {position: absolute; left: 600px; width: 100px;}
+#contents_left div.col7 {position: absolute; left: 700px; width: 100px;}
+
+#contents_left ul.ad_cat .ad_cat_header {position: relative; background-color:#D0D0D0; padding: 0px 20px 0px 0px;}
+#contents_left ul.ad_cat li {list-style-type: none; padding: 0px;}
+
+
+
+#ads_detail {position: relative; width: 75%; height: auto; padding: 10px; margin-right: 10px; min-height: 700px;}
+#ads_detail #key_words {position: relative; width: 100%; height: auto; margin-top:10px; text-align: left; font: bold 14px arial, scan-serif; }
+#ads_detail #key_words ul {margin: 0px; padding: 0px; list-style-type:none;}
+#ads_detail #key_words li {display:inline; list-style-type:none; margin: 5px; padding: 5px 5px 0px 0px; }
+#ads_detail #ads_title {position: relative; width: 100%; height: auto; left: 0px; text-align: left; font: bold 20px arial, san-serif; margin-top: 10px;}
+#ads_detail #ads_contents {position: relative; width: auto; height: auto; font: normal 15px arial, san-serif; margin-top:20px; overflow: auto;}
+#ads_detail #ads_contact {position: relative; width: 100%; height: auto; font: normal 15px arial, san-serif; margin-top:20px;}
+#ads_detail #ads_contact #ads_contact_label {font: bold 15px arial, san-serif;}
+#ads_detail #ad_reply {position: relative; width: 100%; height: auto; margin-top: 10px; min-height: 700px;}
+
+#share_left_menu {position: fixed; width:200px; font: normal 15px arial, san-serif; padding: 5px; border: solid 1px gray; z-index: 100;}
+#share_contents {position: relative; left: 200px; height: auto; margin-left: 10px; z-index: 1;}
+#share_contents #contents_left {position: relative; margin: 0px; padding: 0px; width: 50%; height: auto; }
+#share_contents #contents_right {position: absolute; width:20%; height: auto; font: bold 13px arial, san-serif; border: solid 1px blue; right:200px; top: 0px; margin-left: 10px; z-index: 2;}
+#share_contents #contents_right #contact_infor {position: relative; width: auto; height: auto;}
+#share_contents #contents_right #contact_infor #contact_title {position: relative; width: 100%; height: auto; font: bold 15px arial, san-serif; padding: 10px; background-color: gray;}
+#share_contents .item_section {position: relative; width: auto; height: auto; padding: 10px;}
+#share_contents #shares_input_form {position: relative; height: auto; width: auto; margin-top: 15px;}
+#share_left_menu dl {list-style-type: none; padding: 0px; margin: 0px; text-align: left;}
+#share_left_menu dt {list-style-type: none; padding: 0px; margin: 0px; text-align: left; font: bold 13px arial, san-serif;}
+#share_left_menu dd {list-style-type: none; padding: 0px; margin: 0px; margin-bottom: 5px; text-align: left;}
+#share_left_menu dd .rate_font {text-align: right; font: normal 13px arial, san-serif; color: red;}
+
+#popup {position: absolute; display: none; width: auto; height: auto; left: 75px; top: 50px; z-index: 1000; }
+.thumb {cursor: pointer;}
+
+.round_box {position: relative; left: 200px; top: 20px; width: 200px; height: 200px; border: solid 1px blue;}
+.round_box .top_corner {position: absolute; left:0; top: -10px; width: 3px; height: 3px; background-color: red;}
+
+#footer {clear: both; width: 90%; height: auto; top: 40px; left: 10px; margin-top:20px; bottom: 0px; padding-bottom: 10px; padding-top: 10px; position: relative; text-align: center; min-height: 30px; min-width:600px;} 
+#footer .footer_item { display: inline; padding-left: 10px;}
+#footer #copyright {clear: both; text-align: center;}
+
+#contactus_container {position: relative; padding-left: 10px;}
+ul.contact_us {float: left; list-style: none; position: relative; width: 400px; height: auto; padding: 0px; left:0px; border: solid 1px gray; margin: 0px;}
+ul.contact_us li {padding-bottom: 20px;}
+#contactus_container #contactus {position: relative; left: 100px; top: 10px; padding: 20px; border: solid 1px gray; width: 700px;}
+#contactus_container #contactus .item_section {clear: both; position: relative; width: auto; min-width: 400px; padding:10px;}
+#contactus_container #contactus .item_section .label {float: left; min-width: 150px; text-align: right; margin-right: 10px; font: bold 13px arial, san-serif; color: #606060;}
+#contactus_container #contactus .item_section .data {float: left;}
+#contactus_container #contactus .item_section .empty {width: 200px; border: solid 1px white;}
+#contactus_container #contactus .item_section .validate { display: inline; float: right; width: auto; margin-left: 10px;}
+
+
+
+
+#privacy_container {position: relative; padding-left: 15px;}
+#policy_container {position: relative; text-align: center; height: auto;}
+#policy_container #policy { }
+#return_container {position: relative; text-align: center; height: auto;}
+
+#aboutus {position: relative; width: 800px; height: auto; padding: 10px; min-width: 600px; }
+#aboutus .com .com_des {font: normal 16px times,sans-serif;}
+
+#view {
+			position: absolute;
+			border: solid 1px gray;
+			width:800px;
+			height:700px;
+			left: 50%;
+			top: 0px;
+			z-index:200;
+			background-repeat: no-repeat;
+			background-position: -1000px -1000px;
+			display: none;
+}
+#zoom {
+left: 200px;
+top: 188px;
+background-image: url( "/images/fade1.png" ) ;
+border: 1px solid #000000 ;
+cursor: pointer ;
+display: none ;
+height: 0px ;
+position: absolute ;
+width: 0px ;
+z-index: 100 ;
+}
+
+#reg_joinforfree {position: absolute; left: 550px; top: 100px; width: 250px; border: solid 1px blue; height: auto;}
+#joinforfree {position: relative; width: 100%; margin-bottom: 10px;}
+#joinforfree input {position: relative; width: 96%; left: 2%; text-align: center; margin-top: 5px; margin-bottom: 5px; color: blue; font: bold 15px arial, san-serif; cursor: pointer;}
+#joinforfree ul { margin: 0px 5px 0px 20px; padding: 0px; font: normal 14px times, san-serif;}
+#joinforfree ul li {margin-bottom: 5px;}
+
+
+
+#first {position: relative; width: 400px; height:150px; border: solid 1px red;}
+#second {position: relative; width: 400px; height:100px; border: solid 1px green;}
+#second #third {position: absolute; width: 200px; height:100px; top:0px; border: solid 1px blue; right: 0px;}
+#second #third #fourth {position: relative; width: 100%; height:auto; border: solid 1px gray;}
+
+#contents_left .orders_container {position: relative; top: 25px; height: auto; width: 100%; font: bold 15px times, san-serif;}
+.orders_container .order_item {position: relative; padding:5px; height: auto; width: 100%; clear: both; }
+.row_label {position: raltive; float:left; width: 150px; text-align: right; margin-right: 10px; color: blue;}
+.row_infor {position: raltive; float:left; width: auto; text-align: left;}
+.order_row {clear:both; position: relative;}
+.item_row {clear:both; position: relative; }
+.orders_container .order_item {clear: both;}
+.order_item .items_container {position: relative; clear: both;}
+.product_item {position: relative; border: solid 1px gray; padding-bottom: 20px;}
+.shipping_status {color: red;}
+
+
+

@@ -1,0 +1,72 @@
+<RateV4Request USERID="697HOONI7276">
+							 <Revision>2</Revision>
+							 <Package ID="1ST">
+							 					<Service>FIRST CLASS</Service>
+												<FirstClassMailType>PARCEL</FirstClassMailType>
+												<ZipOrigination>11223</ZipOrigination>
+												<ZipDestination>00000</ZipDestination>
+												<Pounds>0</Pounds>
+												<Ounces>0</Ounces>
+												<Container></Container>
+												<Size>REGULAR</Size>
+												<Width>0</Width>
+												<Length>0</Length>
+												<Height>0</Height>
+												<Girth>0</Girth>
+												<Machinable>true</Machinable>
+							 </Package>
+							 
+							 <Package ID="2ND">
+							 					<Service>PRIORITY</Service>
+												<ZipOrigination>11223</ZipOrigination>
+												<ZipDestination>00000</ZipDestination>
+												<Pounds>0</Pounds>
+												<Ounces>0</Ounces>
+												<Container></Container>
+												<Size>REGULAR</Size>
+												<Width>0</Width>
+												<Length>0</Length>
+												<Height>0</Height>
+												<Girth>0</Girth>
+												<Value>0</Value>
+												<SpecialServices>
+																				 <SpecialService>1</SpecialService>
+																				 <SpecialService>13</SpecialService>
+												</SpecialServices>
+							</Package>
+							
+							 <Package ID="3RD">
+							 					<Service>EXPRESS</Service>
+												<ZipOrigination>11223</ZipOrigination>
+												<ZipDestination>00000</ZipDestination>
+												<Pounds>0</Pounds>
+												<Ounces>0</Ounces>
+												<Container></Container>
+												<Size>REGULAR</Size>
+												<Width>0</Width>
+												<Length>0</Length>
+												<Height>0</Height>
+												<Girth>0</Girth>
+												<Value>0</Value>
+												<SpecialServices>
+																				 <SpecialService>1</SpecialService>
+																				 <SpecialService>13</SpecialService>
+												</SpecialServices>
+							</Package>
+							
+							<Package ID="4TH">
+											 <Service>ALL</Service>
+											 <ZipOrigination>11223</ZipOrigination>
+											 <ZipDestination>00000</ZipDestination>
+											 <Pounds>0</Pounds>
+											 <Ounces>0</Ounces>
+											 <Container/>
+											 <Size>REGULAR</Size>
+											 <Width>0</Width>
+											 <Length>0</Length>
+											 <Height>0</Height>
+											 <Girth>0</Girth>
+											 <Machinable>true</Machinable>
+											 <ShipDate>13-Dec-2010</ShipDate>
+							</Package>
+</RateV4Request>

@@ -1,0 +1,238 @@
+body { background: #ccffcc; padding: 0px; margin: 0px; font: normal 12px arial, san-serif; color: #000; text-align: center; width: 100%; height: 100%;}
+img { border: none; }
+textarea {font: normal 13px arial, san-serif;}
+.error {font: normal 13px arial, san-serif; color: red;}
+.normal {font: normal 13px arial, san-serif; color: #000;}
+
+#container { width: 1200px; height: auto; position: relative; top: 0px; margin: 0 auto; padding: 0px; text-align: left; border: solid 1px gray; background: #FFF; padding-bottom: 20px;}
+#food_home_header {position: relative; height: 100px; width: auto; text-align: center;}
+#food_home_header #header {position: relative; height: 70px; left: 0px; list-style-type: none; padding: 0px; margin: 0px; text-align: center;}
+#food_home_header #header li {float: left; list-style-type: none; width: 30%; margin-right: 3%; height: 70px;}
+#food_home_header #header #logo {position: relative; width: 100%; font: bold 30px times, sans-serif; color: #FF6600;}
+#food_home_header #header #slogan {position: relative; font: italic bold 14px times, sans-serif; }
+#food_home_header #header #search {padding-top: 15px;}
+#food_home_header #header #search #search_text{position: relative; font: bold italic 20px times, sans-serif; color: gray; border: solid 1px gray;}
+#food_home_header #header #search #search_button {font: bold 20px times, sans-serif; color: black; cursor: pointer;}
+#food_home_header #top_menu { position: relative; height: 30px; left: 0px; margin: 0px; padding-left: 200px; text-align: center; min-width: 700px; border: solid 1px blue;}
+#food_home_header #top_menu li {float: left; list-style-type:none; margin: 5px; padding: 5px 5px 0px 0px;}
+
+#food_home_header #top_menu a { text-decoration: none; font: bold 16px arial, san-serif; color: #FF6600; }
+#food_home_header #top_menu a:hover { background-color:#FF6600; color:#fff; }
+#food_home_header #top_menu a.rollover {display: block;}
+#food_home_header #top_menu a.rollover:hover img { visibility: hidden; }
+
+
+
+#left_menu {position: absolute; width:200px; top: 102px; font: normal 13px arial, san-serif; }
+#food_left_menu {position: relative; width:100%; top: 0px; font: normal 13px arial, san-serif; border: solid 1px gray; }
+#food_left_menu #narrow_result {background-color: #EAFFFE; font: bold 14px arial, san-serif; padding-left: 5px; width: 195px;}
+#food_left_menu .keywords_search {margin-left: 10px;}
+#food_left_menu ul li {list-style:none;}
+#food_left_menu .food_search_header {background-color: #EAF3FE; padding: 5px; font: bold 13px arial, san-serif; }
+#food_left_menu #search_food_form {text-align: center;}
+
+#specials {position: relative; width:100%; margin-top: 10px; top: 0px; font: normal 13px arial, san-serif; border: solid 1px gray; }
+#specials .sp_header {background-color: #EAFFFE; font: bold 14px arial, san-serif; padding-left: 5px; width: 193px;}
+#specials .sp_item {position: relative; width: 96%; left: 1%; right: 1%; text-align: center; margin-bottom: 10px; padding-top: 5px; padding-bottom: 10px; border-bottom: dashed 1px gray;}
+#specials .sp_item .type_header {margin-bottom: 5px;}
+
+
+#contents {position: relative; top: 0px; left: 200px; height: auto; width: 1000px; z-index: 1;}
+
+#contents #contents_left {position: relative; margin: 0px; padding: 0px; width: 800px; height: auto; min-width:600px; min-height: 1300px;}
+#contents #contents_right {position: absolute; min-width: 197px; max-width:197px; height: 100%; right: 2px; font: bold 13px arial, san-serif; top: 0px; z-index: 2; }
+
+
+
+
+#joinforfree {position: relative; width: 100%; border: solid 1px gray; margin-bottom: 10px;}
+#joinforfree input {position: relative; width: 96%; left: 2%; text-align: center; margin-top: 5px; margin-bottom: 5px; color: blue; font: bold 15px arial, san-serif; cursor: pointer;}
+#joinforfree ul { margin: 0px 5px 0px 20px; padding: 0px; font: normal 14px times, san-serif;}
+#joinforfree ul li {margin-bottom: 5px;}
+#reg_joinforfree {float: right; width: 250px; border: solid 1px blue; height: auto;}
+
+#myfavorite {position: relative; width: 100%; border: solid 1px gray; margin: 0px;}
+#myfavorite .favor_header {position: relative; background-color: #EAFFFE; font: bold 14px arial, san-serif; padding-left: 5px; width: 191px;}
+#myfavorite .favor_item {position: relative; width: 96%; left: 1%; right: 1%; text-align: center; margin-bottom: 10px; padding-top: 5px; padding-bottom: 10px; border-bottom: dashed 1px gray;}
+#myfavorite .favor_item .user {margin-bottom: 5px;}
+
+#today_meals {position: relative; width: 100%; margin-bottom: 10px; border: solid 1px gray; }
+#today_meals .today_meals_plan {position: relative; padding: 5px 0px 5px 5px; width: 192px; background-color: #EAFFFE; font: bold 14px arial, san-serif; }
+#today_meals .meal_type {position: relative; width: 100%;}
+#today_meals .meal_type .today_header {position: relative; padding: 5px 0px 5px 0px; width: 100%; text-align: center; background-color: #EAF3FE;}
+#today_meals .meal_type .today_item {position: relative; width: 100%; text-align: center; margin: 5px; font: normal 13px arial, san-serif;}
+#today_meals #start_cooking {position: relative; width: 100%; margin-bottom: 10px;}
+#today_meals #start_cooking input {position: relative; width: 96%; left: 2%; text-align: center; margin-top: 5px; margin-bottom: 5px; color: blue; font: bold 15px arial, san-serif; cursor: pointer;}
+
+#my_ad {position: relative; width: 100%; height: auto; border: solid 1px gray; margin-top: 10px;}
+#my_ad .ad_item {position: relative; width: 100%; height: 200px; text-align: center; border: solid 1px blue; margin-top: 10px;}
+#my_ad .ad_item img {width: 100%; overflow: hidden; }
+
+
+.page_title {position: relative; left: 15px; top: 10px; font: bold 18px arial, san-serif; color: #000000;}
+
+.form_div {position: relative; width: 100%; height: auto; left: 100px; margin-top: 20px; min-height: 700px;}
+
+.form_div #register_form {position: relative; width: 100%; height: auto; min-height: 700px; top: 30px; padding-left: 35px; }
+.form_div .register_item {position: relative; width: 100%; height: auto; padding-bottom: 15px; float: left;}
+.form_div .register_item .label {display: inline; float: left; width: 100px; text-align: right; padding-right: 10px;}
+.form_div .register_item input { display: inline; float: left; width: 120px; text-align: left; top: 0px;}
+.form_div .register_item .validate { display: inline; float: left; width: auto; left: 220px; margin-left: 10px; }
+.form_div .register_item .button { width: 100px; padding-left: 10px; }
+.form_div .optional_fields {border-bottom: solid 1px gray; width: 80%; padding: 0px; margin-bottom: 10px; font: bold 14px arial, san-serif;}
+#register_confirm {position: relative; width: 100%; left: 10px; top: 25px; padding: 10px; font: normal 13px arial, san-serif; color: #000000; min-height: 700px;}
+#email_login_msg {position: relative; width: 100%; left: 10px; top: 25px; padding: 10px; font: normal 13px arial, san-serif; color: #000000;}
+#activate_msg {position: relative; width: 100%; left: 20px; top: 25px; padding: 10px; font: normal 13px arial, san-serif; color: #000000;}
+
+.form_div #login_form {position: relative; width: 100%; height: auto; min-height: 700px; top: 30px; padding-left: 35px; }
+.form_div .login_item {position: relative; width: 100%; height: auto; padding-bottom: 15px; float: left;}
+.form_div .login_item .label {display: inline; float: left; width: 100px; text-align: right; padding-right: 10px;}
+.form_div .login_item input { display: inline; float: left; width: 120px; text-align: left; top: 0px;}
+.form_div .login_item .submit_button {position: relative; margin-left: 100px;}
+.form_div .login_item .button { width: 100px; padding-left: 10px; }
+.form_div #login_dummy {display: none;}
+
+.form_div #food_form {position: relative; width: 100%; height: auto; top: 30px; margin-left: 35px;}
+#food_form .food_comp { position: relative; width: 100%; height: auto; margin-bottom: 15px; }
+#food_form #prepare_steps {position: relative; width: 100%; height: auto; padding-top: 20px; }
+#food_form #prepare_steps #steps_title { position: relative; width: 90%; height: auto; top: 0px; bottom: 10px; border-bottom: solid 1px blue; font: bold 15px arial, san-serif;}
+#food_form #prepare_steps .one_step {position: relative; width: 85%; height: 100px; margin-left: 20px; margin-top: 15px; border-bottom: solid 1px gray;}
+#food_form #prepare_steps .one_step .food_step_desc {position: relative; width:425px; height: 100px;}
+#food_form #prepare_steps .one_step .food_step_snap {position: absolute; left: 450px; top: 0px;}
+#food_form #prepare_steps .one_step .food_add_step {position: absolute; left: 75%; bottom: 0px; height: 25px;}
+#food_form #prepare_steps #food_step_buttons input {padding: 0px 10px 0px 10px; }
+#food_form #food_submit {position: relative; height: 100px; margin-top: 30px; }
+#food_form #food_submit input {margin: 10px;}
+
+
+#container #old_warranties ul{width: 450px; overflow: scroll; height: 250px;}
+#container #old_warranties ul li {word-wrap: break-word; text-align: left; margin-bottom: 10px; padding-right: 10px;}
+
+#container #old_shippings ul{width: 450px; overflow: scroll; height: 250px;}
+#container #old_shippings ul li {word-wrap: break-word; text-align: left; margin-bottom: 10px; padding-right: 10px;}
+
+.product_title_font {font: bold 20px arial, san-serif;}
+#product_detail {position: relative; width: 100%; height: auto; padding: 10px; min-height: 700px;}
+
+
+#food_detail {position: relative; width: 780px; height: auto; padding: 10px; margin-right: 10px; min-height: 650px; }
+#food_detail .detail_section {position: relative; width: 100%; height: auto; margin-bottom: 10px; }
+#food_detail .detail_section #food_title {position: relative; width: auto; height: auto; margin-bottom: 10px; padding-right: 10px; }
+
+#food_detail .detail_section #detail_left {position: absolute; width: 50%; height: auto; top: 0px; text-align: left;}
+
+#food_detail .detail_section #detail_left #food_images {position: relative;  width: 100%; height: auto; top: 0px; text-align: left; }
+#food_detail .detail_section #detail_left #food_images img {position: relative; width: 100%; height: auto;}
+
+ 
+#food_detail .detail_section #detail_left #zoom_text {position: relative; width: 100%; text-align: center; }
+#food_detail .detail_section #detail_left #addto {position: relative; top: 10px; width: 100%; text-align: center;}
+#food_detail .detail_section #detail_left #addto a {margin-left: 15px;}
+#food_detail .detail_section #detail_left .zoom_icon img {width: 15px; height: 15px;}
+#food_detail .detail_section #detail_left #more_and_favor {position: relative; top: 10px; width: 100%; text-align: center; margin-top: 10px;}
+#food_detail .detail_section #detail_left #more_and_favor a {margin-left: 15px;}
+
+#food_detail .detail_section #food_desc {position: relative; left: 50%; width: 49%; height: auto; top: 0px; }
+#food_detail .detail_section #food_desc .food_description {position: relative; margin-left: 15px; font: bold 14px arial, san-serif;}
+#food_detail .detail_section #food_desc ol {margin-right: 10px;}
+#food_detail .detail_section #food_desc li {position: relative; height: auto; left: 0px; padding-bottom: 20px;}
+#food_detail .detail_section #food_desc li.with_image {padding-bottom: 60px; }
+#food_detail .detail_section #food_desc li img {float:left; margin-right: 5px; height: 75px; }
+.food_title_font {font: bold 20px arial, san-serif;}
+
+
+
+
+
+
+
+#contents_left #product_container {position: relative; min-height: 700px;}
+#contents_left .product_title {clear: both;}
+#contents_left #product_position {clear: both; margin-left: 10px; margin-top: 10px; font: bold 15px arial, san-serif;}
+#contents_left #product_position .search_header {float: left;}
+#contents_left .search_result {clear: both;}
+#contents_left .search_result dl {border: solid 1px black;}
+#ingredient_detail {position: relative; display: block; min-width: 800px; height: auto; top: 20px; width: 100%; margin-bottom: 20px;}
+#ingredient_detail #ing_image {position: relative; display: none; width: 500px; top: 15px; min-width: 500px;}
+#ingredient_detail #ing_desc {position: absolute; top: 15px; left: 500px; margin-left: 15px;}
+
+.food_section {position: relative; display: block; width: 100%; top: 20px; min-width: 600px; height: auto; }
+#food_header {position: relative; width: 780px; top:0px; margin-bottom: 15px; left: 10px; font: bold 18px arial, san-serif; border-bottom: solid 1px gray;}
+.product_row {position: relative; display: block; width: 800px; padding-left: 10px; top: 0px; min-width: 600px; height: auto; font: normal 13px arial, san-serif;}
+.product_row dl {position: relative; height: 100px; float: left; width: 150px; padding: 10px; margin: 0px; border: dashed 1px blue; margin: 5px; min-width:150px; min-height: 100px;}
+.product_row dl.solid {border: solid 1px black; }
+.product_row dl dt {margin: 0px; padding: 0px; text-align: center; height: auto;}
+.product_row dl dd {margin: 0px; padding: 0px; text-align: center;}
+#ingredients_header {clear: both; position: relative; width: 100%; left: 10px; top: 20px; font: bold 18px arial, san-serif; }
+
+#ads_input_form #keyword { position: relative; height: 30px; left: 0px; margin: 0px; padding: 0px;}
+#ads_input_form #keyword li {float: left; list-style-type:none; margin-right: 5px; padding-right: 5px;}
+
+
+
+.form_div #shares_input_form .blog_section {position: relative; margin-top:40px; margin-bottom: 10px; border-bottom: dashed 1px gray; width: 650px; }
+.form_div #shares_input_form .blog_section .blog_title {font: bold 14px arial, san-serif; }
+
+
+
+#popup {position: absolute; display: none; width: auto; height: auto; left: 75px; top: 50px; z-index: 1000; }
+.thumb {cursor: pointer;}
+
+.round_box {position: relative; left: 200px; top: 20px; width: 200px; height: 200px; border: solid 1px blue;}
+.round_box .top_corner {position: absolute; left:0; top: -10px; width: 3px; height: 3px; background-color: red;}
+
+#footer {clear: both; width: 100%; height: auto; bottom: 0px; padding-bottom: 10px; padding-top: 10px; position: relative; text-align: center; min-height: 30px; min-width:800px; border: solid 1px gray;} 
+#footer .footer_item { display: inline; padding-left: 10px;}
+#footer #copyright {clear: both; text-align: center;}
+
+#contactus_container {position: relative; padding-left: 10px;}
+ul.contact_us {float: left; list-style: none; position: relative; width: 400px; height: auto; padding: 0px; left:0px; border: solid 1px gray; margin: 0px;}
+ul.contact_us li {padding-bottom: 20px;}
+#contactus_container #contactus {position: relative; left: 100px; top: 10px; padding: 20px; border: solid 1px gray; width: 700px;}
+#contactus_container #contactus .item_section {clear: both; position: relative; width: auto; min-width: 400px; padding:10px;}
+#contactus_container #contactus .item_section .label {float: left; min-width: 150px; text-align: right; margin-right: 10px; font: bold 13px arial, san-serif; color: #606060;}
+#contactus_container #contactus .item_section .data {float: left;}
+#contactus_container #contactus .item_section .empty {width: 200px; border: solid 1px white;}
+#contactus_container #contactus .item_section .validate { display: inline; float: right; width: auto; margin-left: 10px;}
+
+
+
+
+#privacy_container {position: relative; padding-left: 15px;}
+#policy_container {position: relative; text-align: center; height: auto;}
+#policy_container #policy { }
+#return_container {position: relative; text-align: center; height: auto;}
+
+#aboutus {position: relative; width: 800px; height: auto; padding: 10px; min-width: 600px; }
+#aboutus .com .com_des {font: normal 16px times,sans-serif;}
+
+#view {
+			position: absolute;
+			border: solid 1px gray;
+			width:800px;
+			height:700px;
+			left: auto;
+			top: 0px;
+			z-index:200;
+			background-repeat: no-repeat;
+			background-position: -1000px -1000px;
+			display: none;
+}
+#zoom {
+left: 200px;
+top: 188px;
+background-image: url( "/images/fade1.png" ) ;
+border: 1px solid #000000 ;
+cursor: pointer ;
+display: none ;
+height: 0px ;
+position: absolute ;
+width: 0px ;
+z-index: 100 ;
+}
+
+
+#first {position: relative; width: 400px; height:150px; border: solid 1px red;}
+#second {position: relative; width: 400px; height:100px; border: solid 1px green;}
+#second #third {position: absolute; width: 200px; height:100px; top:0px; border: solid 1px blue; right: 0px;}
+#second #third #fourth {position: relative; width: 100%; height:auto; border: solid 1px gray;}

@@ -1,0 +1,28 @@
+<#macro FoodLeftMenu>
+<div id="food_left_menu">
+		 <div id="narrow_result">Narrow Your Result</div>
+		 <div class="food_search_header">Meal Type</div>
+		 <div class="narrow_class">
+		 			<ul>
+					<#list mealType as meal>
+							<li><input type="checkbox" name="${meal?lower_case}" value="${meal.ordinal()}" class="meal_type"/>${meal?lower_case?cap_first}&nbsp;&nbsp;</li>
+					</#list>
+					</ul>
+		 </div>
+		 <div class="food_search_header">Food Type</div>
+		 <div class="narrow_class">
+		 			<ul>
+							<#list foodType as ft>
+								 <li><input type="radio" name="foodType" value="${ft.ordinal()}" class="food_type"/>${ft?lower_case?cap_first}&nbsp;&nbsp;</li>
+							</#list>
+					</ul>
+		 </div>
+		 <div class="food_search_header">Searching</div>
+		 <div class="narrow_class">
+		 			<form name="search_food_form" id="search_food_form" metho="post" action="#">
+		 			<input type="text" name="keywords" value="" size="15" class="search_keywords"/>
+					<input type="submit" value="Search" class="search_button"/>
+					</form>
+		 </div>
+</div>
+</#macro>

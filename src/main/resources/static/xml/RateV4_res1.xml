@@ -1,0 +1,146 @@
+<RateV4Response>
+<Package ID="1ST">
+				 <ZipOrigination>11223</ZipOrigination>
+				 <ZipDestination>11219</ZipDestination>
+				 <Pounds>0</Pounds>
+				 <Ounces>7.0</Ounces>
+				 <Size>LARGE</Size>
+				 <Machinable>FALSE</Machinable>
+				 <Zone>1</Zone>
+				 <Postage CLASSID="0">
+				 					<MailService>First-Class Mail</MailService>
+									<Rate>2.39</Rate>
+									<SpecialServices>
+																	 <SpecialService>
+																	 								 <ServiceID>9</ServiceID>
+																									 <ServiceName>Certificate of Mailing</ServiceName>
+																									 <Available>true</Available>
+																									 <AvailableOnline>false</AvailableOnline>
+																									 <Price>1.15</Price>
+																									 <PriceOnline>0</PriceOnline>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>1</ServiceID>
+																									<ServiceName>Insurance</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>true</AvailableOnline>
+																									<Price>1.80</Price>
+																									<PriceOnline>1.80</PriceOnline>
+																									<DeclaredValueRequired>true</DeclaredValueRequired>
+																									<DueSenderRequired>false</DueSenderRequired>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>5</ServiceID>
+																									<ServiceName>Registered Mail&amp;lt;sup&amp;gt;&amp;amp;trade;&amp;lt;/sup&amp;gt;</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>false</AvailableOnline>
+																									<Price>10.75</Price>
+																									<PriceOnline>0</PriceOnline>
+																									<DeclaredValueRequired>true</DeclaredValueRequired>
+																									<DueSenderRequired>false</DueSenderRequired>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>4</ServiceID>
+																									<ServiceName>Registered without Insurance</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>false</AvailableOnline>
+																									<Price>10.75</Price>
+																									<PriceOnline>0</PriceOnline>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>0</ServiceID>
+																									<ServiceName>Certified Mail&amp;lt;sup&amp;gt;&amp;amp;reg;&amp;lt;/sup&amp;gt;</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>false</AvailableOnline>
+																									<Price>2.85</Price>
+																									<PriceOnline>0</PriceOnline>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>13</ServiceID>
+																									<ServiceName>Delivery Confirmation&amp;lt;sup&amp;gt;&amp;amp;trade;&amp;lt;/sup&amp;gt;</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>true</AvailableOnline>
+																									<Price>0.80</Price>
+																									<PriceOnline>0.19</PriceOnline>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>15</ServiceID>
+																								  <ServiceName>Signature Confirmation&amp;lt;sup&amp;gt;&amp;amp;trade;&amp;lt;/sup&amp;gt;</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>true</AvailableOnline>
+																									<Price>2.45</Price>
+																									<PriceOnline>2.05</PriceOnline>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>6</ServiceID>
+																									<ServiceName>Collect on Delivery</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>false</AvailableOnline>
+																									<Price>5.75</Price>
+																									<PriceOnline>0</PriceOnline>
+																									<DeclaredValueRequired>true</DeclaredValueRequired>
+																									<DueSenderRequired>true</DueSenderRequired>
+																	</SpecialService>
+									</SpecialServices>
+					</Postage>
+</Package>
+<Package ID="2ND">
+				 <ZipOrigination>11223</ZipOrigination>
+				 <ZipDestination>11219</ZipDestination>
+				 <Pounds>0</Pounds>
+				 <Ounces>7.0</Ounces>
+				 <Container>VARIABLE</Container>
+				 <Size>LARGE</Size>
+				 <Width>7</Width>
+				 <Length>13</Length>
+				 <Height>3</Height>
+				 <Girth>20</Girth>
+				 <Zone>1</Zone>
+				 <Postage CLASSID="1">
+				 					<MailService>Priority Mail&amp;lt;sup&amp;gt;&amp;amp;reg;&amp;lt;/sup&amp;gt;</MailService>
+									<Rate>5.10</Rate>
+									<SpecialServices>
+																	 <SpecialService>
+																	 								 <ServiceID>1</ServiceID>
+																	 								 <ServiceName>Insurance</ServiceName>
+																									 <Available>true</Available>
+																									 <AvailableOnline>true</AvailableOnline>
+																									 <Price>4.75</Price>
+																									 <PriceOnline>4.75</PriceOnline>
+																									 <DeclaredValueRequired>true</DeclaredValueRequired>
+																									 <DueSenderRequired>false</DueSenderRequired>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>13</ServiceID>
+																									<ServiceName>Delivery Confirmation&amp;lt;sup&amp;gt;&amp;amp;trade;&amp;lt;/sup&amp;gt;</ServiceName>
+																									<Available>true</Available>
+																									<AvailableOnline>true</AvailableOnline>
+																									<Price>0.70</Price>
+																									<PriceOnline>0.00</PriceOnline>
+																	</SpecialService>
+																	<SpecialService>
+																									<ServiceID>3</ServiceID>
+																									<ServiceName>Restricted Delivery</ServiceName><Available>true</Available><AvailableOnline>false</AvailableOnline><Price>4.50</Price><PriceOnline>0</PriceOnline></SpecialService><SpecialService><ServiceID>8</ServiceID><ServiceName>Return Receipt</ServiceName><Available>true</Available><AvailableOnline>false</AvailableOnline><Price>2.30</Price><PriceOnline>0</PriceOnline></SpecialService><SpecialService><ServiceID>16</ServiceID><ServiceName>Return Receipt Electronic</ServiceName><Available>true</Available><AvailableOnline>false</AvailableOnline><Price>1.15</Price><PriceOnline>0</PriceOnline></SpecialService></SpecialServices></Postage></Package>
+<Package ID="3RD">
+				 <ZipOrigination>11223</ZipOrigination>
+				 <ZipDestination>11219</ZipDestination>
+				 <Pounds>0</Pounds>
+				 <Ounces>7.0</Ounces>
+				 <Container>VARIABLE</Container>
+				 <Size>LARGE</Size>
+				 <Zone>1</Zone>
+				 <Postage CLASSID="3">
+				 					<MailService>Express Mail&amp;lt;sup&amp;gt;&amp;amp;reg;&amp;lt;/sup&amp;gt;</MailService>
+									<Rate>13.25</Rate>
+									<SpecialServices>
+														<SpecialService>
+																	 <ServiceID>11</ServiceID>
+																	 <ServiceName>Express Mail Insurance</ServiceName>
+																	 <Available>true</Available>
+																	 <AvailableOnline>true</AvailableOnline>
+																	 <Price>0.0</Price>
+																	 <PriceOnline>0.0</PriceOnline>
+																	 <DeclaredValueRequired>true</DeclaredValueRequired>
+																	 <DueSenderRequired>false</DueSenderRequired>
+													</SpecialService>
+													<SpecialService><ServiceID>8</ServiceID><ServiceName>Return Receipt</ServiceName><Available>true</Available><AvailableOnline>false</AvailableOnline><Price>2.30</Price><PriceOnline>0</PriceOnline></SpecialService><SpecialService><ServiceID>6</ServiceID><ServiceName>Collect on Delivery</ServiceName><Available>true</Available><AvailableOnline>false</AvailableOnline><Price>5.75</Price><PriceOnline>0</PriceOnline><DeclaredValueRequired>true</DeclaredValueRequired><DueSenderRequired>true</DueSenderRequired></SpecialService></SpecialServices></Postage></Package></RateV4Response>
