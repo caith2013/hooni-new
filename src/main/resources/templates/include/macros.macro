@@ -4,13 +4,13 @@
 		 <li><a href="http://www.hooni.org/">Home</a></li>
 
 		 <li><a href="http://www.hooni.org/www?op=news">News</a></li>
-		 <li><a href="http://www.hooni.org/www?op=products">Products</a></li>
+		 <li><a href="/product">Products</a></li>
 		 <li><a href="http://food.hooni.org/">Foods</a></li>
 		 <li><a href="http://www.hooni.org/www?op=ads">Ads</a></li>
 		 <li><a href="http://www.hooni.org/www?op=shares">Share</a></li>
-		 <li><a href="http://www.hooni.org/contactus">Contact Us</a></li>
-		  <li><a href="https://www.hooni.org/register">Register</a></li>
-		 <li><a href="https://www.hooni.org/login">Login</a></li>
+		 <li><a href="/contactus">Contact Us</a></li>
+		  <li><a href="/register">Register</a></li>
+		 <li><a href="/login">Login</a></li>
 
 </ul>
 </#macro>

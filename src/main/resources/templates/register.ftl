@@ -8,11 +8,11 @@ PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
 <head>
 <title>Hooni Register</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<script type="text/javascript" src="/hooni/js/jquery.js"></script>
-<script type="text/javascript" src="/hooni/js/aes_no_decrypt.js"></script>
-<script type="text/javascript" src="/hooni/js/register.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/aes_no_decrypt.js"></script>
+<script type="text/javascript" src="/js/register.js"></script>
 
 </head>
 <body>

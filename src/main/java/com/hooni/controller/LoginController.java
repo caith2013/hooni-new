@@ -24,6 +24,6 @@ public class LoginController {
         if (redirect != null && !redirect.isBlank()) {
             model.addAttribute("redirect", redirect);
         }
-        return "food/login";   // maps to classpath:/templates/food/login.ftl
+        return "login";   // maps to classpath:/templates/login.ftl
     }
 }

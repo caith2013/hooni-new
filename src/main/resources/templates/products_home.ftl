@@ -1,5 +1,5 @@
-<#include "macros.macro" />
-<#include "product.macro" />
+<#include "/include/macros.macro" />
+<#include "/include/product.macro" />
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -9,11 +9,11 @@
 <head>
 <title>Hooni: Products make life easier</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<script type="text/javascript" src="/hooni/js/jquery.js"></script>
-<script type="text/javascript" src="/hooni/js/product.js"></script>
-<script type="text/javascript" src="/hooni/js/product_search.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/product.js"></script>
+<script type="text/javascript" src="/js/product_search.js"></script>
 
 <meta name="company" content="hooni.org" />
 <meta name="copyright" content="Copyright hooni.org all rights reserved" />

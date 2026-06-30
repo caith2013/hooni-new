@@ -30,9 +30,8 @@
 												 <ul>
 												 		  <#list news as n>
 															<li>
-																	
-																			<a href="/news?nid=${n.id?c}"><#if n.numPicture != 0><img src="/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>
-																			
+
+                                                                            <a href="/news?nid=${n.id?c}"><#if n.numPicture != 0><img src="/images/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>
 																	
 															</li>
 															<#if n_index = 30><li><dl><dt><a href="/www?op=news">More...</a></dt></dl></li><#break></#if>
@@ -48,7 +47,7 @@
 												 		  <#list products as p>
 															<li>
 																	<dl>
-																			<dt><a href="/product?pid=${p.id?c}"><img src="/products/${p.id?c}_thumb.jpg" alt=""></a></dt>
+																			<dt><a href="/product?pid=${p.id?c}"><img src="/images/products/${p.id?c}_thumb.jpg" alt=""></a></dt>
 																			<dd>${p.title?substring(0, 20)}</dd>
 																			<dd><span class="cross_price">${p.price?string.currency}</span>&nbsp;&nbsp;<span class="price_color">${p.finalPrice?string.currency}</span></dd>
 																	</dl>
@@ -67,7 +66,7 @@
 												 		  <#list foods as f>
 															<li>
 																	<dl>
-																			<dt><a href="http://food.hooni.org/foods?fid=${f.id?c}"><img src="/foods/${f.id?c}_thumb.jpg" alt=""></a></dt>
+																			<dt><a href="http://food.hooni.org/foods?fid=${f.id?c}"><img src="/images/foods/${f.id?c}_thumb.jpg" alt=""></a></dt>
 																			<dd>${f.title}</dd>
 																			
 																	</dl>
