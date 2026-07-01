@@ -67,7 +67,7 @@
     							 <#list HooniItems as p>
     							 
     							 			<dl>
-														<dt><a href="/searchproductajax?category=${p.category?html?lower_case}&menu=1"><img src="/products/${p.id?c}_thumb.jpg" alt=""></a></dt>
+														<dt><a href="/searchproductajax?category=${p.category?html?lower_case}&menu=1"><img src="/images/products/${p.id?c}_thumb.jpg" alt=""></a></dt>
     												<dd><a href="/searchproductajax?category=${p.category?html?lower_case}&menu=1"><#if (p.category?length < 20)>${p.category}<#else>${p.category?substring(0, 20)}</#if></a></dd>
     												<dd><span class="cross_price">${p.price?string.currency}</span>&nbsp;&nbsp;<span class="price_color">${p.finalPrice?string.currency}</span></dd>
     										</dl>

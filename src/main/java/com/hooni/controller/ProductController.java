@@ -1,7 +1,11 @@
 package com.hooni.controller;
 
+import com.hooni.db.PriceRangeBean;
 import com.hooni.db.Product;
 import com.hooni.repository.ProductRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +38,23 @@ public class ProductController {
         model.addAttribute("products", productRepo.findAll());
         model.addAttribute("brands",    productRepo.findDistinctBrands());
         model.addAttribute("categories",productRepo.findDistinctCategories());
+
+        Pageable pageable = PageRequest.of(0, 50);
+        Page<Product> page = productRepo.findAllProducts(pageable);
+        model.addAttribute("HooniItems", page.getContent());
+        try {
+            model.addAttribute("priceranges", productRepo.getPriceRangesRaw().stream()
+                    .map(row -> new PriceRangeBean(
+                            ((Number) row[0]).intValue(),
+                            ((Number) row[1]).intValue(),
+                            ((Number) row[2]).intValue()
+                    ))
+                    .toList());
+        } catch (Exception e) {
+            e.printStackTrace();
+            model.addAttribute("priceranges", List.of());
+        }
+
         return "products_home";
     }
 

@@ -1,13 +1,13 @@
 <#macro mainMenu>
 <ul id="top_menu">
-		 <li><a href="http://www.hooni.org/www?op=hooni">Hooni</a></li>
-		 <li><a href="http://www.hooni.org/">Home</a></li>
+		 <li><a href="/">Hooni</a></li>
+		 <li><a href="/www">Home</a></li>
 
-		 <li><a href="http://www.hooni.org/www?op=news">News</a></li>
+		 <li><a href="/news">News</a></li>
 		 <li><a href="/product">Products</a></li>
 		 <li><a href="http://food.hooni.org/">Foods</a></li>
-		 <li><a href="http://www.hooni.org/www?op=ads">Ads</a></li>
-		 <li><a href="http://www.hooni.org/www?op=shares">Share</a></li>
+		 <li><a href="/ads">Ads</a></li>
+		 <li><a href="/share">Share</a></li>
 		 <li><a href="/contactus">Contact Us</a></li>
 		  <li><a href="/register">Register</a></li>
 		 <li><a href="/login">Login</a></li>
@@ -17,12 +17,12 @@
 
 <#macro footer>
 <div id="footer">
-		 	 <div class="footer_item"><a href="http://www.hooni.org/footer?op=policy">Terms of Use</a></div>
-			 <div class="footer_item"><a href="http://www.hooni.org/footer?op=return">Return Policy</a></div>
-       <div class="footer_item"><a href="http://www.hooni.org/footer?op=privacy">Privacy</a></div>
-  		 <div class="footer_item"><a href="http://www.hooni.org/share?sid=18">Recent Change</a></div>
-  		 <div class="footer_item"><a href="http://www.hooni.org/contactus">Contact Us</a></div>
-  		 <div class="footer_item"><a href="http://www.hooni.org/footer?op=about">About Us</a></div>
+		 	 <div class="footer_item"><a href="/footer?op=policy">Terms of Use</a></div>
+			 <div class="footer_item"><a href="/footer?op=return">Return Policy</a></div>
+       <div class="footer_item"><a href="/footer?op=privacy">Privacy</a></div>
+  		 <div class="footer_item"><a href="/share?sid=18">Recent Change</a></div>
+  		 <div class="footer_item"><a href="/contactus">Contact Us</a></div>
+  		 <div class="footer_item"><a href="/footer?op=about">About Us</a></div>
   		 <p id="copyright">Copyright &#169; <script language="JavaScript" type="text/javascript">
 <!--
 var today = new Date();

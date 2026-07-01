@@ -22,7 +22,7 @@ public class NewsController {
     }
     @GetMapping("/{id}")
     public String newsDetail(@PathVariable long id, Model model) {
-        model.addAttribute("item", newsRepo.findById(id).orElse(null));
+        model.addAttribute("news", newsRepo.findById(id).orElse(null));
         return "news_detail";
     }
 }

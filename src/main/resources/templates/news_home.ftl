@@ -1,4 +1,4 @@
-<#include "macros.macro" />
+<#include "/include/macros.macro" />
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -24,9 +24,9 @@
 <head>
 <title>Hooni: Knowing the world around you</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<script type="text/javascript" src="/hooni/js/jquery.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<script type="text/javascript" src="/js/jquery.js"></script>
 </head>
 <body>
 <div id="container">
@@ -44,7 +44,7 @@
 		 					 	<ul class="news_home">
 							 	<#list HooniItems as n>
 
-												<li style="padding: 5px;"><a href="/news?nid=${n.id?c}"><#if n.numPicture != 0><img src="/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>
+												<li style="padding: 5px;"><a href="/news/${n.id?c}"><#if n.numPicture != 0><img src="/images/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>
 
 																			
 																	

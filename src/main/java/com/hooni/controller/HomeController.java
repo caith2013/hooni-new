@@ -2,8 +2,13 @@ package com.hooni.controller;
 
 import com.hooni.db.AdCategory;
 import com.hooni.db.Ads;
+import com.hooni.db.IpAddress;
+import com.hooni.db.Product;
 import com.hooni.repository.*;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -49,7 +54,7 @@ public class HomeController {
     @GetMapping("/www")
     public String home(@RequestParam(name = "op", defaultValue = "products") String op,
                        @AuthenticationPrincipal UserDetails principal,
-                       Model model) {
+                       Model model, HttpServletRequest request) {
 
         populateCommonModel(model, principal);
 
@@ -63,7 +68,9 @@ public class HomeController {
                 return "redirect:/food";
             }
             case "PRODUCTS" -> {
-                model.addAttribute("HooniItems", productRepo.findAll());
+                Pageable pageable = PageRequest.of(0, 50);
+                Page<Product> page = productRepo.findAllProducts(pageable);
+                model.addAttribute("HooniItems", page.getContent());
                 return "products_home";
             }
             case "ADS" -> {
@@ -116,4 +123,5 @@ public class HomeController {
         model.addAttribute("adsByCat", adsByCat);
         model.addAttribute("max", 20);
     }
+
 }
