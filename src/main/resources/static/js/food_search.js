@@ -173,6 +173,7 @@ function addToPlanCart(o)
 				 cache: false,
 				 data: {"fid" : s_fid, "title" : s_title, "mealtype" : s_mealtype},
 				 traditional: true,
+				 type: "POST",
 				 success: function(data){ addToMealPlan(data,s_mealtype)}
  });
 }

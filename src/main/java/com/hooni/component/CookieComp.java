@@ -4,6 +4,7 @@ import com.hooni.web.util.HttpUtil;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.annotation.RequestScope;
 
@@ -17,6 +18,7 @@ public class CookieComp
     private final HttpServletResponse _res;
     private Map<String, Cookie> _cookieMap;
 
+    @Autowired
     public  CookieComp(HttpServletRequest req, HttpServletResponse res)
     {
         this._req = req;

@@ -31,15 +31,26 @@ public class HttpUtil
 	    public static Cookie makeCookie(String name, String value)
 	    {
 	        Cookie cookie = new Cookie(name, value);
-	        cookie.setDomain("hooni.org");
+			if (!isLocalhost())
+			{
+				cookie.setDomain("hooni.org");
+			}
 	        cookie.setPath("/");
 	        return cookie;
 	    }
 	    
 	    public static void setCookieProperties(Cookie cookie, int expiry)
 	    {
-	    	cookie.setDomain("hooni.org");
+	    	if (!isLocalhost())
+			{
+				cookie.setDomain("hooni.org");
+			}
 	    	cookie.setPath("/");
 	    	cookie.setMaxAge(expiry);
 	    }
+
+	private static boolean isLocalhost() {
+		String host = System.getenv("SERVER_HOST");
+		return host == null || host.contains("localhost") || host.contains("127.0.0.1");
+	}
 }

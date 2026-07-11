@@ -1,9 +1,6 @@
 package com.hooni.controller;
 
-import com.hooni.db.Food;
-import com.hooni.db.MealType;
-import com.hooni.db.User;
-import com.hooni.db.UserFavoriteFood;
+import com.hooni.db.*;
 import com.hooni.repository.*;
 import com.hooni.service.FoodService;
 import com.hooni.service.MealsPlanService;
@@ -23,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -154,10 +152,18 @@ public class FoodController {
     // ── Start cooking (step-by-step view) ────────────────────────────────
 
     @GetMapping("/startcooking")
-    public String startCooking(@RequestParam(name = "fid") long fid, Model model) {
-        Food food = foodRepo.findById(fid).orElse(null);
-        model.addAttribute("food", food);
-        return "food/start_cooking";
+    public String startCooking(Model model) {
+        model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
+        List<Food> meals = null;
+        for(MealType mt : MealType.VALUES)
+        {
+            meals = mealPlanService.getFoodFromCookie(mealPlanService.getCookie(mt));
+            if (meals != null)
+            {
+                model.addAttribute(mt.name().toLowerCase(), meals);
+            }
+        }
+        return "start_cooking";
     }
 
     // ── Favorite toggle (AJAX) ────────────────────────────────────────────
@@ -195,21 +201,30 @@ public class FoodController {
     // ── Meal plan AJAX ────────────────────────────────────────────────────
 
     @PostMapping("/addtomealplanajax")
-    @ResponseBody
     public String addToMealPlan(@RequestParam(name = "fid") long fid,
                                 @RequestParam(name = "title") String title,
-                                @RequestParam(name = "mealtype") MealType mealtype,
-                                @AuthenticationPrincipal UserDetails principal) {
+                                @RequestParam(name = "mealtype") int mealtype,
+                                @AuthenticationPrincipal UserDetails principal,
+                                Model model) {
         //if (principal == null) return "not_logged_in";
-        // TODO: port MealsPlanCart logic
-        return "ok";
+        MealType mtype = MealType.values()[mealtype];
+        mealPlanService.addToCookie(mtype, fid, title);
+
+            model.addAttribute("foodSimple", new FoodSimple(fid, title));
+            model.addAttribute("mtype", mealtype);
+            return "menu_food";
     }
 
     @GetMapping("/mealplanajax")
-    @ResponseBody
-    public String getMealPlan(@AuthenticationPrincipal UserDetails principal) {
-        if (principal == null) return "not_logged_in";
-        // TODO: port MealsPlanCart logic
-        return "[]";
+    public String getMealPlan(@AuthenticationPrincipal UserDetails principal, Model model) {
+        //if (principal == null) return "not_logged_in";
+
+
+        for(MealType mt : MealType.VALUES)
+        {
+            model.addAttribute(mt.name().toLowerCase(), mealPlanService.getFoodSimpleFromCookie(mealPlanService.getCookie(mt).getValue()).values());
+        }
+
+        return "meal_plan";
     }
 }

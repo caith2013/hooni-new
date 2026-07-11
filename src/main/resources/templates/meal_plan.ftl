@@ -5,7 +5,7 @@
 								 <#list breakfast as bf>
 								 				<div class="today_item">
 			 											 <div class="title"><span class="title"><a href="/foods?fid=${bf.id?c}">${bf.title}</a></span></div>
-					 									 <div class="thumb"><a href="/foods?fid=${bf.id?c}"><img src="/foods/${bf.id?c}_thumb.jpg" alt="${bf.title}"/></a></div>
+					 									 <div class="thumb"><a href="/foods?fid=${bf.id?c}"><img src="/images/foods/${bf.id?c}_thumb.jpg" alt="${bf.title}"/></a></div>
 												</div>		 				
 								 </#list>
 						</#if>
@@ -17,7 +17,7 @@
 								 <#list lunch as lun>
 								 				<div class="today_item">
 			 											 <div class="title"><span class="title"><a href="/foods?fid=${lun.id?c}">${lun.title}</a></span></div>
-					 									 <div class="thumb"><a href="/foods?fid=${lun.id?c}"><img src="/foods/${lun.id?c}_thumb.jpg" alt="${lun.title}"/></a></div>
+					 									 <div class="thumb"><a href="/foods?fid=${lun.id?c}"><img src="/images/foods/${lun.id?c}_thumb.jpg" alt="${lun.title}"/></a></div>
 												</div>		 				
 								 </#list>
 						</#if>
@@ -28,7 +28,7 @@
 								 <#list dinner as d>
 								 				<div class="today_item">
 			 											 <div class="title"><span class="title"><a href="/foods?fid=${d.id?c}">${d.title}</a></span></div>
-					 									 <div class="thumb"><a href="/foods?fid=${d.id?c}"><img src="/foods/${d.id?c}_thumb.jpg" alt="${d.title}"/></a></div>
+					 									 <div class="thumb"><a href="/foods?fid=${d.id?c}"><img src="/images/foods/${d.id?c}_thumb.jpg" alt="${d.title}"/></a></div>
 												</div>		 				
 								 </#list>
 						</#if>
@@ -38,7 +38,7 @@
 			 </div>
 			 <script type="text/javascript">
 			 $(function() {
-						 						 $("input.start_cooking_button").click(function(){$(location).attr('href',"http://food.hooni.org/startcooking");});
+						 						 $("input.start_cooking_button").click(function(){$(location).attr('href',"/startcooking");});
 			});
 			 
 			 </script>

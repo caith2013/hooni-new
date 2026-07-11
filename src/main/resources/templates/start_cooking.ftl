@@ -1,5 +1,5 @@
-<#include "macros.macro" />
-<#include "food.macro" />
+<#include "include/macros.macro" />
+<#include "include/food.macro" />
 
 
 <?xml version="1.0" encoding="UTF-8"?>
@@ -11,18 +11,18 @@
 <head>
 <title>Foods: Sharing your tastes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/food_styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<link href="/hooni/css/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="/css/food_styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<link href="/css/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css"/>
 
 
 
-<script type="text/javascript" src="/hooni/js/jquery.js"></script>
-<script type="text/javascript" src="/hooni/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/hooni/js/food_search.js"></script>
-<script type="text/javascript" src="/hooni/js/food_plan.js"></script>
-<script type="text/javascript" src="/hooni/js/popup.js"></script><br />
-<script type="text/javascript" src="/hooni/js/zoom_food.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/food_search.js"></script>
+<script type="text/javascript" src="/js/food_plan.js"></script>
+<script type="text/javascript" src="/js/popup.js"></script><br />
+<script type="text/javascript" src="/js/zoom_food.js"></script>
 
 
 <meta name="company" content="hooni.org" />
@@ -54,7 +54,7 @@
 					 <#list todayspecials as ts>
 					 <div class="sp_item">
 					 			<div class="type_header"><a href="/foods?fid=${ts.id?c}">Today's ${foodType[ts.kind]?lower_case?cap_first} special</a></div>
-					 			<div class="thumb"><a href="/foods?fid=${ts.id?c}"><img src="/foods/${ts.id?c}_thumb.jpg" alt="${ts.title?string}" /></a></div>
+					 			<div class="thumb"><a href="/foods?fid=${ts.id?c}"><img src="/images/foods/${ts.id?c}_thumb.jpg" alt="${ts.title?string}" /></a></div>
 								<div class="desc"><span class="title"><a href="/foods?fid=${ts.id?c}">${ts.title?string}</a></span></div>
 					 			
 					 </div>
@@ -80,7 +80,7 @@
 									<div class="detail_section">
 						 					 <div id="detail_left">
     											 <div id="food_images">
-    						 					 			<img src="http://${hosts.imageServer}:${hosts.imagePort}/foods/${bf.id?c}_full.jpg" alt="${bf.title}" id="full_img"/>
+    						 					 			<img src="/images/foods/${bf.id?c}_full.jpg" alt="${bf.title}" id="full_img"/>
 															
     											 </div><!-- end of food_images -->
 											 			
@@ -95,7 +95,7 @@
 															
 															<#list bf.foodSteps as foodStep>
 															<#if foodStep.hasPicture >
-											 				<li class="with_image"><img src="/foods/${bf.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
+											 				<li class="with_image"><img src="/images/foods/${bf.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
 															<#else>
 															<li>
 															</#if>${foodStep.description}</li>
@@ -135,7 +135,7 @@
 									<div class="detail_section">
 						 					 <div id="detail_left">
     											 <div id="food_images">
-    						 					 			<img src="http://${hosts.imageServer}:${hosts.imagePort}/foods/${lu.id?c}_full.jpg" alt="${lu.title}" id="full_img"/>
+    						 					 			<img src="/images/foods/${lu.id?c}_full.jpg" alt="${lu.title}" id="full_img"/>
 															
     											 </div><!-- end of food_images -->
 											 			
@@ -150,7 +150,7 @@
 															
 															<#list lu.foodSteps as foodStep>
 															<#if foodStep.hasPicture >
-											 				<li class="with_image"><img src="/foods/${lu.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
+											 				<li class="with_image"><img src="/images/foods/${lu.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
 															<#else>
 															<li>
 															</#if>${foodStep.description}</li>
@@ -187,7 +187,7 @@
 									<div class="detail_section">
 						 					 <div id="detail_left">
     											 <div id="food_images">
-    						 					 			<img src="http://${hosts.imageServer}:${hosts.imagePort}/foods/${di.id?c}_full.jpg" alt="${di.title}" id="full_img"/>
+    						 					 			<img src="/images/foods/${di.id?c}_full.jpg" alt="${di.title}" id="full_img"/>
 															
     											 </div><!-- end of food_images -->
 											 			
@@ -202,7 +202,7 @@
 															
 															<#list di.foodSteps as foodStep>
 															<#if foodStep.hasPicture >
-											 				<li class="with_image"><img src="/foods/${di.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
+											 				<li class="with_image"><img src="/images/foods/${di.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
 															<#else>
 															<li>
 															</#if>${foodStep.description}</li>
