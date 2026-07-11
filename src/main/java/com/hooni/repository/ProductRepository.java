@@ -9,10 +9,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import java.util.Iterator;
 import java.util.List;
 
 @Repository
-public interface ProductRepository extends JpaRepository<Product, Long> {
+public interface ProductRepository extends JpaRepository<Product, Long>, ProductRepositoryCustom {
 
     @Query("select new com.hooni.db.ProductCounterBean(COUNT(p), p.brand) " +
             "from Product p group by p.brand order by p.brand")
@@ -36,4 +37,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
             "cast(substring(convert(final_price, char),1,1) as signed)",
             nativeQuery = true)
     List<Object[]> getPriceRangesRaw();
+
+
 }

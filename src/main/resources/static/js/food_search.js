@@ -30,12 +30,12 @@ function addToFavorite(o)
  var s_fid = $(o).attr("fid");
   
  $.ajax({
-						url: "http://food.hooni.org/favoriteajax",
+						url: "/favoriteajax",
 						cache: false,
 						data: {"fid" : s_fid},
 						traditional: true,
 						success: function(data) {$("#myfavorite .favor_header").after(data).slideDown("slow");},
-						error: function(data) {$(location).attr('href',"https://www.hooni.org/login");}
+						error: function(data) {$(location).attr('href',"/login");}
 					 });
 }
 function searchMoreLike(o)
@@ -152,7 +152,7 @@ function narrowResult(o)
 function callSearchAjax(a_mealType,s_foodType,a_keywords)
 {
  $.ajax({
-						url: "http://food.hooni.org/searchfoodajax",
+						url: "/searchfoodajax",
 						cache: false,
 						data: {"mealType" : a_mealType, "foodType" : s_foodType, "keywords" : a_keywords},
 						traditional: true,
@@ -169,7 +169,7 @@ function addToPlanCart(o)
  s_mealtype = $(o).attr("mealtype")+"";
  
  $.ajax({
- 				 url: "http://food.hooni.org/addtomealplanajax",
+ 				 url: "/addtomealplanajax",
 				 cache: false,
 				 data: {"fid" : s_fid, "title" : s_title, "mealtype" : s_mealtype},
 				 traditional: true,

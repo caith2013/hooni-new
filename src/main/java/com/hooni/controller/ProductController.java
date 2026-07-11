@@ -31,10 +31,7 @@ public class ProductController {
     @GetMapping
     public String productList(@RequestParam(name = "pid", required = false) Long pid,
                               Model model) {
-        if (pid != null) {
-            model.addAttribute("product", productRepo.findById(pid).orElse(null));
-            return "product_detail";
-        }
+
         model.addAttribute("products", productRepo.findAll());
         model.addAttribute("brands",    productRepo.findDistinctBrands());
         model.addAttribute("categories",productRepo.findDistinctCategories());
@@ -54,7 +51,10 @@ public class ProductController {
             e.printStackTrace();
             model.addAttribute("priceranges", List.of());
         }
-
+        if (pid != null) {
+            model.addAttribute("product", productRepo.findById(pid).orElse(null));
+            return "product_detail";
+        }
         return "products_home";
     }
 

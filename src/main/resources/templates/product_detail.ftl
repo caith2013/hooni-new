@@ -1,5 +1,5 @@
-<#include "macros.macro" />
-<#include "product.macro" />
+<#include "/include/macros.macro" />
+<#include "/include/product.macro" />
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -9,11 +9,11 @@
 <head>
 <title>${product.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<script type="text/javascript" src="/hooni/js/jquery-1.5.js"></script>
-<script type="text/javascript" src="/hooni/js/product.js"></script>
-<script type="text/javascript" src="/hooni/js/product_search.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<script type="text/javascript" src="/js/jquery-1.5.js"></script>
+<script type="text/javascript" src="/js/product.js"></script>
+<script type="text/javascript" src="/js/product_search.js"></script>
 
 <meta name="company" content="hooni.org" />
 <meta name="copyright" content="Copyright hooni.org all rights reserved" />
@@ -46,7 +46,9 @@
 					<div id="product_detail">
 						
 						 			<div class="detail_section">
-						 					 <div id="product_title" class="product_title_font">${product.title} <#if owner><span><a href="/product?op=edit&pid=${product.id?c}">Edit</a></span>&nbsp;&nbsp;<span><a href="/product?op=delete&pid=${product.id?c}">Delete</a></span></#if></div>
+						 					 <div id="product_title" class="product_title_font">${product.title}
+						 					  <#-- 						 					  <#if owner><span><a href="/product?op=edit&pid=${product.id?c}">Edit</a></span>&nbsp;&nbsp;<span><a href="/product?op=delete&pid=${product.id?c}">Delete</a></span></#if> -->
+						 					  </div>
 											  
 											 <div id="product_maker">by <a href="javascript:void(0);" class="maker" value="${product.brand?lower_case}">${product.brand}</a></div>
 											 
@@ -56,7 +58,7 @@
 						 					 
 											<div id="product_infor">
 											 		 <div id="product_images">
-						 					 					<img src="/products/${product.id?c}_full.jpg" alt="${product.title}" />		
+						 					 					<img src="/images/products/${product.id?c}_full.jpg" alt="${product.title}" />
 															
 						 					 		 </div><!-- end of product_images -->
 													

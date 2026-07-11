@@ -1,9 +1,15 @@
 package com.hooni.controller;
 
 import com.hooni.db.Food;
+import com.hooni.db.MealType;
 import com.hooni.db.User;
 import com.hooni.db.UserFavoriteFood;
 import com.hooni.repository.*;
+import com.hooni.service.FoodService;
+import com.hooni.service.MealsPlanService;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -30,17 +36,27 @@ import java.util.List;
 @Controller
 public class FoodController {
 
-    private static final int PAGE_SIZE = 10;
+    private static final int PAGE_SIZE = 30;
 
     private final FoodRepository        foodRepo;
     private final UserRepository        userRepo;
     private final UserFavoriteFoodRepository favRepo;
 
+    private final FoodService foodService;
+    private final ShareRepository        shareRepo;
+    private final BlogRepository blogRepo;
+    private final MealsPlanService mealPlanService;
+
     public FoodController(FoodRepository foodRepo, UserRepository userRepo,
-                          UserFavoriteFoodRepository favRepo) {
+                          UserFavoriteFoodRepository favRepo, FoodService foodService, ShareRepository shareRepo, BlogRepository blogRepo,
+                          MealsPlanService mealPlanService) {
         this.foodRepo = foodRepo;
         this.userRepo = userRepo;
         this.favRepo  = favRepo;
+        this.foodService = foodService;
+        this.shareRepo = shareRepo;
+        this.blogRepo = blogRepo;
+        this.mealPlanService = mealPlanService;
     }
 
     // ── Food home (browse) ────────────────────────────────────────────────
@@ -50,6 +66,9 @@ public class FoodController {
         List<Food> foods = foodRepo.findAllByOrderByTimeCreatedDesc(PageRequest.of(0, PAGE_SIZE));
         model.addAttribute("HooniItems", foods);
         model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
+        model.addAttribute("theday", foodService.getMyDay(foods));
+        model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
+        model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
         if (principal != null) {
             model.addAttribute("ff", foodRepo.findFavoriteFoodsByUsername(principal.getUsername()));
         }
@@ -67,15 +86,42 @@ public class FoodController {
             model.addAttribute("theday", food);
             model.addAttribute("HooniItems", foodRepo.findAllByOrderByTimeCreatedDesc(PageRequest.of(0, PAGE_SIZE)));
             model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
+            model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
+            model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
             if (principal != null) {
                 model.addAttribute("ff", foodRepo.findFavoriteFoodsByUsername(principal.getUsername()));
             }
-            return "food/foods_home";
+            return "foods_home";
         }
         // Show the "add recipe" form (requires login — enforced by SecurityConfig)
-        return "food/foods";
+        return "redirect:/food";
     }
 
+    @GetMapping("/searchfoodajax")
+    public String searchFoodAjax(HttpServletRequest request,
+                             @AuthenticationPrincipal UserDetails principal,
+                                 Model model) {
+        String[] mealType = request.getParameterValues("mealType");
+        String foodType = request.getParameter("foodType");
+        String[] keywords = request.getParameterValues("keywords");
+        String menu = request.getParameter("menu");
+
+        List<Food> foods = this.foodRepo.getFoods(mealType, foodType, keywords);
+        model.addAttribute("HooniItems", foods);
+        if (menu != null) {
+            Food food = foodRepo.findById(Long.parseLong(menu)).orElse(null);
+            model.addAttribute("theday", food);
+            model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
+            model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
+            model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
+            if (principal != null) {
+                model.addAttribute("ff", foodRepo.findFavoriteFoodsByUsername(principal.getUsername()));
+            }
+            return "foods_home";
+        }
+        // Show the "add recipe" form (requires login — enforced by SecurityConfig)
+        return "search_food_ajax";
+    }
     // ── Add recipe (POST) ─────────────────────────────────────────────────
 
     @PostMapping("/foods")
@@ -151,8 +197,10 @@ public class FoodController {
     @PostMapping("/addtomealplanajax")
     @ResponseBody
     public String addToMealPlan(@RequestParam(name = "fid") long fid,
+                                @RequestParam(name = "title") String title,
+                                @RequestParam(name = "mealtype") MealType mealtype,
                                 @AuthenticationPrincipal UserDetails principal) {
-        if (principal == null) return "not_logged_in";
+        //if (principal == null) return "not_logged_in";
         // TODO: port MealsPlanCart logic
         return "ok";
     }

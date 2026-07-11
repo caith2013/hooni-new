@@ -1,3 +1,22 @@
+
+<#macro FoodMainHeader>
+<div id="food_home_header">
+		 	<ul id="header">
+					<li><div id="logo">food.hooni.org</div><div id="slogan">what do you like eat today?</div></li>
+					<li><div id="search"><form name="search_food_header" id="search_food_header" method="post" action="#"><input type="text" value="Example:broccoli" name="search_text" id="search_text" /><input type="submit" name="search" value="Search" id="search_button" class="header_search_button"></form></div></li>
+					<li><div id="header_ad"></div></li>
+			</ul>
+      <ul id="top_menu">
+      		 <li><a href="/www?op=hooni">Hooni</a></li>
+      		 <li><a href="/food">Foods</a></li>
+      		 <li><a href="/myads">Advertisment</a></li>
+      		 <li><a href="/contactus">Help</a></li>
+      		 <li><a href="/register">Register</a></li>
+
+
+      </ul>
+</div>
+</#macro>
 <#macro FoodLeftMenu>
 <div id="food_left_menu">
 		 <div id="narrow_result">Narrow Your Result</div>
@@ -25,4 +44,18 @@
 					</form>
 		 </div>
 </div>
+</#macro>
+
+<#macro JoinForFree>
+<div id="joinforfree">
+			 <input type="button" name="join" value="join for FREE" class="join_button"/>
+			 <ul>
+			 		 <li>Post your recipes online</li>
+					 <li>Plan your recipes for breakfast, lunch or dinner</li>
+					 <li>Share your recipes with your friends</li>
+					 <li>Post your comments and reviews</li>
+					 <li>Save your favorite recipes</li>
+					 <li>Make friends and get tips from them</li>
+			 </ul>
+	</div>
 </#macro>

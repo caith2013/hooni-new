@@ -68,10 +68,7 @@ public class HomeController {
                 return "redirect:/food";
             }
             case "PRODUCTS" -> {
-                Pageable pageable = PageRequest.of(0, 50);
-                Page<Product> page = productRepo.findAllProducts(pageable);
-                model.addAttribute("HooniItems", page.getContent());
-                return "products_home";
+                return "redirect:/product";
             }
             case "ADS" -> {
                 populateAdsByCategory(model);

@@ -11,20 +11,20 @@
 <head>
 <title>Foods: Sharing your tastes</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/food_styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<link href="/hooni/css/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="/css/food_styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<link href="/css/jquery-ui-1.8.23.custom.css" rel="stylesheet" type="text/css"/>
 
 <style>
-#view {background-image: url( "http://${hosts.imageServer}:${hosts.imagePort}/foods/${theday.id?c}.jpg" );}
+#view {background-image: url( "/images/foods/${theday.id?c}.jpg" );}
 </style>
 
-<script type="text/javascript" src="/hooni/js/jquery.js"></script>
-<script type="text/javascript" src="/hooni/js/jquery-ui.min.js"></script>
-<script type="text/javascript" src="/hooni/js/food_search.js"></script>
-<script type="text/javascript" src="/hooni/js/food_plan.js"></script>
-<script type="text/javascript" src="/hooni/js/popup.js"></script><br />
-<script type="text/javascript" src="/hooni/js/zoom_food.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/jquery-ui.min.js"></script>
+<script type="text/javascript" src="/js/food_search.js"></script>
+<script type="text/javascript" src="/js/food_plan.js"></script>
+<script type="text/javascript" src="/js/popup.js"></script><br />
+<script type="text/javascript" src="/js/zoom_food.js"></script>
 
 
 <meta name="company" content="hooni.org" />
@@ -56,7 +56,7 @@
 					 <#list todayspecials as ts>
 					 <div class="sp_item">
 					 			<div class="type_header"><a href="/foods?fid=${ts.id?c}">Today's ${foodType[ts.kind]?lower_case?cap_first} special</a></div>
-					 			<div class="thumb"><a href="/foods?fid=${ts.id?c}"><img src="/foods/${ts.id?c}_thumb.jpg" alt="${ts.title?string}" /></a></div>
+					 			<div class="thumb"><a href="/foods?fid=${ts.id?c}"><img src="/images/foods/${ts.id?c}_thumb.jpg" alt="${ts.title?string}" /></a></div>
 								<div class="desc"><span class="title"><a href="/foods?fid=${ts.id?c}">${ts.title?string}</a></span></div>
 					 			
 					 </div>
@@ -79,7 +79,7 @@
 									<div class="detail_section">
 						 					 <div id="detail_left">
     											 <div id="food_images">
-    						 					 			<img src="http://${hosts.imageServer}:${hosts.imagePort}/foods/${theday.id?c}_full.jpg" alt="${theday.title}" id="full_img"/>
+    						 					 			<img src="/images/foods/${theday.id?c}_full.jpg" alt="${theday.title}" id="full_img"/>
 																<a id='zoom'><span><br /></span></a>
     											 </div><!-- end of food_images -->
 											 			
@@ -103,7 +103,7 @@
 															
 															<#list theday.foodSteps as foodStep>
 															<#if foodStep.hasPicture >
-											 				<li class="with_image"><img src="/foods/${theday.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
+											 				<li class="with_image"><img src="/images/foods/${theday.id?c}_${foodStep.id?c}_thumb.jpg" alt="" class="thumb"/>
 															<#else>
 															<li>
 															</#if>${foodStep.description}</li>
@@ -137,7 +137,7 @@
 							 <#list HooniItems as f>
 							
 							 			<dl>
-												<dt><a href="/foods?fid=${f.id?c}"><img src="/foods/${f.id?c}_thumb.jpg" alt=""></a></dt>
+												<dt><a href="/foods?fid=${f.id?c}"><img src="/images/foods/${f.id?c}_thumb.jpg" alt=""></a></dt>
 												<dd>${f.title}</dd>
 												
 										</dl>
@@ -173,7 +173,7 @@
                   											
                   							 			<#if ( index == -1)><#assign index = blog.content?length> </#if>
                   							 			<dl class="solid">
-                  												<dt><a href="javascript:void(0)" class="ing_search" blog_id="${blog.id?c}" name="${blog.content?substring(0,index)}" desc="${blog.content}"><img src="/shares/20_${blog.id?c}_0_thumb.jpg" alt="${blog.content?substring(0,index)}"></a></dt>
+                  												<dt><a href="javascript:void(0)" class="ing_search" blog_id="${blog.id?c}" name="${blog.content?substring(0,index)}" desc="${blog.content}"><img src="/images/shares/20_${blog.id?c}_0_thumb.jpg" alt="${blog.content?substring(0,index)}"></a></dt>
                   												<dd>${blog.content?substring(0,index)}</dd>
                   												
                   										</dl>
@@ -192,7 +192,7 @@
                   											
                   							 			<#if ( index == -1)><#assign index = blog.content?length> </#if>
                   							 			<dl class="solid">
-                  												<dt><a href="javascript:void(0)" class="ing_search" blog_id="${blog.id?c}" name="${blog.content?substring(0,index)}" desc="${blog.content}"><img src="/shares/21_${blog.id?c}_0_thumb.jpg" alt="${blog.content?substring(0,index)}"></a></dt>
+                  												<dt><a href="javascript:void(0)" class="ing_search" blog_id="${blog.id?c}" name="${blog.content?substring(0,index)}" desc="${blog.content}"><img src="/images/shares/21_${blog.id?c}_0_thumb.jpg" alt="${blog.content?substring(0,index)}"></a></dt>
                   												<dd>${blog.content?substring(0,index)}</dd>
                   												
                   										</dl>
@@ -246,7 +246,7 @@
 					<#list ff as f>
 								 <div class="favor_item">
 					 			<div class="user"><a href="/foods?fid=${f.id?c}">${f.user.userName?string}</a></div>
-					 			<div class="thumb"><a href="/foods?fid=${f.id?c}"><img src="/foods/${f.id?c}_thumb.jpg" alt="${f.title?string}" /></a></div>
+					 			<div class="thumb"><a href="/foods?fid=${f.id?c}"><img src="/images/foods/${f.id?c}_thumb.jpg" alt="${f.title?string}" /></a></div>
 								<div class="desc"><span class="title"><a href="/foods?fid=${f.id?c}">${f.title?string}</a></span></div>
 					 			
 								</div>

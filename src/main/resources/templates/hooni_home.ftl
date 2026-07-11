@@ -60,13 +60,13 @@
 										
 										
 										<div class="sub_item">
-												 <div class="sub_title"><div class="subject"><a href="http://food.hooni.org">Foods...</a></div><div class="definition">Share your taste with others</div></div>
+												 <div class="sub_title"><div class="subject"><a href="/www?op=foods">Foods...</a></div><div class="definition">Share your taste with others</div></div>
 												 <#if foods??>
 												 <ul>
 												 		  <#list foods as f>
 															<li>
 																	<dl>
-																			<dt><a href="http://food.hooni.org/foods?fid=${f.id?c}"><img src="/images/foods/${f.id?c}_thumb.jpg" alt=""></a></dt>
+																			<dt><a href="/foods?fid=${f.id?c}"><img src="/images/foods/${f.id?c}_thumb.jpg" alt=""></a></dt>
 																			<dd>${f.title}</dd>
 																			
 																	</dl>
