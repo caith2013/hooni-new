@@ -56,4 +56,45 @@ public class ProductRepositoryImpl implements ProductRepositoryCustom {
 
         return query.getResultList();
     }
+    // Generic method for filtering by any column
+    private List<Product> findProductsByField(String fieldName, String[] keywords) {
+        StringBuilder q = new StringBuilder("select p from Product p where 1=1");
+
+        if (keywords != null && keywords.length > 0) {
+            q.append(" and (");
+            for (int i = 0; i < keywords.length; i++) {
+                q.append(" lower(p.").append(fieldName).append(") like :kw").append(i);
+                if (i < keywords.length - 1) q.append(" or");
+            }
+            q.append(" )");
+        }
+
+        TypedQuery<Product> query = em.createQuery(q.toString(), Product.class);
+
+        if (keywords != null && keywords.length > 0) {
+            for (int i = 0; i < keywords.length; i++) {
+                query.setParameter("kw" + i, "%" + keywords[i].toLowerCase() + "%");
+            }
+        }
+
+        return query.getResultList();
+    }
+    @Override
+    public List<Product> findProductsByCategory(String[] keywords) {
+        return findProductsByField("category", keywords);
+    }
+
+    @Override
+    public List<Product> findProductsByBrand(String[] keywords) {
+        return findProductsByField("brand", keywords);
+    }
+
+    @Override
+    public List<Product> findProductsByTitle(String[] keywords) {
+        return findProductsByField("title", keywords);
+    }
+    @Override
+    public List<Product> findProductsByUpc(String[] keywords) {
+        return findProductsByField("upc", keywords);
+    }
 }

@@ -38,5 +38,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Product
             nativeQuery = true)
     List<Object[]> getPriceRangesRaw();
 
+    @Query("select p from Product p where p.quantity > 0 group by p.category order by p.creationDate asc")
+    Page<Product> findAllProductsByCategory(Pageable pageable);
 
 }

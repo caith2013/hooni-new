@@ -55,7 +55,7 @@ function doSearch()
 {
 
  $.ajax({
-						url: "http://www.hooni.org/searchproductajax",
+						url: "/product/searchproductajax",
 						cache: false,
 						data: {"category" : this.category, "brand" : this.brand, "price" : this.price, "keywords" : this.keywords},
 						traditional: true,
@@ -130,7 +130,7 @@ function resetForm()
 {
 // $("#product_left_menu input:radio").removeAttr('checked');
 
- $(location).attr('href','http://www.hooni.org/www?op=products');
+ $(location).attr('href','/www?op=products');
 }
 
 function seachProductByRadio(o)
