@@ -1,6 +1,8 @@
 package com.hooni.db;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,7 +19,7 @@ public class Share implements Serializable {
     @Column(name = "time") @Temporal(TemporalType.TIMESTAMP) private Date timeCreated;
     @Column(name = "rate")    private String byRate;
     @Column(name = "price")   private java.math.BigDecimal price;
-    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) private User user;
+    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) @Fetch(FetchMode.JOIN) private User user;
     @OneToMany(mappedBy = "share", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @OrderBy("id asc")
     private Set<Blog> blogs;

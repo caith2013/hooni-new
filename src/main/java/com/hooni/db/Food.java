@@ -1,6 +1,8 @@
 package com.hooni.db;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -44,6 +46,7 @@ public class Food implements Serializable {
     private byte kind;
 
     @ManyToOne(fetch = FetchType.EAGER)
+    @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "user_username", nullable = false)
     private User user;
 

@@ -60,12 +60,12 @@ public class ProductController {
     }
 
     /** AJAX product search */
-    @PostMapping("/searchproductajax")
-    public List<Product> searchProducts(@RequestParam(name = "category", defaultValue = "") String category,
+    @GetMapping("/searchproductajax")
+    public String searchProducts(@RequestParam(name = "category", defaultValue = "") String category,
                                         @RequestParam(name = "brand", defaultValue = "") String brand,
                                         @RequestParam(name = "price", defaultValue = "") String price,
                                         @RequestParam(name = "keywords", defaultValue = "") String keywords,
-                                        @RequestParam(name = "menu", defaultValue = "") String menu) {
+                                        @RequestParam(name = "menu", defaultValue = "") String menu, Model model) {
         int[] prices = getPrices(price);
 
         String[] keywordsArray = getKeywords(keywords);
@@ -73,15 +73,35 @@ public class ProductController {
         List<Product> products;
         if ((category == null || category.trim().isEmpty()) && (brand == null || brand.trim().isEmpty()) && prices == null)
         {
-            products = productRepo.getProducts(keywords);
+            products = productRepo.findProductsByTitle(keywordsArray);
         }
         else
         {
-            products = productRepo.getProducts(category,brand,prices,keywords);
+            products = productRepo.getProducts(category,brand,prices,keywordsArray);
         }
-        tb.put("HooniItems", products);
+        model.addAttribute("HooniItems", products);
 
-        return productRepo.findAll();
+        if (menu != null && !menu.trim().isEmpty())
+        {
+            this.loadLeftMenuCache(model);
+            return "products_by_category";
+        }
+        else
+            return  "search_product_ajax";
+
+    }
+
+    public void loadLeftMenuCache(Model model)
+    {
+        model.addAttribute("brands", productRepo.findDistinctBrands());
+        model.addAttribute("categories", productRepo.findDistinctCategories());
+        model.addAttribute("priceranges", productRepo.getPriceRangesRaw().stream()
+                .map(row -> new PriceRangeBean(
+                        ((Number) row[0]).intValue(),
+                        ((Number) row[1]).intValue(),
+                        ((Number) row[2]).intValue()
+                ))
+                .toList());
     }
 
     private String[] getKeywords(String s_keywords)

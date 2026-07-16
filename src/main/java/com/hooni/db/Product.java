@@ -1,6 +1,8 @@
 package com.hooni.db;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -28,7 +30,7 @@ public class Product implements Serializable {
     @Column(name = "shipping_cost")                 private java.math.BigDecimal shippingCost;
     @Column(name = "final_price")                   private BigDecimal finalPrice;
     @Column(name = "creation_date", nullable = false) @Temporal(TemporalType.TIMESTAMP) private Date creationDate;
-    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) private User user;
+    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) @Fetch(FetchMode.JOIN) private User user;
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<AgentHasProduct> agentHasProduct;
 

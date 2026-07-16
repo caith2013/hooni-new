@@ -1,6 +1,8 @@
 package com.hooni.db;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,7 +19,7 @@ public class Ads implements Serializable {
     @Column(name = "contact_infor")  private String contactInfor;
     @Column(name = "personal", nullable = false) private boolean personal;
     @Column(name = "time") @Temporal(TemporalType.TIMESTAMP) private Date timeCreated;
-    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) private User user;
+    @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) @Fetch(FetchMode.JOIN) private User user;
     @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "ad_category_name", nullable = false) private AdCategory adcat;
     @OneToMany(mappedBy = "ads", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
     @OrderBy("id asc")

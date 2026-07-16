@@ -130,8 +130,6 @@ public class ProductSearchService extends SearchService
 		@Override
 		public List<Product> call() throws Exception
 		{
-
-			
 			return _productRepo.findProductsByUpc(_keywords);
 		}
 	}

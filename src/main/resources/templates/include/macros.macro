@@ -42,7 +42,7 @@ document.write(today.getFullYear());
                   		<ul>
       
                       	  <li><a href="/www?op=news">News</a></li>
-                          <li><a href="http://food.hooni.org">Foods</a></li>
+                          <li><a href="/www?op=foods">Foods</a></li>
                           <li><a href="/www?op=products">Products</a></li>
                           <li><a href="/www?op=ads">Ads</a></li>
       										<li><a href="/www?op=shares">Shares</a></li>
@@ -59,13 +59,13 @@ document.write(today.getFullYear());
       										</ul>
       										<span class="sub_menu">&gt;&gt;</span>-->
       						</li>
-                  <li><a href="http://food.hooni.org">Foods</a>
+                  <li><a href="/www?op=foods">Foods</a>
       										 <ul>
       										 <#list mealType as meal>
-      										 				<li class="food_sub_menu"><a href="http://food.hooni.org/searchfoodajax?mealType=${meal.ordinal()}&menu=1">${meal?lower_case?cap_first}&nbsp;&nbsp;</a></li>
+      										 				<li class="food_sub_menu"><a href="/searchfoodajax?mealType=${meal.ordinal()}&menu=61">${meal?lower_case?cap_first}&nbsp;&nbsp;</a></li>
       										 </#list>
       										 <#list foodType as ft>
-      								 		 				<li class="food_sub_menu"><a href="http://food.hooni.org/searchfoodajax?foodType=${ft.ordinal()}&menu=1">${ft?lower_case?cap_first}&nbsp;&nbsp;</a></li>
+      								 		 				<li class="food_sub_menu"><a href="/searchfoodajax?foodType=${ft.ordinal()}&menu=61">${ft?lower_case?cap_first}&nbsp;&nbsp;</a></li>
       										 </#list>
       										 
       										 </ul>

@@ -3,6 +3,7 @@ package com.hooni.repository;
 import com.hooni.db.PriceRangeBean;
 import com.hooni.db.Product;
 import com.hooni.db.ProductCounterBean;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,10 +16,12 @@ import java.util.List;
 @Repository
 public interface ProductRepository extends JpaRepository<Product, Long>, ProductRepositoryCustom {
 
+    @Cacheable("productCountsByBrand")
     @Query("select new com.hooni.db.ProductCounterBean(COUNT(p), p.brand) " +
             "from Product p group by p.brand order by p.brand")
     List<ProductCounterBean> findDistinctBrands();
 
+    @Cacheable("productCountsByCategory")
     @Query("select new com.hooni.db.ProductCounterBean(COUNT(p), p.category) " +
             "from Product p group by p.category order by p.category")
     List<ProductCounterBean> findDistinctCategories();
@@ -26,6 +29,7 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Product
     @Query("select p from Product p order by p.id")
     Page<Product> findAllProducts(Pageable pageable);
 
+    @Cacheable("priceRanges")
     @Query(value = "select cast(length(convert(final_price, char))-3 as signed) as price_length, " +
             "cast(substring(convert(final_price, char),1,1) as signed) as first_digit, " +
             "count(*) as cnt " +
@@ -38,7 +42,8 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Product
             nativeQuery = true)
     List<Object[]> getPriceRangesRaw();
 
-    @Query("select p from Product p where p.quantity > 0 group by p.category order by p.creationDate asc")
+    @Cacheable("productsByCategory")
+    @Query("select p from Product p group by p.category order by p.creationDate asc")
     Page<Product> findAllProductsByCategory(Pageable pageable);
 
 }
