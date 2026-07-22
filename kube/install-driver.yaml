@@ -1,0 +1,185 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: kube-system
+---
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: smbvolumeattachments.smb.csi.k8s.io
+  annotations:
+    api-approved.kubernetes.io: "https://github.com"
+spec:
+  group: smb.csi.k8s.io
+  names:
+    kind: SMBVolumeAttachment
+    listKind: SMBVolumeAttachmentList
+    plural: smbvolumeattachments
+    singular: smbvolumeattachment
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              source:
+                type: string
+              secretName:
+                type: string
+              secretNamespace:
+                type: string
+---
+apiVersion: storage.k8s.io/v1
+kind: CSIDriver
+metadata:
+  name: smb.csi.k8s.io
+spec:
+  attachRequired: false
+  podInfoOnMount: true
+  volumeLifecycleModes:
+    - Persistent
+    - Ephemeral
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: csi-smb-controller
+  namespace: kube-system
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: csi-smb-controller
+  template:
+    metadata:
+      labels:
+        app: csi-smb-controller
+    spec:
+      serviceAccountName: csi-smb-controller-sa
+      containers:
+        - name: csi-provisioner
+          image: registry.k8s.io/sig-storage/csi-provisioner:v3.5.0
+          args:
+            - "--csi-address=$(ADDRESS)"
+            - "--v=5"
+          env:
+            - name: ADDRESS
+              value: /csi/csi.sock
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+        - name: smb
+          image: registry.k8s.io/sig-storage/smb-driver:v1.15.0
+          args:
+            - "--v=5"
+            - "--endpoint=$(CSI_ENDPOINT)"
+          env:
+            - name: CSI_ENDPOINT
+              value: unix:///csi/csi.sock
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+      volumes:
+        - name: socket-dir
+          emptyDir: {}
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: csi-smb-node
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: csi-smb-node
+  template:
+    metadata:
+      labels:
+        app: csi-smb-node
+    spec:
+      hostNetwork: true
+      serviceAccountName: csi-smb-node-sa
+      containers:
+        - name: node-driver-registrar
+          image: registry.k8s.io/sig-storage/csi-node-driver-registrar:v2.8.0
+          args:
+            - "--v=5"
+            - "--csi-address=/csi/csi.sock"
+            - "--kubelet-registration-path=/var/lib/kubelet/plugins/smb.csi.k8s.io/csi.sock"
+          env:
+            - name: KUBE_NODE_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+            - name: registration-dir
+              mountPath: /registration
+        - name: liveness-probe
+          image: registry.k8s.io/sig-storage/livenessprobe:v2.10.0
+          args:
+            - "--csi-address=/csi/csi.sock"
+            - "--probe-path=/healthz"
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+        - name: smb
+          image: registry.k8s.io/sig-storage/smb-driver:v1.15.0
+          securityContext:
+            privileged: true
+            capabilities:
+              add: ["SYS_ADMIN"]
+            allowPrivilegeEscalation: true
+          args:
+            - "--v=5"
+            - "--endpoint=$(CSI_ENDPOINT)"
+            - "--nodeid=$(NODE_ID)"
+          env:
+            - name: CSI_ENDPOINT
+              value: unix:///csi/csi.sock
+            - name: NODE_ID
+              valueFrom:
+                fieldRef:
+                  fieldPath: spec.nodeName
+          volumeMounts:
+            - name: socket-dir
+              mountPath: /csi
+            - name: plugin-dir
+              mountPath: /var/lib/kubelet/plugins/smb.csi.k8s.io
+            - name: pods-mount-dir
+              mountPath: /var/lib/kubelet
+              mountPropagation: Bidirectional
+      volumes:
+        - name: socket-dir
+          emptyDir: {}
+        - name: plugin-dir
+          hostPath:
+            path: /var/lib/kubelet/plugins/smb.csi.k8s.io
+            type: DirectoryOrCreate
+        - name: registration-dir
+          hostPath:
+            path: /var/lib/kubelet/plugins_registry
+            type: Directory
+        - name: pods-mount-dir
+          hostPath:
+            path: /var/lib/kubelet
+            type: Directory
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: csi-smb-controller-sa
+  namespace: kube-system
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: csi-smb-node-sa
+  namespace: kube-system

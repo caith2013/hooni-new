@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: smb-test-pod
+  namespace: default
+spec:
+  containers:
+    - name: test-container
+      image: alpine
+      command: ["/bin/sh", "-c", "while true; do sleep 30; done"]
+      volumeMounts:
+        - name: windows-volume
+          mountPath: /mnt/share # Path inside the test pod
+  volumes:
+    - name: windows-volume
+      persistentVolumeClaim:
+        claimName: windows-share-pvc

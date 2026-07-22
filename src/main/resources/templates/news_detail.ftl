@@ -46,7 +46,7 @@
 							 </div>
 							 
 							 
-							 <div id="news_contents"><#if news.numPicture != 0><img src="/news/${news.id?c}_1_full.jpg" alt="${news.title}"/></#if>${news.contents}</div>
+							 <div id="news_contents"><#if news.numPicture != 0><img src="/images/news/${news.id?c}_1_full.jpg" alt="${news.title}"/></#if>${news.contents}</div>
 													 
 													
 				</div> <!-- end of news_detail -->

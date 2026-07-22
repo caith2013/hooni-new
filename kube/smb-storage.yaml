@@ -1,0 +1,37 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: hooni-smb-pv
+spec:
+  storageClassName: ""  # <-- Crucial: Tells Kubernetes this is a manual, local mount
+  capacity:
+    storage: 100Gi      # <-- Set your desired target size here
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - vers=3.0
+  csi:
+    driver: smb.csi.k8s.io
+    volumeHandle: hooni-unique-smb-string
+    volumeAttributes:
+      source: "//192.168.49.1/hooniImages" # Your Windows IP and shared folder name
+    nodeStageSecretRef:
+      name: smbcreds
+      namespace: default
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: hooni-smb-pvc
+spec:
+  storageClassName: ""  # <-- Crucial: Must match the PV's storage class string
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 100Gi    # <-- Must exactly match or be smaller than the PV capacity above
+  volumeName: hooni-smb-pv
+

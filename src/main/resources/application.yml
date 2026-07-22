@@ -1,0 +1,14 @@
+spring:
+  redis:
+    cluster:
+      nodes:
+        - redis-cluster-0.redis-cluster:6379
+        - redis-cluster-1.redis-cluster:6379
+        - redis-cluster-2.redis-cluster:6379
+        - redis-cluster-3.redis-cluster:6379
+    timeout: 2000
+    lettuce:
+      pool:
+        max-active: 16
+        max-idle: 8
+        min-idle: 2

@@ -1,0 +1,72 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: smbvolumes.smb.csi.k8s.io
+  annotations:
+     api-approved.kubernetes.io: "https://github.com/kubernetes/enhancements/pull/1111"
+spec:
+  group: smb.csi.k8s.io
+  names:
+    kind: SMBVolume
+    listKind: SMBVolumeList
+    plural: smbvolumes
+    singular: smbvolume
+  scope: Namespaced
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true
+    schema:
+      openAPIV3Schema:
+        type: object
+        properties:
+          spec:
+            type: object
+            properties:
+              source:
+                type: string
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: csi-smb-node
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: csi-smb-node
+  template:
+    metadata:
+      labels:
+        app: csi-smb-node
+    spec:
+      hostNetwork: true
+      containers:
+      - name: smb
+        image: registry.k8s.io/sig-storage/smbplugin:v1.17.0
+        args:
+        - "--v=5"
+        - "--endpoint=unix://csi/csi.sock"
+        - "--nodeid=$(NODE_ID)"
+        env:
+        - name: NODE_ID
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
+        securityContext:
+          privileged: true
+        volumeMounts:
+        - name: socket-dir
+          mountPath: /csi
+        - name: pods-mount-dir
+          mountPath: /var/lib/kubelet/pods
+          mountPropagation: Bidirectional
+      volumes:
+      - name: socket-dir
+        hostPath:
+          path: /var/lib/kubelet/plugins/smb.csi.k8s.io
+          type: DirectoryOrCreate
+      - name: pods-mount-dir
+        hostPath:
+          path: /var/lib/kubelet/pods
+          type: Directory
