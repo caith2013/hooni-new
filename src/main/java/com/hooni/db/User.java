@@ -13,13 +13,13 @@ import java.io.Serializable;
  * Table: USER  |  PK: username (assigned, not generated)
  */
 @Entity
-@Table(name = "USER")
+@Table(name = "user")
 public class User implements Serializable {
 
     private static final long serialVersionUID = -7719548629117209364L;
 
     @Id
-    @Column(name = "username", nullable = false)
+    @Column(name = "username", length = 45, nullable = false)
     private String userName;
 
     @Column(name = "firstname") private String firstName;

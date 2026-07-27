@@ -1,4 +1,4 @@
-<#include "macros.macro" />
+<#include "include/macros.macro" />
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -8,10 +8,10 @@
 <head>
 <title>${share.title}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<link rel="stylesheet" type="text/css" href="/hooni/css/styles.css" />
-<!--[if IE]><style>@import url("/hooni/css/ie.css");</style><![endif]-->
-<script type="text/javascript" src="/hooni/js/jquery.js"></script>
-<script type="text/javascript" src="/hooni/js/popup.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/styles.css" />
+<!--[if IE]><style>@import url("/css/ie.css");</style><![endif]-->
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/popup.js"></script>
 
 <meta name="company" content="hooni.org" />
 <meta name="copyright" content="Copyright hooni.org all rights reserved" />
@@ -61,7 +61,7 @@
 										 <#assign x=blog.numPicture>
 										 <#if (x>0)>
 										 			<#list 0..x-1 as i> 
-        						 						 <img src="/shares/${share.id?c}_${blog.id?c}_${i}_thumb.jpg" alt="" class="thumb"/>
+        						 						 <img src="/images/shares/${share.id?c}_${blog.id?c}_${i}_thumb.jpg" alt="" class="thumb"/>
 										 			</#list>
 										 </#if>
 										 <br/>

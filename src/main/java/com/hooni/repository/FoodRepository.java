@@ -17,7 +17,11 @@ public interface FoodRepository extends JpaRepository<Food, Long>, FoodRepositor
     @Query("select ff.food from UserFavoriteFood ff where ff.user.userName = :username")
     List<Food> findFavoriteFoodsByUsername(String username);
 
-    @Query(value = "select * from (select * from FOOD f order by f.time desc) as food group by food.kind",
+    @Query(value = "select f1.* from food f1 " +
+            "left join food f2 on f1.kind = f2.kind " +
+            "and (f2.time > f1.time or (f2.time = f1.time and f2.id > f1.id)) " +
+            "where f2.id is null " +
+            "order by f1.time desc",
            nativeQuery = true)
     List<Food> findTodaySpecials();
 

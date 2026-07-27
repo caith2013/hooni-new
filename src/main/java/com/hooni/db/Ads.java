@@ -11,7 +11,7 @@ import java.util.Set;
 
 /** Table: ADS */
 @Entity
-@Table(name = "ADS")
+@Table(name = "ads")
 public class Ads implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @Column(name = "id") private long id;
     @Column(name = "subject")        private String subject;

@@ -15,7 +15,7 @@ import java.util.Set;
  * Table: FOOD
  */
 @Entity
-@Table(name = "FOOD")
+@Table(name = "food")
 public class Food implements Serializable {
 
     private static final long serialVersionUID = -7538530978262742317L;

@@ -12,7 +12,7 @@ import java.io.Serializable;
 @Table(name = "ad_category")
 public class AdCategory implements Serializable {
     @Id
-    @Column(name = "name")
+    @Column(name = "name", length = 45, nullable = false)
     private String name;
 
     public AdCategory() {}

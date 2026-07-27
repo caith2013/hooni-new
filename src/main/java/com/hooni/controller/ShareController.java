@@ -22,7 +22,7 @@ public class ShareController {
     }
     @GetMapping("/{id}")
     public String shareDetail(@PathVariable long id, Model model) {
-        model.addAttribute("item", shareRepo.findById(id).orElse(null));
+        model.addAttribute("share", shareRepo.findById(id).orElse(null));
         return "share_detail";
     }
 }
