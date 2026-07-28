@@ -31,7 +31,7 @@
 												 		  <#list news as n>
 															<li>
 
-                                                                            <a href="/news?nid=${n.id?c}"><#if n.numPicture != 0><img src="/images/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>
+                                                                            <a href="/news/${n.id?c}"><#if n.numPicture != 0><img src="/images/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>
 																	
 															</li>
 															<#if n_index = 30><li><dl><dt><a href="/www?op=news">More...</a></dt></dl></li><#break></#if>
@@ -86,7 +86,7 @@
 												 		  <#list ads as ad>
 															<li>
 																	
-																			<a href="/ads?aid=${ad.id?c}">${ad.subject}</a>
+																			<a href="/ads/${ad.id?c}">${ad.subject}</a>
 																			
 																	
 															</li>

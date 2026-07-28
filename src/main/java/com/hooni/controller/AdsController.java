@@ -31,7 +31,7 @@ public class AdsController {
     @GetMapping("/{id}")
     public String adsDetail(@PathVariable long id, Model model) {
         model.addAttribute("ad", adsRepo.findById(id).orElse(null));
-        return "ads_detail";
+        return "ad_detail";
     }
     private void populateAdsByCategory(Model model) {
         var adsByCat = new java.util.TreeMap<String, List<String>>();

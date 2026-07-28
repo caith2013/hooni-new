@@ -45,7 +45,7 @@
 												 		  <#list news as n>
 															<li>
 																	
-																			<a href="/news?nid=${n.id?c}"><#if n.numPicture != 0><img src="/images/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>>
+																			<a href="/news/${n.id?c}"><#if n.numPicture != 0><img src="/images/news/${n.id?c}_1_mini.jpg" alt=""/></#if>${n.title}</a>>
 																			
 																	
 															</li>
