@@ -40,7 +40,7 @@
 		 					 <div class="page_title">Welcome...It is nice to see you here.</div>
 							 <ul>
 							 <#list HooniItems as s>
-							 				<li style="padding: 5px;"><a href="/share?sid=${s.id?c}">${s.title}...<#if s.price == 0>Free<#else>${s.price?string.currency}/${s.byRate}</#if></a></li>
+							 				<li style="padding: 5px;"><a href="/share/${s.id?c}">${s.title}...<#if s.price == 0>Free<#else>${s.price?string.currency}/${s.byRate}</#if></a></li>
 								
 							
 							 </#list>

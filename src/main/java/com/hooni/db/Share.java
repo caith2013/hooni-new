@@ -20,7 +20,8 @@ public class Share implements Serializable {
     @Column(name = "rate")    private String byRate;
     @Column(name = "price")   private java.math.BigDecimal price;
     @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) @Fetch(FetchMode.JOIN) private User user;
-    @OneToMany(mappedBy = "share", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "share", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
     @OrderBy("id asc")
     private Set<Blog> blogs;
 

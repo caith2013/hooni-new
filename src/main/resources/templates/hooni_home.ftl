@@ -105,7 +105,7 @@
 												 		  <#list shares as s>
 															<li>
 																	
-																			<a href="/share?sid=${s.id?c}">${s.title}...<#if s.price == 0>Free<#else>${s.price?string.currency}/${s.byRate}</#if></a>
+																			<a href="/share/${s.id?c}">${s.title}...<#if s.price == 0>Free<#else>${s.price?string.currency}/${s.byRate}</#if></a>
 																			
 																	
 															</li>

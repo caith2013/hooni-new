@@ -21,7 +21,8 @@ public class Ads implements Serializable {
     @Column(name = "time") @Temporal(TemporalType.TIMESTAMP) private Date timeCreated;
     @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "user_username", nullable = false) @Fetch(FetchMode.JOIN) private User user;
     @ManyToOne(fetch = FetchType.EAGER) @JoinColumn(name = "ad_category_name", nullable = false) private AdCategory adcat;
-    @OneToMany(mappedBy = "ads", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "ads", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SELECT)
     @OrderBy("id asc")
     private Set<AdKeyword> adKeywords;
 
