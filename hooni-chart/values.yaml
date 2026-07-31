@@ -1,0 +1,22 @@
+mysql:
+  image: mysql:8
+  database: mydb
+  storage: 10Gi
+
+redis:
+  image: redis:latest
+  storage: 5Gi
+
+hooniApp:
+  image: hooni:latest
+  profile: docker
+  dbUser: root
+  dbHost: mysql
+  dbPort: 3306
+  dbName: mydb
+  redisHost: redis
+  redisPort: 6379
+  redisTimeout: 2000
+  redisSsl: false
+  servicePort: 8080
+  nodePort: 30080

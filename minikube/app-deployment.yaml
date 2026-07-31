@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hooni-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hooni-app
+  template:
+    metadata:
+      labels:
+        app: hooni-app
+    spec:
+      containers:
+        - name: hooni-app
+          image: hooni:latest
+          envFrom:
+            - configMapRef:
+                name: hooni-app-config
+          volumeMounts:
+            - name: hooni-images
+              mountPath: /images
+          ports:
+            - containerPort: 8080
+      volumes:
+        - name: hooni-images
+          persistentVolumeClaim:
+            claimName: hooni-images-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hooni-app
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      nodePort: 30080
+  selector:
+    app: hooni-app

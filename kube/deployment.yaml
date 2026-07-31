@@ -6,30 +6,41 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: hooni
   template:
     metadata:
       labels:
-        app: myapp
+        app: hooni
     spec:
       containers:
         - name: hooni
           image: hooni:latest
           imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: hooni-config
           env:
-            - name: SPRING_REDIS_HOST
-              value: "redis"
-            - name: SPRING_REDIS_PORT
-              value: "6379"
-            - name: SPRING_PROFILES_ACTIVE
-              value: "docker"
+            - name: SPRING_CONFIG_ADDITIONAL_LOCATION
+              value: "file:/workspace/config/application.properties"
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-pass
+                  key: password
           ports:
             - containerPort: 8080
           volumeMounts:
             - name: app-storage
               mountPath: /images
+            - name: config-volume            # ADDED
+              mountPath: /workspace/config   # ADDED
       volumes:
         - name: app-storage
           persistentVolumeClaim:
             claimName: pvc0001
-
+        - name: config-volume                # ADDED
+          configMap:                         # ADDED
+            name: hooni-config               # ADDED
+            items:                           # ADDED
+              - key: application.properties  # ADDED
+                path: application.properties # ADDED

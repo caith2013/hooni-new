@@ -43,7 +43,9 @@ public interface ProductRepository extends JpaRepository<Product, Long>, Product
     List<Object[]> getPriceRangesRaw();
 
     @Cacheable("productsByCategory")
-    @Query("select p from Product p group by p.category order by p.creationDate asc")
+    @Query("select p from Product p where p.id in " +
+           "(select max(p2.id) from Product p2 group by p2.category) " +
+           "order by p.creationDate asc")
     Page<Product> findAllProductsByCategory(Pageable pageable);
 
 }

@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hooni-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hooni-app
+  template:
+    metadata:
+      labels:
+        app: hooni-app
+    spec:
+      containers:
+        - name: hooni-app
+          image: {{ .Values.hooniApp.image }}
+          imagePullPolicy: Never
+          envFrom:
+            - configMapRef:
+                name: hooni-app-config
+          env:
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: hooni-db-secret
+                  key: db-user
+
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hooni-db-secret
+                  key: db-password
+          volumeMounts:
+            - name: hooni-images
+              mountPath: /images
+          ports:
+            - containerPort: {{ .Values.hooniApp.servicePort }}
+      volumes:
+        - name: hooni-images
+          persistentVolumeClaim:
+            claimName: hooni-images-pvc

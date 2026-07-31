@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hooni-app-config
+data:
+  SPRING_PROFILES_ACTIVE: "{{ .Values.hooniApp.profile }}"
+  DB_HOST: "{{ .Values.hooniApp.dbHost }}"
+  DB_PORT: "{{ .Values.hooniApp.dbPort }}"
+  DB_NAME: "{{ .Values.hooniApp.dbName }}"
+  SPRING_REDIS_HOST: "{{ .Values.hooniApp.redisHost }}"
+  SPRING_REDIS_PORT: "{{ .Values.hooniApp.redisPort }}"
+  SPRING_REDIS_TIMEOUT: "{{ .Values.hooniApp.redisTimeout }}"
+  SPRING_REDIS_SSL: "{{ .Values.hooniApp.redisSsl }}"

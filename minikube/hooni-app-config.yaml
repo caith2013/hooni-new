@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hooni-app-config
+data:
+  SPRING_PROFILES_ACTIVE: "docker"
+  DB_HOST: "mysql"
+  DB_PORT: "3306"
+  DB_NAME: "mydb"
+  DB_USER: "root"
+  SPRING_REDIS_HOST: "redis"
+  SPRING_REDIS_PORT: "6379"
+  SPRING_REDIS_TIMEOUT: "2000"
+  SPRING_REDIS_SSL: "false"
