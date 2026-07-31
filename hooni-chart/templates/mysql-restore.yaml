@@ -1,0 +1,37 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mysql-restore
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  backoffLimit: 0
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: restore
+          image: {{ .Values.mysql.image }}
+          command: ["sh", "-c"]
+          args:
+            - >
+              echo "Waiting for MySQL...";
+              until mysqladmin ping -h {{ .Values.mysql.serviceName }} --silent; do
+                sleep 2;
+              done;
+              echo "MySQL is ready. Starting restore...";
+              mysql -h {{ .Values.mysql.serviceName }} -u root -p"$MYSQL_ROOT_PASSWORD" {{ .Values.mysql.database }} < /backup/backup.sql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          volumeMounts:
+            - name: backup
+              mountPath: /backup
+      volumes:
+        - name: backup
+          persistentVolumeClaim:
+            claimName: {{ .Values.mysql.backupPvc }}

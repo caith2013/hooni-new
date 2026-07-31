@@ -1,0 +1,30 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: mysql-restore
+  annotations:
+    "helm.sh/hook": pre-install
+spec:
+  template:
+    spec:
+      containers:
+        - name: restore
+          image: mysql:8.0
+          command: ["sh", "-c"]
+          args:
+            - >
+              mysql -h mysql -u root -p"$MYSQL_ROOT_PASSWORD" < /backup/backup.sql
+          env:
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mysql-secret
+                  key: root-password
+          volumeMounts:
+            - name: backup
+              mountPath: /backup
+      restartPolicy: Never
+      volumes:
+        - name: backup
+          persistentVolumeClaim:
+            claimName: mysql-backup-pvc

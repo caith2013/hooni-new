@@ -2,6 +2,8 @@ mysql:
   image: mysql:8
   database: mydb
   storage: 10Gi
+  backupPvc: mysql-backup-pvc
+  serviceName: mysql
 
 redis:
   image: redis:latest
