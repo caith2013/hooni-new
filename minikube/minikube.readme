@@ -1,0 +1,80 @@
+#run minikube in docker desktop
+minikube start --driver=docker
+minikube addons enable ingress
+
+#install hooni app by stack
+helm install hooni-stack ./hooni-chart
+#upgrade the anything if something is changed in the stack
+helm upgrade hooni-stack ./hooni-chart
+
+#load the app on the browser
+minikube service hooni-app
+
+
+#kill the pod, let another pod to be created automatically
+kubectl delete pod -l app=hooni-app
+
+#monitor logs
+kubectl logs -f $(kubectl get pod -l app=hooni-app -o name)
+
+
+
+eval $(minikube docker-env)
+eval "$(minikube docker-env --shell=bash)"
+docker ps
+
+mvn clean package -DskipTests
+docker build --no-cache -t hooni:latest .
+minikube image load hooni:latest
+kubectl rollout restart deployment hooni
+minikube service hooni-service
+kubectl exec -it $(kubectl get pod -l app=myapp -o name) -- sh
+
+kubectl logs deployment/hooni --tail=200
+
+
+apt update && apt install -y curl
+curl http://localhost:8080
+
+
+kubectl delete deployment hooni
+kubectl apply -f deployment.yaml
+kubectl logs -l app=myapp --tail=100
+kubectl logs -l app=myapp -f
+
+
+kubectl port-forward service/hooni-service 8080:8080 &
+kubectl port-forward svc/hooni-app 80:8080 &
+
+#load windows docker desktop images to minikube
+minikube image load hooni:latest
+
+#create a config map from properties file
+kubectl create configmap hooni-config --from-file=application.properties
+
+#run redis in docker
+docker run -d --name my-redis -p 6379:6379 redis:latest
+
+steps to run hooni app on minikube:
+1. run minikube in docker desktop
+minikube start --driver=docker
+
+2. create secret password for mysql and redis
+#create secret password
+kubectl delete secret hooni-db-secret
+kubectl create secret generic hooni-db-secret \
+  --from-literal=db-user=root \
+  --from-literal=db-password=<password>
+
+kubectl delete secret mysql-secret
+kubectl create secret generic mysql-secret \
+  --from-literal=root-password=<password>
+
+4. run mysql in docker
+
+5. copy images to minikube
+docker cp "C:/Users/caith/hooniImages" minikube:/mnt/data
+
+
+
+

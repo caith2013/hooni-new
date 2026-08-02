@@ -1,0 +1,74 @@
+
+# 1) Verify cluster and Helm
+microk8s status --wait-ready
+microk8s kubectl get nodes
+microk8s helm3 version
+
+# 2) Enable common addons (safe if already enabled)
+microk8s enable dns
+microk8s enable hostpath-storage
+microk8s enable ingress
+
+
+# 3) Create namespace (optional but recommended)
+microk8s kubectl create namespace hooni --dry-run=client -o yaml | microk8s kubectl apply -f -
+
+
+# 4) Create hostPath storage and assume /storage/hooniImages has all the images you want to use in the app.
+Your chart expects hostPath storage at /storage/hooniImages (from hooni-chart/templates/hooni-images-pv.yaml), so create it on the node:
+sudo mkdir -p /storage/hooniImages
+sudo chmod 777 /storage/hooniImages
+
+
+
+# 5) Your chart also references secrets that are not templated in hooni-chart/templates:
+#mysql-secret with key root-password
+#hooni-db-secret with keys db-user and db-password
+
+microk8s kubectl -n hooni create secret generic mysql-secret \
+  --from-literal=root-password='change-me-strong' \
+  --dry-run=client -o yaml | microk8s kubectl apply -f -
+
+microk8s kubectl -n hooni create secret generic hooni-db-secret \
+  --from-literal=db-user='root' \
+  --from-literal=db-password='change-me-strong' \
+  --dry-run=client -o yaml | microk8s kubectl apply -f -
+
+# 6) Build and push the image to your local registry (localhost:32000)
+cd /home/thomas/myapps/hooni-new
+mvn clean package -DskipTests
+docker build -t hooni:1.0 .
+docker tag hooni-app:1.0 localhost:32000/hooni-app:1.0
+docker push localhost:32000/hooni-app:1.0
+
+# Import the image into microk8s containerd: skiped if you use a registry like localhost:32000
+#docker save hooni:latest | microk8s ctr image import -
+
+# 7) Copy the mysql dump to the microk8s node (if you want to pre-populate the database)
+cd /home/thomas/myapps/hooni-new/microk8s
+./copy-mysql-dump-to-node.sh
+
+# 8) Now deploy with Helm:
+cd /home/thomas/myapps/hooni-new
+
+# Optional: preview rendered manifests
+microk8s helm3 template hooni ./hooni-chart -n hooni
+
+# Install/upgrade
+microk8s helm3 upgrade --install hooni ./hooni-chart -n hooni --create-namespace
+
+
+Verify rollout and service:
+microk8s kubectl -n hooni get pods
+microk8s kubectl -n hooni get svc
+microk8s kubectl -n hooni get pvc,pv
+
+microk8s kubectl get nodes -o wide
+# then open: http://<NODE_IP>:30080
+
+
+#check the logs
+microk8s kubectl logs -n hooni deployment/hooni-app -f
+
+
+

@@ -3,9 +3,10 @@ kind: PersistentVolume
 metadata:
   name: hooni-images-pv
 spec:
+  storageClassName: ""
   capacity:
-    storage: 50Gi
+    storage: {{ .Values.hooniImages.storage }}
   accessModes:
     - ReadWriteOnce
   hostPath:
-    path: "/mnt/data/hooniImages"
+    path: "{{ .Values.hooniImages.hostPath }}"

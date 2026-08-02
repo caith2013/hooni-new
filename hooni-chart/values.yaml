@@ -1,16 +1,20 @@
 mysql:
-  image: mysql:8
+  image: mysql:5.7
   database: mydb
-  storage: 10Gi
+  storage: 50Gi
   backupPvc: mysql-backup-pvc
+  backupStorage: 2Gi
   serviceName: mysql
+  restore:
+    enabled: false
 
 redis:
   image: redis:latest
-  storage: 5Gi
+  storage: 10Gi
 
 hooniApp:
-  image: hooni:latest
+  image: 192.168.1.217:32000/hooni-app:1.0
+  imagePullPolicy: IfNotPresent
   profile: docker
   dbUser: root
   dbHost: mysql
@@ -21,4 +25,10 @@ hooniApp:
   redisTimeout: 2000
   redisSsl: false
   servicePort: 8080
+  hostname: hooni.local
   nodePort: 30080
+
+hooniImages:
+  hostPath: /storage/hooniImages
+  storage: 200Gi
+

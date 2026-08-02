@@ -15,7 +15,7 @@ spec:
       containers:
         - name: hooni-app
           image: {{ .Values.hooniApp.image }}
-          imagePullPolicy: Never
+          imagePullPolicy: {{ .Values.hooniApp.imagePullPolicy }}
           envFrom:
             - configMapRef:
                 name: hooni-app-config

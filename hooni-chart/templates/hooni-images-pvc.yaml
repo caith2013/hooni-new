@@ -4,8 +4,9 @@ metadata:
   name: hooni-images-pvc
 spec:
   storageClassName: ""
+  volumeName: hooni-images-pv
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 50Gi
+      storage: {{ .Values.hooniImages.storage }}
