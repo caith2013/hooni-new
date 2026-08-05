@@ -3,9 +3,9 @@ kind: Service
 metadata:
   name: hooni-app
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
     - port: {{ .Values.hooniApp.servicePort }}
-      nodePort: {{ .Values.hooniApp.nodePort }}
+      targetPort: {{ .Values.hooniApp.serverPort }}
   selector:
     app: hooni-app

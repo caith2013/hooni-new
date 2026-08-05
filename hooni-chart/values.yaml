@@ -15,6 +15,7 @@ redis:
 hooniApp:
   image: 192.168.1.217:32000/hooni-app:1.0
   imagePullPolicy: IfNotPresent
+  replicaCount: 3
   profile: docker
   dbUser: root
   dbHost: mysql
@@ -24,9 +25,9 @@ hooniApp:
   redisPort: 6379
   redisTimeout: 2000
   redisSsl: false
-  servicePort: 8080
+  servicePort: 80
+  serverPort: 8080
   hostname: hooni.local
-  nodePort: 30080
 
 hooniImages:
   hostPath: /storage/hooniImages
