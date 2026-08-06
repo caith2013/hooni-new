@@ -1,0 +1,10 @@
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-csi           # Fixed static name
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: {{ .Values.nfs.server | quote }}
+  share: {{ .Values.nfs.share | quote }}
+reclaimPolicy: Delete
+volumeBindingMode: Immediate

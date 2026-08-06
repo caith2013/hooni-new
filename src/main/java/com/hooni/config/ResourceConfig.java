@@ -12,7 +12,10 @@ public class ResourceConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        String formattedPath = imagesBasePath.endsWith("/") ? imagesBasePath : imagesBasePath + "/";
+
         registry.addResourceHandler("/images/**")
-                .addResourceLocations("file:///" + imagesBasePath, "classpath:/static/images/");
+                .addResourceLocations("file:" + formattedPath, "classpath:/static/images/");
+
     }
 }
