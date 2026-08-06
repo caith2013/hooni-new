@@ -13,7 +13,7 @@ redis:
   storage: 10Gi
 
 hooniApp:
-  image: 192.168.1.217:32000/hooni-app:1.0
+  image: 192.168.1.217:32000/hooni-app:1.1
   imagePullPolicy: IfNotPresent
   replicaCount: 3
   profile: docker

@@ -1,0 +1,10 @@
+mvn clean package -DskipTests
+
+#1 Build a new image
+docker build -t hooni-app:1.1 .
+
+#2 Tag the image for your private registry
+docker tag hooni-app:1.1 192.168.1.217:32000/hooni-app:1.1
+
+#3 Push the image to your private registry
+docker push 192.168.1.217:32000/hooni-app:1.1
