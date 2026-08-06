@@ -4,7 +4,7 @@ metadata:
   name: nfs-csi           # Fixed static name
 provisioner: nfs.csi.k8s.io
 parameters:
-  server: {{ .Values.nfs.server | quote }}
-  share: {{ .Values.nfs.share | quote }}
-reclaimPolicy: Delete
+  server: "192.168.1.217"
+  share: "/storage"
+reclaimPolicy: Retain
 volumeBindingMode: Immediate
