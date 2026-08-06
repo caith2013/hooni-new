@@ -11,3 +11,4 @@ data:
   SPRING_REDIS_PORT: "{{ .Values.hooniApp.redisPort }}"
   SPRING_REDIS_TIMEOUT: "{{ .Values.hooniApp.redisTimeout }}"
   SPRING_REDIS_SSL: "{{ .Values.hooniApp.redisSsl }}"
+  IMAGES_PATH: "{{ .Values.hooniImages.imagesPath }}"

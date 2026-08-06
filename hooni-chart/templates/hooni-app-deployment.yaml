@@ -32,11 +32,11 @@ spec:
                   name: hooni-db-secret
                   key: db-password
           volumeMounts:
-            - name: hooni-images
-              mountPath: /images
+            - name: shared-nfs-volume
+              mountPath: /storage
           ports:
             - containerPort: {{ .Values.hooniApp.servicePort }}
       volumes:
-        - name: hooni-images
+        - name: shared-nfs-volume
           persistentVolumeClaim:
-            claimName: hooni-images-pvc
+            claimName: shared-nfs-pvc

@@ -31,5 +31,11 @@ hooniApp:
 
 hooniImages:
   hostPath: /storage/hooniImages
-  storage: 200Gi
+  storage: 10Gi
+  imagesPath: "/storage/hooniImages/"
 
+nfs:
+  server: "192.168.1.217"
+  share: "/storage"
+  storageSize: "100Gi"
+  imagesPath: "/storage/hooniImages/"
