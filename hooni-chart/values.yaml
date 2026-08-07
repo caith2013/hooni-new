@@ -13,8 +13,8 @@ redis:
   storage: 10Gi
 
 hooniApp:
-  image: localhost:32000/hooni-app:1.0
-  imagePullPolicy: IfNotPresent
+  image: localhost:32000/hooni-app:1.2
+  imagePullPolicy: Always
   replicaCount: 3
   profile: docker
   dbUser: root
