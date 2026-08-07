@@ -34,15 +34,26 @@ microk8s kubectl -n hooni create secret generic hooni-db-secret \
   --from-literal=db-password='change-me-strong' \
   --dry-run=client -o yaml | microk8s kubectl apply -f -
 
+#create a TLS secret for your domain (replace with your actual cert and key files)
+microk8s kubectl create secret tls ionos-ssl-secret   --cert="fullchain.crt"   --key="_.hoo-ni.com_private_key.key"   -n hooni
+
+#5 A)install the NFS CSI driver (if you want to use NFS storage instead of hostPath)
+sudo apt-get install -y nfs-kernel-server
+sudo systemctl restart nfs-kernel-server
+microk8s helm3 repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+microk8s helm3 repo update
+microk8s helm3 install csi-driver-nfs csi-driver-nfs/csi-driver-nfs   --namespace kube-system   --set kubeletDir=/var/snap/microk8s/common/var/lib/kubelet
+
 # 6) Build and push the image to your local registry (localhost:32000)
 cd /home/thomas/myapps/hooni-new
 mvn clean package -DskipTests
-docker build -t hooni:1.0 .
+docker build -t hooni-app:1.0 .
+microk8s enable registry
 docker tag hooni-app:1.0 localhost:32000/hooni-app:1.0
 docker push localhost:32000/hooni-app:1.0
 
 # Import the image into microk8s containerd: skiped if you use a registry like localhost:32000
-#docker save hooni:latest | microk8s ctr image import -
+#docker save hooni-app:1.0 | microk8s ctr image import -
 
 # 7) Copy the mysql dump to the microk8s node (if you want to pre-populate the database)
 cd /home/thomas/myapps/hooni-new/microk8s

@@ -1,3 +1,4 @@
+{{- if .Values.mysql.restore.enabled }}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -35,5 +36,5 @@ spec:
         - name: backup
           persistentVolumeClaim:
             claimName: {{ .Values.mysql.backupPvc }}
-
+{{- end }}
 

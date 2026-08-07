@@ -15,7 +15,7 @@ spec:
       containers:
         - name: hooni-app
           image: {{ .Values.hooniApp.image }}
-          imagePullPolicy: {{ .Values.hooniApp.imagePullPolicy }}
+          imagePullPolicy: {{ .Values.hooniApp.imagePullPolicy | default "IfNotPresent" }}
           envFrom:
             - configMapRef:
                 name: hooni-app-config
@@ -33,9 +33,9 @@ spec:
                   key: db-password
           volumeMounts:
             - name: shared-nfs-volume
-              mountPath: /storage
+              mountPath: {{ .Values.hooniImages.imagesPath | default "/storage/hooniImages" }}
           ports:
-            - containerPort: {{ .Values.hooniApp.servicePort }}
+            - containerPort: {{ .Values.hooniApp.servicePort | default 80 }}
       volumes:
         - name: shared-nfs-volume
           persistentVolumeClaim:
