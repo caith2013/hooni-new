@@ -51,14 +51,17 @@ public class Food implements Serializable {
     private User user;
 
     @OneToMany(mappedBy = "food", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
     @OrderBy("id asc")
     private Set<FoodStep> foodSteps;
 
     @OneToMany(mappedBy = "food", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    @Fetch(FetchMode.SUBSELECT)
     @OrderBy("id asc")
     private Set<FoodKeyword> foodKeywords;
 
     @OneToMany(mappedBy = "food", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
+    @Fetch(FetchMode.SUBSELECT)
     private Set<FoodGoodFor> foodGoodFor;
 
     public Food() {}

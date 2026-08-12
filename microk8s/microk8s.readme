@@ -34,15 +34,28 @@ microk8s kubectl -n hooni create secret generic hooni-db-secret \
   --from-literal=db-password='change-me-strong' \
   --dry-run=client -o yaml | microk8s kubectl apply -f -
 
+#create a TLS secret for your domain (replace with your actual cert and key files)
+#under this directory /home/thomas/certificate
+cat hoo-ni.com_ssl_certificate.cer intermediate1.cer intermediate2.cer > fullchain.crt
+microk8s kubectl create secret tls ionos-ssl-secret   --cert="fullchain.crt"   --key="_.hoo-ni.com_private_key.key"   -n hooni
+
+#5 A)install the NFS CSI driver (if you want to use NFS storage instead of hostPath)
+sudo apt-get install -y nfs-kernel-server
+sudo systemctl restart nfs-kernel-server
+microk8s helm3 repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
+microk8s helm3 repo update
+microk8s helm3 install csi-driver-nfs csi-driver-nfs/csi-driver-nfs   --namespace kube-system   --set kubeletDir=/var/snap/microk8s/common/var/lib/kubelet
+
 # 6) Build and push the image to your local registry (localhost:32000)
 cd /home/thomas/myapps/hooni-new
 mvn clean package -DskipTests
-docker build -t hooni:1.0 .
+docker build -t hooni-app:1.0 .
+microk8s enable registry
 docker tag hooni-app:1.0 localhost:32000/hooni-app:1.0
 docker push localhost:32000/hooni-app:1.0
 
 # Import the image into microk8s containerd: skiped if you use a registry like localhost:32000
-#docker save hooni:latest | microk8s ctr image import -
+#docker save hooni-app:1.0 | microk8s ctr image import -
 
 # 7) Copy the mysql dump to the microk8s node (if you want to pre-populate the database)
 cd /home/thomas/myapps/hooni-new/microk8s
@@ -65,10 +78,35 @@ microk8s kubectl -n hooni get pvc,pv
 
 microk8s kubectl get nodes -o wide
 # then open: http://<NODE_IP>:30080
+https://hoo-ni.com
 
 
 #check the logs
 microk8s kubectl logs -n hooni deployment/hooni-app -f
+microk8s kubectl logs -l app=hooni-app -n hooni -f --tail=20
 
 
 
+#9) build a new image and redeploy (if you make changes to the app)
+cd /home/thomas/myapps/hooni-new
+mvn clean package -DskipTests
+# Replace '1.1' with your new version tag
+docker build -t localhost:32000/hooni-app:1.1 .
+docker push localhost:32000/hooni-app:1.1
+curl http://localhost:32000/v2/hooni-app/tags/list
+
+#change values.yaml to use the new image version:
+hooniApp:
+  image: "localhost:32000/hooni-app:1.1" # 👈 Updated to 1.1
+  imagePullPolicy: "Always"             # 👈 Force Kubernetes to pull the new version
+
+microk8s helm3 upgrade --install hooni ./hooni-chart -n hooni --create-namespace
+
+#10) scale all pods to 0 (if you want to stop the app but keep the data)
+microk8s kubectl scale deployment hooni-app --replicas=0 -n hooni
+
+#11) scale all pods back to 3 (if you want to restart the app)
+microk8s kubectl scale deployment hooni-app --replicas=3 -n hooni
+
+#see the pods and their status
+microk8s kubectl get pods -n hooni -o wide

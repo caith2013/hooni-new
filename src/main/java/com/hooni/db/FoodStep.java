@@ -1,6 +1,8 @@
 package com.hooni.db;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 
 import java.io.Serializable;
 
@@ -21,6 +23,7 @@ public class FoodStep implements Serializable {
     private boolean hasPicture;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @Fetch(FetchMode.JOIN)
     @JoinColumn(name = "foodid", nullable = false)
     private Food food;
 

@@ -11,7 +11,7 @@ spec:
     - hosts:
         - {{ .Values.hooniApp.hostname | quote | default "hoo-ni.com" }}
         - "www.{{ .Values.hooniApp.hostname | default "hoo-ni.com" }}" # 👈 ADD THIS VARIANT
-      secretName: ionos-ssl-secret
+      secretName: {{ .Values.hooniApp.tlsSecretName | default "ionos-ssl-secret" }}
   rules:
     - host: {{ .Values.hooniApp.hostname | default "hoo-ni.com" }}
       http:
@@ -22,7 +22,7 @@ spec:
               service:
                 name: hooni-app
                 port:
-                  number: {{ .Values.hooniApp.servicePort }}
+                  number: {{ .Values.hooniApp.servicePort | default 80 }}
     - host: "www.{{ .Values.hooniApp.hostname | default "hoo-ni.com" }}" # 👈 ADD THIS ENTIRE BLOCK
       http:
         paths:

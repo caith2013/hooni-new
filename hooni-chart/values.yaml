@@ -13,8 +13,8 @@ redis:
   storage: 10Gi
 
 hooniApp:
-  image: 192.168.1.217:32000/hooni-app:1.1
-  imagePullPolicy: IfNotPresent
+  image: localhost:32000/hooni-app:1.2
+  imagePullPolicy: Always
   replicaCount: 3
   profile: docker
   dbUser: root
@@ -28,6 +28,7 @@ hooniApp:
   servicePort: 80
   serverPort: 8080
   hostname: hoo-ni.com
+  tlsSecretName: "ionos-ssl-secret"
 
 hooniImages:
   hostPath: /storage/hooniImages
