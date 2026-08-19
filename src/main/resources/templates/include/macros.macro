@@ -9,12 +9,13 @@
 		 <li><a href="/ads">Ads</a></li>
 		 <li><a href="/share">Share</a></li>
 		 <li><a href="/contactus">Contact Us</a></li>
-		  <li><a href="/register">Register</a></li>
+
 
 		  <#if loggedInUser??>
 		    <li><a href="/logout">Logout</a></li>
 		    <li><a href="/user/${loggedInUser}">My Page</a></li>
 		 <#else>
+		  <li><a href="/register">Register</a></li>
 		    <li><a href="/login">Login</a></li>
 		 </#if>
 </ul>

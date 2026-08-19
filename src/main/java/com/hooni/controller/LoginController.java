@@ -12,9 +12,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.context.SecurityContextRepository;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -53,6 +55,7 @@ public class LoginController {
     private final UserRepository userRepository;
     private final UserDetailsService userDetailsService;
     private final SecurityKeyService securityKeyService;
+    private final org.springframework.security.web.context.SecurityContextRepository securityContextRepository;
 
     // Constants
     private static final String PARAM_USERNAME = "userName";
@@ -64,10 +67,12 @@ public class LoginController {
 
     public LoginController(UserRepository userRepository,
                            UserDetailsService userDetailsService,
-                           SecurityKeyService securityKeyService) {
+                           SecurityKeyService securityKeyService,
+                           org.springframework.security.web.context.SecurityContextRepository securityContextRepository) {
         this.userRepository = userRepository;
         this.userDetailsService = userDetailsService;
         this.securityKeyService = securityKeyService;
+        this.securityContextRepository = securityContextRepository;
     }
 
     /**
@@ -202,24 +207,23 @@ public class LoginController {
             authToken.setDetails(userDetails);
             
             // Directly set authentication in SecurityContext
-            // (password already validated, so we can trust this token)
-            SecurityContextHolder.getContext().setAuthentication(authToken);
+            SecurityContext securityContext = SecurityContextHolder.getContext();
+            securityContext.setAuthentication(authToken);
             
             logger.info("User authenticated successfully: {}", userName);
 
-            // Step 5: Store user in session (Redis-backed) AND store security context
+            // Step 5: Store in session using injected SecurityContextRepository bean
+            // This ensures the same repository instance is used by security filters
+            securityContextRepository.saveContext(securityContext, request, response);
+            
+            // Also store user in session (Redis-backed)
             SessionUtils.storeUserInSession(session, userDetails);
-            // Manually store the security context in the session so it persists across the redirect
-            session.setAttribute("SPRING_SECURITY_CONTEXT", SecurityContextHolder.getContext());
 
             // Step 6: Clean up security keys from Redis
-            // Delete keys for current session
-            //String currentKeyId = securityKeyService.getSecurityKeyIdBySessionId(session.getId());
-            if (keyId != null) {
                 securityKeyService.deleteSecurityKey(keyId);
                 logger.info("Security key cleaned up key after login - KeyId: {}",
                         keyId);
-            }
+
             
             // Also try to clean up any keys from other sessions (best effort)
             session.removeAttribute(SECURITY_KEY_ID);

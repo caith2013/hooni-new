@@ -8,6 +8,8 @@ import com.hooni.repository.*;
 import com.hooni.util.SessionUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -28,6 +30,8 @@ import java.util.List;
  */
 @Controller
 public class HomeController {
+
+    private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     private final ProductRepository  productRepo;
     private final NewsRepository     newsRepo;
@@ -59,10 +63,37 @@ public class HomeController {
                        HttpSession session,
                        Model model, HttpServletRequest request) {
 
+        // Debug: Check what's in the session
+        Object loggedInUserSession = session.getAttribute("loggedInUser");
+        Object securityContextSession = session.getAttribute("SPRING_SECURITY_CONTEXT");
+        
+
+        // If @AuthenticationPrincipal is null but we have context in session, manually restore it
+        if (principal == null && securityContextSession != null) {
+            logger.info("Manually restoring SecurityContext from session");
+            if (securityContextSession instanceof org.springframework.security.core.context.SecurityContext) {
+                org.springframework.security.core.context.SecurityContext ctx = 
+                    (org.springframework.security.core.context.SecurityContext) securityContextSession;
+                org.springframework.security.core.context.SecurityContextHolder.setContext(ctx);
+                
+                // Extract UserDetails from restored context
+                if (ctx.getAuthentication() != null && ctx.getAuthentication().getPrincipal() instanceof UserDetails) {
+                    principal = (UserDetails) ctx.getAuthentication().getPrincipal();
+                    logger.info("Successfully restored principal: {}", principal.getUsername());
+                }
+            }
+        }
+
+
         // Store user session information
         if (principal != null) {
             SessionUtils.storeUserInSession(session, principal);
             model.addAttribute("loggedInUser", principal.getUsername());
+            logger.info("Using principal: {}", principal.getUsername());
+        } else if (loggedInUserSession != null) {
+            // If principal is null but session has user, use session data
+            model.addAttribute("loggedInUser", loggedInUserSession);
+            logger.info("Using session user: {}", loggedInUserSession);
         }
         
         // Store session metadata

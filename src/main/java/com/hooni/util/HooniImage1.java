@@ -1,7 +1,7 @@
 package com.hooni.util;
 
 import com.hooni.web.util.ImagePath;
-import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload2.core.FileItem;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

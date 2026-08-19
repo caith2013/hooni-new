@@ -13,7 +13,7 @@ public class FoodGoodFor implements Serializable {
 
     @Id
     @Column(name = "meal_time")
-    private byte mealType;
+    private int mealType;
 
     @Id
     @ManyToOne(fetch = FetchType.LAZY)
@@ -21,13 +21,15 @@ public class FoodGoodFor implements Serializable {
     private Food food;
 
     public int  getMealType()          { return mealType; }
-    public void setMealType(byte mt)    { this.mealType = mt; }
+    public void setMealType(int mt)    { this.mealType = mt; }
     public Food getFood()              { return food; }
     public void setFood(Food food)     { this.food = food; }
 
     /** Composite PK class required by @IdClass */
     public static class FoodGoodForId implements Serializable {
-        private byte mealType;
+        private static final long serialVersionUID = 1L;
+        
+        private int mealType;
         private Food food;
         public FoodGoodForId() {}
         @Override public boolean equals(Object o) {
