@@ -1,6 +1,8 @@
 package com.hooni.controller;
 
 import com.hooni.repository.ProductRepository;
+import com.hooni.util.SessionUtils;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.ControllerAdvice;
@@ -32,8 +34,13 @@ public class GlobalModelAdvice {
     public Object categories() { return productRepo.findDistinctCategories(); }
 
     @ModelAttribute("loggedInUser")
-    public String loggedInUser(@AuthenticationPrincipal UserDetails principal) {
-        return principal != null ? principal.getUsername() : null;
+    public String loggedInUser(@AuthenticationPrincipal UserDetails principal, HttpSession session) {
+        // First check Spring Security context
+        if (principal != null) {
+            return principal.getUsername();
+        }
+        // Fallback to session (in case Security context wasn't properly set)
+        return SessionUtils.getUserFromSession(session);
     }
 
     @ModelAttribute("mealType")

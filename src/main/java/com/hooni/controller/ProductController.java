@@ -3,6 +3,8 @@ package com.hooni.controller;
 import com.hooni.db.PriceRangeBean;
 import com.hooni.db.Product;
 import com.hooni.repository.ProductRepository;
+import com.hooni.util.SessionUtils;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -31,6 +33,7 @@ public class ProductController {
 
     @GetMapping
     public String productList(@RequestParam(name = "pid", required = false) Long pid,
+                              HttpSession session,
                               Model model) {
 
         model.addAttribute("products", productRepo.findAll());
@@ -52,7 +55,10 @@ public class ProductController {
             e.printStackTrace();
             model.addAttribute("priceranges", List.of());
         }
+        
+        SessionUtils.setSessionAttribute(session, "currentPage", "products");
         if (pid != null) {
+            SessionUtils.setSessionAttribute(session, "viewedProductId", pid);
             model.addAttribute("product", productRepo.findById(pid).orElse(null));
             return "product_detail";
         }
@@ -65,7 +71,9 @@ public class ProductController {
                                         @RequestParam(name = "brand", defaultValue = "") String brand,
                                         @RequestParam(name = "price", defaultValue = "") String price,
                                         @RequestParam(name = "keywords", defaultValue = "") String keywords,
-                                        @RequestParam(name = "menu", defaultValue = "") String menu, Model model) {
+                                        @RequestParam(name = "menu", defaultValue = "") String menu,
+                                        HttpSession session,
+                                        Model model) {
         int[] prices = getPrices(price);
 
         String[] keywordsArray = getKeywords(keywords);
@@ -80,6 +88,9 @@ public class ProductController {
             products = productRepo.getProducts(category,brand,prices,keywordsArray);
         }
         model.addAttribute("HooniItems", products);
+        
+        SessionUtils.setSessionAttribute(session, "lastSearchCategory", category);
+        SessionUtils.setSessionAttribute(session, "lastSearchBrand", brand);
 
         if (menu != null && !menu.trim().isEmpty())
         {

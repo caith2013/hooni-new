@@ -5,7 +5,9 @@ import com.hooni.db.Ads;
 import com.hooni.db.IpAddress;
 import com.hooni.db.Product;
 import com.hooni.repository.*;
+import com.hooni.util.SessionUtils;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -54,7 +56,18 @@ public class HomeController {
     @GetMapping("/www")
     public String home(@RequestParam(name = "op", defaultValue = "products") String op,
                        @AuthenticationPrincipal UserDetails principal,
+                       HttpSession session,
                        Model model, HttpServletRequest request) {
+
+        // Store user session information
+        if (principal != null) {
+            SessionUtils.storeUserInSession(session, principal);
+            model.addAttribute("loggedInUser", principal.getUsername());
+        }
+        
+        // Store session metadata
+        SessionUtils.setSessionAttribute(session, "lastVisited", op);
+        SessionUtils.setSessionAttribute(session, "lastVisitTime", System.currentTimeMillis());
 
         populateCommonModel(model, principal);
 

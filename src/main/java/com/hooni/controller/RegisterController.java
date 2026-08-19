@@ -2,6 +2,8 @@ package com.hooni.controller;
 
 import com.hooni.db.User;
 import com.hooni.repository.UserRepository;
+import com.hooni.util.SessionUtils;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,7 +28,8 @@ public class RegisterController {
     }
 
     @GetMapping
-    public String registerForm(Model model) {
+    public String registerForm(HttpSession session, Model model) {
+        SessionUtils.setSessionAttribute(session, "currentPage", "register");
         return "register";
     }
 
@@ -36,6 +39,7 @@ public class RegisterController {
                            @RequestParam String passwd,
                            @RequestParam(required = false) String firstName,
                            @RequestParam(required = false) String lastName,
+                           HttpSession session,
                            Model model) {
         Map<String, String> errors = new HashMap<>();
 
@@ -60,6 +64,9 @@ public class RegisterController {
         user.setPassword(passwordEncoder.encode(passwd));
         user.setStatus("pending");  // original had an activation flow
         userRepo.save(user);
+        
+        SessionUtils.setSessionAttribute(session, "registeredUser", userName);
+        SessionUtils.setSessionAttribute(session, "registrationTime", System.currentTimeMillis());
 
         return "redirect:/login?registered=true";
     }

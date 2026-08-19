@@ -16,7 +16,7 @@ $(function() {
 						
 			});
 			$("input.join_button").click(function(){
-							$(location).attr('href',"https://www.hooni.org/register");
+							$(location).attr('href',"/register");
 			});
 	}
 

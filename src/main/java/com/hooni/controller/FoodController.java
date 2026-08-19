@@ -4,8 +4,10 @@ import com.hooni.db.*;
 import com.hooni.repository.*;
 import com.hooni.service.FoodService;
 import com.hooni.service.MealsPlanService;
+import com.hooni.util.SessionUtils;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -60,7 +62,7 @@ public class FoodController {
     // ── Food home (browse) ────────────────────────────────────────────────
 
     @GetMapping("/food")
-    public String foodHome(@AuthenticationPrincipal UserDetails principal, Model model) {
+    public String foodHome(@AuthenticationPrincipal UserDetails principal, HttpSession session, Model model) {
         List<Food> foods = foodRepo.findAllByOrderByTimeCreatedDesc(PageRequest.of(0, PAGE_SIZE));
         model.addAttribute("HooniItems", foods);
         model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
@@ -68,8 +70,10 @@ public class FoodController {
         model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
         model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
         if (principal != null) {
+            SessionUtils.storeUserInSession(session, principal);
             model.addAttribute("ff", foodRepo.findFavoriteFoodsByUsername(principal.getUsername()));
         }
+        SessionUtils.setSessionAttribute(session, "currentPage", "food");
         return "foods_home";
     }
 
@@ -78,6 +82,7 @@ public class FoodController {
     @GetMapping("/foods")
     public String foodDetail(@RequestParam(name = "fid", required = false) Long fid,
                              @AuthenticationPrincipal UserDetails principal,
+                             HttpSession session,
                              Model model) {
         if (fid != null) {
             Food food = foodRepo.findById(fid).orElse(null);
@@ -87,18 +92,36 @@ public class FoodController {
             model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
             model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
             if (principal != null) {
+                SessionUtils.storeUserInSession(session, principal);
                 model.addAttribute("ff", foodRepo.findFavoriteFoodsByUsername(principal.getUsername()));
             }
+            SessionUtils.setSessionAttribute(session, "viewedFoodId", fid);
             return "foods_home";
         }
         // Show the "add recipe" form (requires login — enforced by SecurityConfig)
-        return "redirect:/food";
+        return "redirect:/addrecipe";
     }
 
+    @GetMapping("/addrecipe")
+    public String addRecipeForm(@AuthenticationPrincipal UserDetails principal,
+                                HttpSession session,
+                                Model model) {
+        if (principal == null) {
+            return "redirect:/login";
+        }
+        SessionUtils.storeUserInSession(session, principal);
+        model.addAttribute("mealType", MealType.VALUES);
+        model.addAttribute("foodType", FoodType.values());
+      //  model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
+        // model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
+      //  model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
+        return "foods";
+    }
     @GetMapping("/searchfoodajax")
     public String searchFoodAjax(HttpServletRequest request,
                              @AuthenticationPrincipal UserDetails principal,
-                                 Model model) {
+                             HttpSession session,
+                             Model model) {
         String[] mealType = request.getParameterValues("mealType");
         String foodType = request.getParameter("foodType");
         String[] keywords = request.getParameterValues("keywords");
@@ -113,8 +136,10 @@ public class FoodController {
             model.addAttribute("vblogs", blogRepo.findBlogsByShareId(20L));
             model.addAttribute("mblogs", blogRepo.findBlogsByShareId(21L));
             if (principal != null) {
+                SessionUtils.storeUserInSession(session, principal);
                 model.addAttribute("ff", foodRepo.findFavoriteFoodsByUsername(principal.getUsername()));
             }
+            SessionUtils.setSessionAttribute(session, "lastFoodSearch", foodType);
             return "foods_home";
         }
         // Show the "add recipe" form (requires login — enforced by SecurityConfig)
@@ -129,6 +154,7 @@ public class FoodController {
                           @RequestParam(required = false) String foodType,
                           @RequestParam(name = "snap_shot", required = false) MultipartFile snapshot,
                           @AuthenticationPrincipal UserDetails principal,
+                          HttpSession session,
                           Model model) {
 
         if (principal == null) {
@@ -143,6 +169,9 @@ public class FoodController {
         }
 
         Food saved = foodRepo.save(food);
+        
+        SessionUtils.setSessionAttribute(session, "lastCreatedFoodId", saved.getId());
+        SessionUtils.storeUserInSession(session, principal);
 
         // TODO: persist snapshot to file system (port HooniFileSystem / HooniImage logic here)
 
@@ -152,7 +181,7 @@ public class FoodController {
     // ── Start cooking (step-by-step view) ────────────────────────────────
 
     @GetMapping("/startcooking")
-    public String startCooking(Model model) {
+    public String startCooking(HttpSession session, Model model) {
         model.addAttribute("todayspecials", foodRepo.findTodaySpecials());
         List<Food> meals = null;
         for(MealType mt : MealType.VALUES)
@@ -163,6 +192,7 @@ public class FoodController {
                 model.addAttribute(mt.name().toLowerCase(), meals);
             }
         }
+        SessionUtils.setSessionAttribute(session, "currentPage", "cooking");
         return "start_cooking";
     }
 
@@ -172,7 +202,8 @@ public class FoodController {
     @ResponseBody
     @Transactional
     public String toggleFavorite(@RequestParam(name = "fid") long fid,
-                                 @AuthenticationPrincipal UserDetails principal) {
+                                 @AuthenticationPrincipal UserDetails principal,
+                                 HttpSession session) {
         if (principal == null) return "not_logged_in";
 
         User user = userRepo.findById(principal.getUsername()).orElseThrow();
@@ -188,12 +219,14 @@ public class FoodController {
                     .filter(f -> f.getFood().getId() == fid)
                     .findFirst()
                     .ifPresent(favRepo::delete);
+            SessionUtils.setSessionAttribute(session, "favoritesChanged", true);
             return "removed";
         } else {
             UserFavoriteFood fav = new UserFavoriteFood();
             fav.setUser(user);
             fav.setFood(food);
             favRepo.save(fav);
+            SessionUtils.setSessionAttribute(session, "favoritesChanged", true);
             return "added";
         }
     }
@@ -205,26 +238,28 @@ public class FoodController {
                                 @RequestParam(name = "title") String title,
                                 @RequestParam(name = "mealtype") int mealtype,
                                 @AuthenticationPrincipal UserDetails principal,
+                                HttpSession session,
                                 Model model) {
         //if (principal == null) return "not_logged_in";
         MealType mtype = MealType.values()[mealtype];
         mealPlanService.addToCookie(mtype, fid, title);
 
-            model.addAttribute("foodSimple", new FoodSimple(fid, title));
-            model.addAttribute("mtype", mealtype);
-            return "menu_food";
+        model.addAttribute("foodSimple", new FoodSimple(fid, title));
+        model.addAttribute("mtype", mealtype);
+        SessionUtils.setSessionAttribute(session, "mealPlanModified", true);
+        return "menu_food";
     }
 
     @GetMapping("/mealplanajax")
-    public String getMealPlan(@AuthenticationPrincipal UserDetails principal, Model model) {
+    public String getMealPlan(@AuthenticationPrincipal UserDetails principal, HttpSession session, Model model) {
         //if (principal == null) return "not_logged_in";
-
 
         for(MealType mt : MealType.VALUES)
         {
             model.addAttribute(mt.name().toLowerCase(), mealPlanService.getFoodSimpleFromCookie(mealPlanService.getCookie(mt).getValue()).values());
         }
-
+        
+        SessionUtils.setSessionAttribute(session, "mealPlanViewed", true);
         return "meal_plan";
     }
 }

@@ -29,6 +29,6 @@ public class UserSQLs {
     }
 
     public User getUserByEmail(String email) {
-        return userRepository.findByEmail(email);
+        return userRepository.findByEmail(email).orElse(null);
     }
 }

@@ -1,5 +1,7 @@
 package com.hooni.controller;
 
+import com.hooni.util.SessionUtils;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -16,7 +18,14 @@ public class FooterController
 	@GetMapping("/footer")
 	public String home(@RequestParam(name = "op", defaultValue = "products") String op,
 					   @AuthenticationPrincipal UserDetails principal,
+					   HttpSession session,
 					   Model model) {
+		if (principal != null) {
+			SessionUtils.storeUserInSession(session, principal);
+		}
+		SessionUtils.setSessionAttribute(session, "currentPage", "footer");
+		SessionUtils.setSessionAttribute(session, "footerOp", op);
+		
 		if (op.equals("privacy")) {
 			return "privacy";
 		} else if (op.equals("about")) {

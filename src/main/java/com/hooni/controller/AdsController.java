@@ -4,6 +4,8 @@ import com.hooni.db.AdCategory;
 import com.hooni.db.Ads;
 import com.hooni.repository.AdCategoryRepository;
 import com.hooni.repository.AdsRepository;
+import com.hooni.util.SessionUtils;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -23,16 +25,20 @@ public class AdsController {
     public AdsController(AdsRepository adsRepo, AdCategoryRepository adCatRepo) { this.adsRepo = adsRepo; this.adCatRepo = adCatRepo; }
 
     @GetMapping
-    public String adsList(Model model) {
+    public String adsList(HttpSession session, Model model) {
         model.addAttribute("HooniItems", adsRepo.findAllByOrderByTimeCreatedDesc(PageRequest.of(0, 20)));
         populateAdsByCategory(model);
+        SessionUtils.setSessionAttribute(session, "currentPage", "ads");
         return "ads_home";
     }
+    
     @GetMapping("/{id}")
-    public String adsDetail(@PathVariable long id, Model model) {
+    public String adsDetail(@PathVariable long id, HttpSession session, Model model) {
         model.addAttribute("ad", adsRepo.findById(id).orElse(null));
+        SessionUtils.setSessionAttribute(session, "viewedAdId", id);
         return "ad_detail";
     }
+    
     private void populateAdsByCategory(Model model) {
         var adsByCat = new java.util.TreeMap<String, List<String>>();
         for (AdCategory cat : adCatRepo.findAll()) {
