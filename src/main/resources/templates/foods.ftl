@@ -27,7 +27,7 @@
 
 		 <div class="form_div">
 
-		 <form name="food_form" action="foods" method="post" id="food_form" enctype="multipart/form-data">
+		 <form name="food_form" action="addrecipe" method="post" id="food_form" enctype="multipart/form-data">
 		 <div class="food_comp"><div class="label">Title:</div><input name="title" maxlength="50" size="50"/></div>
 		 <div class="food_comp"><div class="label">Snap Shot:</div><input type="file" size="20" name="snap_shot" id="snap_shot" /></div>
      <div class="food_comp"><div class="label">Description:</div><textarea cols="85" rows="6" name="description"></textarea></div>

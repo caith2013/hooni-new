@@ -63,37 +63,18 @@ public class HomeController {
                        HttpSession session,
                        Model model, HttpServletRequest request) {
 
-        // Debug: Check what's in the session
-        Object loggedInUserSession = session.getAttribute("loggedInUser");
-        Object securityContextSession = session.getAttribute("SPRING_SECURITY_CONTEXT");
-        
-
-        // If @AuthenticationPrincipal is null but we have context in session, manually restore it
-        if (principal == null && securityContextSession != null) {
-            logger.info("Manually restoring SecurityContext from session");
-            if (securityContextSession instanceof org.springframework.security.core.context.SecurityContext) {
-                org.springframework.security.core.context.SecurityContext ctx = 
-                    (org.springframework.security.core.context.SecurityContext) securityContextSession;
-                org.springframework.security.core.context.SecurityContextHolder.setContext(ctx);
-                
-                // Extract UserDetails from restored context
-                if (ctx.getAuthentication() != null && ctx.getAuthentication().getPrincipal() instanceof UserDetails) {
-                    principal = (UserDetails) ctx.getAuthentication().getPrincipal();
-                    logger.info("Successfully restored principal: {}", principal.getUsername());
-                }
-            }
-        }
-
-
         // Store user session information
         if (principal != null) {
             SessionUtils.storeUserInSession(session, principal);
             model.addAttribute("loggedInUser", principal.getUsername());
-            logger.info("Using principal: {}", principal.getUsername());
-        } else if (loggedInUserSession != null) {
-            // If principal is null but session has user, use session data
-            model.addAttribute("loggedInUser", loggedInUserSession);
-            logger.info("Using session user: {}", loggedInUserSession);
+            logger.info("Logged in user: {}", principal.getUsername());
+        } else {
+            // Fallback: If principal is null, try to get from session
+            Object loggedInUserSession = session.getAttribute("loggedInUser");
+            if (loggedInUserSession != null) {
+                model.addAttribute("loggedInUser", loggedInUserSession);
+                logger.info("Using session user: {}", loggedInUserSession);
+            }
         }
         
         // Store session metadata

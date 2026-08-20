@@ -211,10 +211,18 @@ public class LoginController {
             securityContext.setAuthentication(authToken);
             
             logger.info("User authenticated successfully: {}", userName);
+            logger.debug("SecurityContext before save - Auth: {}, Principal: {}", 
+                securityContext.getAuthentication() != null ? securityContext.getAuthentication().getName() : "null",
+                securityContext.getAuthentication() != null ? securityContext.getAuthentication().getPrincipal() : "null");
 
-            // Step 5: Store in session using injected SecurityContextRepository bean
-            // This ensures the same repository instance is used by security filters
-            securityContextRepository.saveContext(securityContext, request, response);
+            // Step 5: Save to session directly (Spring Session will auto-persist to Redis)
+            // We use "SPRING_SECURITY_CONTEXT" key which is the standard Spring Security session attribute
+            logger.debug("Saving SecurityContext directly to HttpSession");
+            session.setAttribute("SPRING_SECURITY_CONTEXT", securityContext);
+            
+            // Verify it was saved
+            logger.debug("Verifying context saved - Session now contains context: {}", 
+                session.getAttribute("SPRING_SECURITY_CONTEXT") != null);
             
             // Also store user in session (Redis-backed)
             SessionUtils.storeUserInSession(session, userDetails);

@@ -6,6 +6,7 @@ import com.hooni.repository.*;
 import com.hooni.service.FoodService;
 import com.hooni.service.MealsPlanService;
 import com.hooni.util.HooniImage;
+import com.hooni.util.MultipartFileItemWrapper;
 import com.hooni.util.SessionUtils;
 import com.hooni.component.UploadFileFormSystem;
 import com.hooni.web.util.ImagePath;
@@ -21,6 +22,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -28,6 +30,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -133,20 +136,20 @@ public class FoodController {
     public String addFood(@RequestParam String title,
                           @RequestParam String description,
                           @RequestParam(required = false) String foodType,
-                          @RequestParam(name = "snap_shot", required = false) MultipartFile snapshot,
+                          @RequestPart(name = "snap_shot", required = false) MultipartFile snapshot,
+                          @RequestParam Map<String, String> allParams,
+                          @RequestPart(name = "step-images", required = false) MultipartFile[] stepImages,
                           @AuthenticationPrincipal UserDetails principal,
                           HttpSession session,
-                          HttpServletRequest request,
                           Model model) throws IOException {
 
-        if (principal == null) {
+        if (session.getAttribute("userDetails") == null) {
             return "redirect:/login";
         }
 
-        UploadFileFormSystem uploadFileFormSystem = new UploadFileFormSystem(request);
-        UploadFileFormSystem uploadForm = new UploadFileFormSystem(request);
-        TreeMap<String,String> formFields = uploadForm.getFormFields();
-        TreeMap<String, FileItem> images = uploadForm.getUploadFiles();
+        if (principal == null) {
+            principal = (UserDetails) session.getAttribute("userDetails");
+        }
 
         User user = userRepo.findById(principal.getUsername()).orElseThrow();
         Food food = new Food(title, description, snapshot != null && !snapshot.isEmpty(), new Date(), new Date());
@@ -155,11 +158,16 @@ public class FoodController {
             food.setKind(Integer.parseInt(foodType));
         }
 
-        setFoodProperties(food,formFields);
-        processFoodSteps(food,formFields,images);
+        // Use allParams (contains all form fields) instead of parsing manually
+        TreeMap<String, String> formFields = new TreeMap<>(allParams);
+        setFoodProperties(food, formFields);
+        
+        // Process steps with form fields and uploaded files
+        processFoodSteps(food, formFields, stepImages);
         Food saved = foodRepo.save(food);
 
-        if (writeToFileSystem(saved, images))
+        // Write files to file system
+        if (writeToFileSystem(saved, stepImages))
         {
             SessionUtils.setSessionAttribute(session, "lastCreatedFoodId", saved.getId());
             SessionUtils.storeUserInSession(session, principal);
@@ -327,32 +335,48 @@ public class FoodController {
             food.addFoodGoodFor(goodfor);
         }
     }
-    private void processFoodSteps(Food food, TreeMap<String, String> formFields, TreeMap<String, FileItem> images)
+    private void processFoodSteps(Food food, TreeMap<String, String> formFields, MultipartFile[] images)
     {
         for(String fieldName : formFields.keySet())
         {
             if (fieldName.contains(STEP))
             {
-                FoodStep fstep = new FoodStep(formFields.get(fieldName),images.containsKey("snap_"+fieldName));
+                boolean hasImage = images != null && images.length > 0; // Simple check: if images provided, assume step has images
+                FoodStep fstep = new FoodStep(formFields.get(fieldName), hasImage);
                 fstep.setFood(food);
                 food.addFoodStep(fstep);
             }
         }
     }
-    private boolean writeToFileSystem(Food food, TreeMap<String,FileItem> images) throws IOException, IOException {
+    private boolean writeToFileSystem(Food food, MultipartFile[] images) throws IOException {
+        if (images == null || images.length == 0) {
+            return true; // No images to write
+        }
+
         HooniFileSystem fs = new HooniFileSystem(ImagePath.FOOD);
-        HooniImage hi = new HooniImage(images.remove(SNAP_SHOT), food.getId()+"", ImagePath.FOOD);
+        
+        // Write first image as snapshot if available
+        if (images.length > 0 && images[0] != null && !images[0].isEmpty()) {
+            HooniImage hi = new HooniImage(new MultipartFileItemWrapper(images[0]), food.getId()+"", ImagePath.FOOD);
+            if (!fs.writeToFileSystem(hi)) return false;
+            _addedImages.add(hi);
+        }
 
-        if (!fs.writeToFileSystem(hi)) return false;
-        _addedImages.add(hi);
-
-        for (FoodStep fstep : food.getFoodSteps())
+        // Write remaining images as step images
+        int stepIndex = 0;
+        java.util.ArrayList<FoodStep> steps = new java.util.ArrayList<>(food.getFoodSteps());
+        for (int i = 1; i < images.length && stepIndex < steps.size(); i++)
         {
-            if (fstep.getHasPicture())
+            if (images[i] != null && !images[i].isEmpty())
             {
-                hi = new HooniImage(images.pollFirstEntry().getValue(), food.getId()+"_"+fstep.getId(), ImagePath.FOOD);
-                if (!fs.writeToFileSystem(hi)) return false;
-                _addedImages.add(hi);
+                FoodStep fstep = steps.get(stepIndex);
+                if (fstep.getHasPicture())
+                {
+                    HooniImage hi = new HooniImage(new MultipartFileItemWrapper(images[i]), food.getId()+"_"+fstep.getId(), ImagePath.FOOD);
+                    if (!fs.writeToFileSystem(hi)) return false;
+                    _addedImages.add(hi);
+                    stepIndex++;
+                }
             }
         }
         return true;

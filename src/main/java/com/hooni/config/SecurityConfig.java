@@ -48,6 +48,7 @@ public class SecurityConfig {
         http
             // Session management - persist authentication to session so it survives across requests
             .securityContext(context -> context
+                .requireExplicitSave(false)  // Auto-load from repository at START of request
                 .securityContextRepository(securityContextRepository())
             )
             
