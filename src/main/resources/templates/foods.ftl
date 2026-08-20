@@ -48,7 +48,7 @@
 				 <div id="steps_title">Steps</div>
 				 <div class="one_step">
 				 			<div class="food_step_desc"><div class="label">Step 1:</div><textarea name="step1" cols="55" rows="3"></textarea></div>
-				 			<div class="food_step_snap"><div class="label">Snap for Step 1:</div><input type="file" name="snap_step1" size="20" id="snap_step1"/></div>
+				 			<div class="food_step_snap"><div class="label">Snap for Step 1:</div><input type="file" name="step-images" size="20" id="snap_step1"/></div>
 							<div class="food_add_step"><input type="button" value="+ Add Step" class="button" name="addStep" id="addStep"/></div>
 				 </div>
 				 

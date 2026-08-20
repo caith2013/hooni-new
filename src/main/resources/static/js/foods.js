@@ -18,10 +18,10 @@ function addNewStep(e)
 												return attr.replace(""+current_index, ""+next_index);
 		});
 
-		$(one_step_clone).find("input:file").attr('name',function(index,attr){
+	/*	$(one_step_clone).find("input:file").attr('name',function(index,attr){
 												return attr.replace(""+current_index, ""+next_index);
 		});
-
+*/
 		$(one_step_clone).find("input:file").attr('id',function(index,attr){
 												return attr.replace(""+current_index, ""+next_index);
 		});

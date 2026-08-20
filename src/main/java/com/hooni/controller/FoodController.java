@@ -167,7 +167,7 @@ public class FoodController {
         Food saved = foodRepo.save(food);
 
         // Write files to file system
-        if (writeToFileSystem(saved, stepImages))
+        if (writeToFileSystem(saved, snapshot, stepImages))
         {
             SessionUtils.setSessionAttribute(session, "lastCreatedFoodId", saved.getId());
             SessionUtils.storeUserInSession(session, principal);
@@ -341,42 +341,38 @@ public class FoodController {
         {
             if (fieldName.contains(STEP))
             {
-                boolean hasImage = images != null && images.length > 0; // Simple check: if images provided, assume step has images
+                int stepIndex = Integer.parseInt(fieldName.replace(STEP, "")) - 1;
+                boolean hasImage = images.length > 0 && images[stepIndex] != null && !images[stepIndex].isEmpty(); // Simple check: if images provided, assume step has images
                 FoodStep fstep = new FoodStep(formFields.get(fieldName), hasImage);
                 fstep.setFood(food);
                 food.addFoodStep(fstep);
             }
         }
     }
-    private boolean writeToFileSystem(Food food, MultipartFile[] images) throws IOException {
-        if (images == null || images.length == 0) {
+    private boolean writeToFileSystem(Food food, MultipartFile snapshot, MultipartFile[] images) throws IOException {
+        if ((snapshot == null || snapshot.isEmpty()) && (images == null || images.length == 0)) {
             return true; // No images to write
         }
 
         HooniFileSystem fs = new HooniFileSystem(ImagePath.FOOD);
         
-        // Write first image as snapshot if available
-        if (images.length > 0 && images[0] != null && !images[0].isEmpty()) {
-            HooniImage hi = new HooniImage(new MultipartFileItemWrapper(images[0]), food.getId()+"", ImagePath.FOOD);
+        // Write snapshot if available
+        if (snapshot != null && !snapshot.isEmpty()) {
+            HooniImage hi = new HooniImage(new MultipartFileItemWrapper(snapshot), food.getId()+"", ImagePath.FOOD);
             if (!fs.writeToFileSystem(hi)) return false;
             _addedImages.add(hi);
         }
 
         // Write remaining images as step images
-        int stepIndex = 0;
         java.util.ArrayList<FoodStep> steps = new java.util.ArrayList<>(food.getFoodSteps());
-        for (int i = 1; i < images.length && stepIndex < steps.size(); i++)
+        for (int stepIndex = 0; stepIndex < steps.size(); stepIndex++)
         {
-            if (images[i] != null && !images[i].isEmpty())
+            FoodStep fstep = steps.get(stepIndex);
+            if (fstep.getHasPicture())
             {
-                FoodStep fstep = steps.get(stepIndex);
-                if (fstep.getHasPicture())
-                {
-                    HooniImage hi = new HooniImage(new MultipartFileItemWrapper(images[i]), food.getId()+"_"+fstep.getId(), ImagePath.FOOD);
-                    if (!fs.writeToFileSystem(hi)) return false;
-                    _addedImages.add(hi);
-                    stepIndex++;
-                }
+                HooniImage hi = new HooniImage(new MultipartFileItemWrapper(images[stepIndex]), food.getId()+"_"+fstep.getId(), ImagePath.FOOD);
+                if (!fs.writeToFileSystem(hi)) return false;
+                _addedImages.add(hi);
             }
         }
         return true;
