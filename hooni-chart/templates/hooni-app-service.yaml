@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: hooni-app
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: {{ .Values.hooniApp.servicePort }}
       targetPort: {{ .Values.hooniApp.serverPort }}
