@@ -45,6 +45,16 @@ sudo systemctl restart nfs-kernel-server
 microk8s helm3 repo add csi-driver-nfs https://raw.githubusercontent.com/kubernetes-csi/csi-driver-nfs/master/charts
 microk8s helm3 repo update
 microk8s helm3 install csi-driver-nfs csi-driver-nfs/csi-driver-nfs   --namespace kube-system   --set kubeletDir=/var/snap/microk8s/common/var/lib/kubelet
+sudo apt update && sudo apt install -y nfs-common
+microk8s enable community
+
+#5 B) configure NFS server to export the storage directory (if you want to use NFS storage instead of hostPath)
+sudo nano /etc/exports
+  add this line to /etc/exports:
+  /storage/hooniImages 192.168.2.0/24(rw,sync,no_subtree_check,insecure,no_root_squash)
+  sudo exportfs -ra
+
+
 
 # 6) Build and push the image to your local registry (localhost:32000)
 cd /home/thomas/myapps/hooni-new
@@ -110,3 +120,6 @@ microk8s kubectl scale deployment hooni-app --replicas=3 -n hooni
 
 #see the pods and their status
 microk8s kubectl get pods -n hooni -o wide
+
+#port forward to redis service DEV
+kubectl port-forward svc/redis 6379:6379 -n hooni-dev

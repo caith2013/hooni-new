@@ -36,7 +36,7 @@ hooniImages:
   imagesPath: "/storage/hooniImages/"
 
 nfs:
-  server: "192.168.1.217"
+  server: "192.168.2.2"
   share: "/storage"
   storageSize: "100Gi"
   imagesPath: "/storage/hooniImages/"
