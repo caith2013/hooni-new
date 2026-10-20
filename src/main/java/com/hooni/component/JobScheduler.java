@@ -19,7 +19,7 @@ public class JobScheduler {
 
     private String lastIp = null;
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = 600000)
     public void updateDns() throws InterruptedException {
         log.info(Thread.currentThread().getName() + " Update DNS job");
         try
@@ -41,8 +41,8 @@ public class JobScheduler {
 
     }
 
-    @Scheduled(fixedRate = 5000)
+   /* @Scheduled(fixedRate = 5000)
     public void job2() {
         System.out.println(Thread.currentThread().getName() + " Job2");
-    }
+    }*/
 }
