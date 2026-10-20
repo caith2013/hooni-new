@@ -22,7 +22,8 @@ if [ ! -f "pom.xml" ]; then
 fi
 
 # Extract version using grep and sed safely without external XML parsers
-VERSION=$(grep -m 1 "<version>" pom.xml | sed -E 's/.*<version>([^<]+)<\/version>.*/\1/')
+VERSION=$(mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+#VERSION=$(grep -m 1 "<version>" pom.xml | sed -E 's/.*<version>([^<]+)<\/version>.*/\1/')
 
 if [ -z "$VERSION" ]; then
     echo "ERROR: Could not find version block in pom.xml"
