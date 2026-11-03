@@ -2,6 +2,7 @@ package com.hooni.db;
 
 import jakarta.persistence.*;
 
+import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
@@ -10,6 +11,8 @@ import java.util.Objects;
 @Table(name = "good_for")
 @IdClass(FoodGoodFor.FoodGoodForId.class)
 public class FoodGoodFor implements Serializable {
+    @Serial
+    private static final long serialVersionUID = 1L;
 
     @Id
     @Column(name = "meal_time")
